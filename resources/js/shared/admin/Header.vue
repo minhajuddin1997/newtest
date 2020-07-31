@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a v-on:click="()=>this.$router.push('/')" class="site_title"><i class="fa fa-paw"></i> <span>Swoppers</span></a>
+                        <a class="site_title"><i class="fa fa-paw"></i> <span>Swoppers</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -14,7 +14,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2 v-text="auth.user.name"></h2>
+                            <h2 v-text="auth.user.first_name+' '+auth.user.last_name"></h2>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img :src="profileImage" alt="">{{auth.user.name}}
+                                    <img :src="profileImage" alt="">{{auth.user.first_name+' '+auth.user.last_name}}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 21px, 0px);">
                                     <a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -115,6 +115,7 @@
 
 <script>
     import {mapState, mapActions} from 'vuex';
+    import {prefixPath, redirectedPaths} from "../../helpers/helpers";
     export default {
         name:'AdminHeader',
         props:{
@@ -148,7 +149,7 @@
                 sendLogout:'logout'
             }),
             logout:function(){
-                this.sendLogout(this.auth.user.email).then(()=>window.location.href='/');
+                this.sendLogout(this.auth.user.email).then(()=>window.location.href=redirectedPaths('/',prefixPath));
             },
             permissions:function(permission){
                 var perm=this.auth.user.permissions;

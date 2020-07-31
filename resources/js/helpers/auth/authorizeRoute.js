@@ -1,3 +1,5 @@
+import {prefixPath, redirectedPaths} from "../helpers";
+
 const authorize=function(to,from,next){
     const auth=JSON.parse(localStorage.getItem('authToken'));
     if(auth){
@@ -9,7 +11,7 @@ const authorize=function(to,from,next){
         next();
     }else{
         localStorage.removeItem('authToken');
-        next({name: 'login'});
+        window.location.href=redirectedPaths('/login',prefixPath);
     }
 };
 
@@ -25,13 +27,16 @@ const isNotAuthorize=function(to, from, next){
         next();
     }else{
         //dashboard
-        window.location.href='/admin';
+        window.location.href=redirectedPaths('/admin',prefixPath);
     }
 };
 
 const adminMiddleware=(to,from,next)=>{
     const auth=JSON.parse(localStorage.getItem('authToken'));
-    if(auth.user.role_id==1){
+    if(!auth){
+        window.location.href=redirectedPaths('/login',prefixPath);
+    }
+    else if(auth.user.role_id==1){
         next();
     }else {
         next({name:'admin'});

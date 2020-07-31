@@ -6,9 +6,10 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Dashboard from "../pages/admin/Dashboard";
 import Vendor from "../pages/admin/Vendor";
-import {authorize, isNotAuthorize, adminMiddleware} from '../helpers/helpers';
+import {authorize, isNotAuthorize, adminMiddleware, prefixRoutes} from '../helpers/helpers';
+import {prefixPath} from "../helpers/helpers";
 
-const routes=[
+var routes=[
     {path: '/', component:Home, name:'home'},
     {path: '/about', component:About, name:'about'},
     {path: '/how-it-works', component:HowItWorks, name:'how-it-works'},
@@ -18,5 +19,7 @@ const routes=[
     {path:'/admin', component:Dashboard, name:'admin', beforeEnter:authorize},
     {path:'/admin/vendors', component:Vendor, name:'admin.vendors', beforeEnter:adminMiddleware}
 ];
+
+routes=prefixRoutes(routes,prefixPath);
 
 export default routes;

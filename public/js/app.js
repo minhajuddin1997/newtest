@@ -3143,7 +3143,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }); //this.$router.push('/admin')
 
 
-          window.location.href = _this.asset + 'admin';
+          window.location.href = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_0__["redirectedPaths"])('/admin', _helpers_helpers__WEBPACK_IMPORTED_MODULE_0__["prefixPath"]);
         })["catch"](function (error) {
           if (_typeof(error) === "object") {
             if (error.email) {
@@ -3427,62 +3427,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Vendor',
   created: function created() {
@@ -3619,6 +3563,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/helpers */ "./resources/js/helpers/helpers.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3672,6 +3617,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
@@ -3720,7 +3666,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     dashboard: function dashboard() {
-      window.location.href = '/admin';
+      window.location.href = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["redirectedPaths"])('/admin', _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["prefixPath"]);
     }
   })
 });
@@ -3763,6 +3709,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/helpers */ "./resources/js/helpers/helpers.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3885,6 +3832,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdminHeader',
   props: {
@@ -3928,7 +3876,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     logout: function logout() {
       this.sendLogout(this.auth.user.email).then(function () {
-        return window.location.href = '/';
+        return window.location.href = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["redirectedPaths"])('/', _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["prefixPath"]);
       });
     },
     permissions: function permissions(permission) {
@@ -36036,7 +35984,7 @@ var render = function() {
                   staticClass: "navbar-brand logo mr-5",
                   on: {
                     click: function() {
-                      return this$1.$router.push("/")
+                      return this$1.$router.push({ name: "home" })
                     }
                   }
                 },
@@ -36078,7 +36026,7 @@ var render = function() {
                                 staticClass: "nav-link active",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/")
+                                    return this$1.$router.push({ name: "home" })
                                   }
                                 }
                               },
@@ -36093,7 +36041,9 @@ var render = function() {
                                 staticClass: "nav-link",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/how-it-works")
+                                    return this$1.$router.push({
+                                      name: "how-it-works"
+                                    })
                                   }
                                 }
                               },
@@ -36108,7 +36058,9 @@ var render = function() {
                                 staticClass: "nav-link",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/about")
+                                    return this$1.$router.push({
+                                      name: "about"
+                                    })
                                   }
                                 }
                               },
@@ -36123,7 +36075,9 @@ var render = function() {
                                 staticClass: "nav-link",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/contact-us")
+                                    return this$1.$router.push({
+                                      name: "contact-us"
+                                    })
                                   }
                                 }
                               },
@@ -36140,7 +36094,9 @@ var render = function() {
                                   "btn btn-sm btn-outline-light rounded text-white",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/login")
+                                    return this$1.$router.push({
+                                      name: "login"
+                                    })
                                   }
                                 }
                               },
@@ -36156,7 +36112,9 @@ var render = function() {
                                   "btn btn-sm btn-outline-light rounded btn-sm-green text-white",
                                 on: {
                                   click: function() {
-                                    return this$1.$router.push("/register")
+                                    return this$1.$router.push({
+                                      name: "register"
+                                    })
                                   }
                                 }
                               },
@@ -36287,28 +36245,7 @@ var render = function() {
   return _c("main", [
     _c("div", { staticClass: "col-md-3 left_col" }, [
       _c("div", { staticClass: "left_col scroll-view" }, [
-        _c(
-          "div",
-          { staticClass: "navbar nav_title", staticStyle: { border: "0" } },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "site_title",
-                on: {
-                  click: function() {
-                    return this$1.$router.push("/")
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fa fa-paw" }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Swoppers")])
-              ]
-            )
-          ]
-        ),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "clearfix" }),
         _vm._v(" "),
@@ -36323,7 +36260,13 @@ var render = function() {
           _c("div", { staticClass: "profile_info" }, [
             _c("span", [_vm._v("Welcome,")]),
             _vm._v(" "),
-            _c("h2", { domProps: { textContent: _vm._s(_vm.auth.user.name) } })
+            _c("h2", {
+              domProps: {
+                textContent: _vm._s(
+                  _vm.auth.user.first_name + " " + _vm.auth.user.last_name
+                )
+              }
+            })
           ])
         ]),
         _vm._v(" "),
@@ -36342,7 +36285,7 @@ var render = function() {
               _c("ul", { staticClass: "nav side-menu" }, [
                 _vm.permissions("viewUser")
                   ? _c("li", [
-                      _vm._m(0),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("ul", { staticClass: "nav child_menu" }, [
                         _vm.permissions("viewVendors")
@@ -36369,7 +36312,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "sidebar-footer hidden-small" }, [
-          _vm._m(1),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "a",
@@ -36395,7 +36338,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "top_nav" }, [
       _c("div", { staticClass: "nav_menu" }, [
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("nav", { staticClass: "nav navbar-nav" }, [
           _c("ul", { staticClass: " navbar-right" }, [
@@ -36421,8 +36364,9 @@ var render = function() {
                   [
                     _c("img", { attrs: { src: _vm.profileImage, alt: "" } }),
                     _vm._v(
-                      _vm._s(_vm.auth.user.name) +
-                        "\n                                "
+                      _vm._s(
+                        _vm.auth.user.first_name + " " + _vm.auth.user.last_name
+                      ) + "\n                                "
                     )
                   ]
                 ),
@@ -36475,6 +36419,22 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "navbar nav_title", staticStyle: { border: "0" } },
+      [
+        _c("a", { staticClass: "site_title" }, [
+          _c("i", { staticClass: "fa fa-paw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Swoppers")])
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -53156,6 +53116,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authorize", function() { return authorize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNotAuthorize", function() { return isNotAuthorize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adminMiddleware", function() { return adminMiddleware; });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./resources/js/helpers/helpers.js");
+
+
 var authorize = function authorize(to, from, next) {
   var auth = JSON.parse(localStorage.getItem('authToken'));
 
@@ -53169,9 +53132,7 @@ var authorize = function authorize(to, from, next) {
     next();
   } else {
     localStorage.removeItem('authToken');
-    next({
-      name: 'login'
-    });
+    window.location.href = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["redirectedPaths"])('/login', _helpers__WEBPACK_IMPORTED_MODULE_0__["prefixPath"]);
   }
 };
 
@@ -53189,14 +53150,16 @@ var isNotAuthorize = function isNotAuthorize(to, from, next) {
     next();
   } else {
     //dashboard
-    window.location.href = '/admin';
+    window.location.href = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["redirectedPaths"])('/admin', _helpers__WEBPACK_IMPORTED_MODULE_0__["prefixPath"]);
   }
 };
 
 var adminMiddleware = function adminMiddleware(to, from, next) {
   var auth = JSON.parse(localStorage.getItem('authToken'));
 
-  if (auth.user.role_id == 1) {
+  if (!auth) {
+    window.location.href = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["redirectedPaths"])('/login', _helpers__WEBPACK_IMPORTED_MODULE_0__["prefixPath"]);
+  } else if (auth.user.role_id == 1) {
     next();
   } else {
     next({
@@ -53213,7 +53176,7 @@ var adminMiddleware = function adminMiddleware(to, from, next) {
 /*!*****************************************!*\
   !*** ./resources/js/helpers/helpers.js ***!
   \*****************************************/
-/*! exports provided: login, logout, authorize, isNotAuthorize, adminMiddleware */
+/*! exports provided: login, logout, authorize, isNotAuthorize, adminMiddleware, prefixRoutes, redirectedPaths, prefixPath */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53230,9 +53193,102 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "adminMiddleware", function() { return _auth_authorizeRoute__WEBPACK_IMPORTED_MODULE_1__["adminMiddleware"]; });
 
+/* harmony import */ var _routes_routeHelpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/routeHelpers */ "./resources/js/helpers/routes/routeHelpers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "prefixRoutes", function() { return _routes_routeHelpers__WEBPACK_IMPORTED_MODULE_2__["prefixRoutes"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "redirectedPaths", function() { return _routes_routeHelpers__WEBPACK_IMPORTED_MODULE_2__["redirectedPaths"]; });
+
+/* harmony import */ var _routes_routePrefixPath__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/routePrefixPath */ "./resources/js/helpers/routes/routePrefixPath.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "prefixPath", function() { return _routes_routePrefixPath__WEBPACK_IMPORTED_MODULE_3__["prefixPath"]; });
 
 
 
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/helpers/routes/routeHelpers.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/helpers/routes/routeHelpers.js ***!
+  \*****************************************************/
+/*! exports provided: prefixRoutes, redirectedPaths */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prefixRoutes", function() { return prefixRoutes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "redirectedPaths", function() { return redirectedPaths; });
+/* harmony import */ var _routePrefixPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routePrefixPath */ "./resources/js/helpers/routes/routePrefixPath.js");
+
+/**
+ * Prefix Route Helper
+ * ==================================================
+ * Add a piece of URL to start of the existing routes
+ * ==================================================
+ *
+ * Params:
+ * =======
+ * 1. "routes" : The routes array on which to apply prefix
+ * 2. "route_prefix" : The route prefix string to apply on "routes" parameter
+ *
+ * Returns:
+ * ========
+ * 1. If "route_prefix" === '' or undefined or null, then original "routes" array will be returned
+ * 2. If "route_prefix" !== first condition's prefix, then prefixed "routes" array will be returned
+ */
+
+var prefixRoutes = function prefixRoutes(routes) {
+  var route_prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  route_prefix = route_prefix.toLowerCase().trim();
+  route_prefix = trimSlashes(route_prefix);
+  !(route_prefix === '' || route_prefix === null || route_prefix === undefined || route_prefix === false || route_prefix === 0) ? routes.forEach(function (route) {
+    return route.path = "/".concat(route_prefix).concat(route.path);
+  }) : undefined;
+  return routes;
+};
+/**
+ * Trim All The Leading & Trailing Slashes
+ * =======================================
+ */
+
+var trimSlashes = function trimSlashes(route_prefix) {
+  // Trim all the leading slashes
+  if (route_prefix.charAt(0) === '/') {
+    route_prefix = route_prefix.substr(1);
+    return trimSlashes(route_prefix);
+  } // Trim all the trailing slashes
+
+
+  if (route_prefix.charAt(route_prefix.length - 1) === '/') {
+    route_prefix = route_prefix.substr(0, route_prefix.length - 1);
+    return trimSlashes(route_prefix);
+  }
+
+  return route_prefix;
+};
+
+var redirectedPaths = function redirectedPaths(route) {
+  var route_prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  return prefixRoutes([{
+    path: route
+  }], route_prefix)[0].path;
+};
+
+/***/ }),
+
+/***/ "./resources/js/helpers/routes/routePrefixPath.js":
+/*!********************************************************!*\
+  !*** ./resources/js/helpers/routes/routePrefixPath.js ***!
+  \********************************************************/
+/*! exports provided: prefixPath */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prefixPath", function() { return prefixPath; });
+var prefixPath = 'service_market/public';
 
 /***/ }),
 
@@ -53840,6 +53896,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var routes = [{
   path: '/',
   component: _pages_Home__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -53877,6 +53934,7 @@ var routes = [{
   name: 'admin.vendors',
   beforeEnter: _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__["adminMiddleware"]
 }];
+routes = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__["prefixRoutes"])(routes, _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__["prefixPath"]);
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
 /***/ }),

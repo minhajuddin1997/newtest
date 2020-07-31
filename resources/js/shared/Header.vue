@@ -7,7 +7,7 @@
                     <div class="col-lg-12">
                         <!-- Navbar -->
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand logo mr-5" v-on:click="()=>this.$router.push('/')">
+                            <a class="navbar-brand logo mr-5" v-on:click="()=>this.$router.push({name:'home'})">
                                 <img class="img-fluid" :src="asset+'assets/front/images/logo.png'" alt="">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span></span>
@@ -21,14 +21,14 @@
                                 <div>
                                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                         <ul class="navbar-nav mr-auto">
-                                            <li class="nav-item"> <a class="nav-link active" v-on:click="()=>this.$router.push('/')">Home</a></li>
-                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push('/how-it-works')">How it Works</a></li>
-                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push('/about')">About Us</a></li>
-                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push('/contact-us')">Contact Us</a></li>
+                                            <li class="nav-item"> <a class="nav-link active" v-on:click="()=>this.$router.push({name:'home'})">Home</a></li>
+                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push({name: 'how-it-works'})">How it Works</a></li>
+                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push({name: 'about'})">About Us</a></li>
+                                            <li class="nav-item"> <a class="nav-link" v-on:click="()=>this.$router.push({name: 'contact-us'})">Contact Us</a></li>
                                         </ul>
                                         <!--                   Not Login                     -->
-                                        <a class="btn btn-sm btn-outline-light rounded text-white" v-if="!authCheck" v-on:click="()=>this.$router.push('/login')">Login</a>
-                                        <a class="btn btn-sm btn-outline-light rounded btn-sm-green text-white" v-if="!authCheck" v-on:click="()=>this.$router.push('/register')">Free Sign Up</a>
+                                        <a class="btn btn-sm btn-outline-light rounded text-white" v-if="!authCheck" v-on:click="()=>this.$router.push({name: 'login'})">Login</a>
+                                        <a class="btn btn-sm btn-outline-light rounded btn-sm-green text-white" v-if="!authCheck" v-on:click="()=>this.$router.push({name: 'register'})">Free Sign Up</a>
                                         <!--                   Login                     -->
                                         <a class="btn btn-sm btn-outline-light rounded text-white" v-if="authCheck" v-on:click="logout">Logout</a>
                                         <a class="btn btn-sm btn-outline-light rounded btn-sm-green text-white" v-if="authCheck" v-on:click="dashboard">Go to Dashboard <i class="fa fa-arrow-right"></i></a>
@@ -47,6 +47,7 @@
 </template>
 <script>
     import {mapState, mapActions} from 'vuex';
+    import {prefixPath, redirectedPaths} from "../helpers/helpers";
     export default {
         name:'Header',
         props:{
@@ -80,7 +81,7 @@
                     this.sendLogout(this.auth.user.email).then(()=>this.$router.push({name:'home'}));
             },
             dashboard:function () {
-                window.location.href='/admin';
+                window.location.href=redirectedPaths('/admin',prefixPath);
             }
         }
     }

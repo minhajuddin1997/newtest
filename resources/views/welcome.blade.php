@@ -7,7 +7,7 @@
         <!-- favicon icon -->
         <link rel="shortcut icon" href="{{asset('assets/front/images/favicon.ico')}}" />
         <!-- inject css start -->
-    @if (request()->segment(1) !== 'admin')
+    @if (request()->segment(1) !== 'admin' && request()->segment(2) !== 'admin' && request()->segment(3) !== 'admin')
         <!--== theme plugin -->
         <link href="{{asset('assets/front/css/theme-plugin.css')}}" rel="stylesheet" type="text/css" />
 
@@ -38,12 +38,12 @@
    <div class="mouse-cursor cursor-inner"></div>
 
    <input id="asset" type="hidden" value="{{asset('')}}" />
-    @if (request()->segment(1) === 'admin')
+    @if (request()->segment(1) === 'admin' || request()->segment(2) === 'admin' || request()->segment(3) === 'admin')
         <div class="container body" >
             <div class="main_container">
     @endif
     <app asset="{{asset('')}}"></app>
-    @if (request()->segment(1) === 'admin')
+    @if (request()->segment(1) === 'admin' || request()->segment(2) === 'admin' || request()->segment(3) === 'admin')
         </div>
         </div>
     @endif
@@ -57,7 +57,19 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <!-- inject js start -->
-    @if (request()->segment(1) !== 'admin')
+    @if (request()->segment(1) === 'admin' || request()->segment(2) === 'admin' || request()->segment(3) === 'admin')
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{asset('assets/admin/js/custom.js')}}"></script>
+
+    @else
+
         <!--== jquery -->
         <script src="{{asset('assets/front/js/theme.js')}}"></script>
         <!--== jquery-ui -->
@@ -71,16 +83,7 @@
         <!--== theme-script -->
         <script src="{{asset('assets/front/js/theme-script.js')}}"></script>
         <!-- inject js end -->
-    @else
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{{asset('assets/admin/js/custom.js')}}"></script>
     @endif
 
 </body>

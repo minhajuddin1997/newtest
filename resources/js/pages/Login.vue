@@ -32,7 +32,7 @@
     </div>
 </template>
 <script>
-    import {login} from '../helpers/helpers'
+    import {login, prefixPath, redirectedPaths} from '../helpers/helpers'
     export default {
         name:'Login',
         props:{
@@ -62,7 +62,7 @@
                         localStorage.setItem('authToken',authToken);
                         this.$store.commit('auth',{status:true, auth:JSON.parse(authToken)});
                         //this.$router.push('/admin')
-                        window.location.href=this.asset+'admin';
+                        window.location.href=redirectedPaths('/admin',prefixPath);
                     })
                     .catch((error)=>{
                         if(typeof error === "object"){
