@@ -2,6 +2,7 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 
+require('sweetalert');
 require('./vue-init');
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

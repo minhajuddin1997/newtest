@@ -17,4 +17,9 @@ use Illuminate\Http\Request;
 Route::group(['namespace' => 'api\Auth'], function () {
     Route::post('/login','AuthController@login');
     Route::post('/logout','AuthController@logout');
+    Route::post('/register','AuthController@register');
+});
+
+Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function () {
+    Route::put('/user/update', 'ProfileController@update');
 });

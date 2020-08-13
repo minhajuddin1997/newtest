@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="right_col" role="main" style="min-height: 4508px;">
+        <div class="right_col" role="main" style="min-height: 990px;">
             <div class="">
                 <div class="page-title">
                     <div class="title_left">

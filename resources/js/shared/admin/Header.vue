@@ -100,7 +100,7 @@
                                     <img :src="profileImage" alt="">{{auth.user.first_name+' '+auth.user.last_name}}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 21px, 0px);">
-                                    <a class="dropdown-item" href="javascript:;"> Profile</a>
+                                    <a class="dropdown-item" v-on:click="()=>this.$router.push({name:'admin.profile'})"> Profile</a>
                                     <a class="dropdown-item" v-on:click="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>

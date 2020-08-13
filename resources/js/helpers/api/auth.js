@@ -14,6 +14,22 @@ const login=(email, password)=>{
     });
 };
 
+const register=(formData)=>{
+    return new Promise((resolve, reject)=>{
+       axios.post('/register',formData)
+           .then(res=>res.data)
+           .then((res)=>{
+               if(res[0]==="success"){
+                   resolve(res[1])
+               }else{
+                   reject(res[1])
+               }
+           }).catch((error)=>{
+               reject(error);
+           });
+    });
+};
+
 const logout=(email)=>{
     return new Promise((resolve, reject)=>{
         axios.post('/logout',{email:email})
@@ -30,4 +46,4 @@ const logout=(email)=>{
 
 };
 
-export {login, logout};
+export {login, logout, register};
