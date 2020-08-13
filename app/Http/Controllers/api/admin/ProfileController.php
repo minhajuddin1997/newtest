@@ -52,6 +52,7 @@ class ProfileController extends Controller
                     "how_to_use" => request()->get('how_to_use') ?? "",
                     "terms_and_conditions" => request()->get('terms_and_conditions') ?? "",
                     "address" => request()->get('address') ?? "",
+                    "website" => request()->get('website') ?? "",
                     "profile_picture" => $imagePath ?? ""
                 ]);
                 return array('success',['Profile Updated Successfully.',$imagePath]);
