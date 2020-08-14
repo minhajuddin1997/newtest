@@ -21,5 +21,6 @@ Route::group(['namespace' => 'api\Auth'], function () {
 });
 
 Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function () {
+    Route::get('/user/{id}', 'ProfileController@view');
     Route::put('/user/update', 'ProfileController@update');
 });

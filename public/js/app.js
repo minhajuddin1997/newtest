@@ -4051,6 +4051,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var _helpers_api_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers/api/profile */ "./resources/js/helpers/api/profile.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4173,6 +4174,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+ // import axios from 'axios';
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdminHeader',
@@ -4201,11 +4205,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 
     if (authToken != '' && expire > now) {
+      Object(_helpers_api_profile__WEBPACK_IMPORTED_MODULE_2__["fetchAuthUser"])(auth.user.id, Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["authApiConfig"])(authToken)).then(function (response) {
+        auth.user = response;
+        localStorage.setItem('authToken', JSON.stringify(auth));
+      })["catch"](function (error) {
+        console.log(error);
+      });
       this.$store.commit('auth', {
         status: true,
         auth: auth
       });
     } else {
+      localStorage.removeItem('authToken');
       this.$store.commit('auth', {
         status: false,
         auth: {}
@@ -54315,19 +54326,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-__webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
-
-__webpack_require__(/*! ./vue-init */ "./resources/js/vue-init.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+__webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+
+__webpack_require__(/*! ./vue-init */ "./resources/js/vue-init.js");
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -54417,12 +54427,13 @@ var logout = function logout(email) {
 /*!*********************************************!*\
   !*** ./resources/js/helpers/api/profile.js ***!
   \*********************************************/
-/*! exports provided: updateProfile */
+/*! exports provided: updateProfile, fetchAuthUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAuthUser", function() { return fetchAuthUser; });
 var updateProfile = function updateProfile(formData, config) {
   return new Promise(function (resolve, reject) {
     axios.put('/user/update', formData, config).then(function (res) {
@@ -54433,6 +54444,18 @@ var updateProfile = function updateProfile(formData, config) {
       } else {
         reject(response[1]);
       }
+    })["catch"](function (error) {
+      reject(error);
+    });
+  });
+};
+
+var fetchAuthUser = function fetchAuthUser(id, config) {
+  return new Promise(function (resolve, reject) {
+    axios.get("/user/".concat(id), config).then(function (res) {
+      return res.data;
+    }).then(function (response) {
+      resolve(response);
     })["catch"](function (error) {
       reject(error);
     });
@@ -54538,7 +54561,7 @@ var adminMiddleware = function adminMiddleware(to, from, next) {
 /*!*****************************************!*\
   !*** ./resources/js/helpers/helpers.js ***!
   \*****************************************/
-/*! exports provided: login, logout, register, updateProfile, authorize, isNotAuthorize, adminMiddleware, prefixRoutes, redirectedPaths, prefixPath, authApiConfig */
+/*! exports provided: login, logout, register, updateProfile, authorize, isNotAuthorize, adminMiddleware, prefixRoutes, redirectedPaths, prefixPath, authApiConfig, fetchAuthUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54552,6 +54575,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _api_profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/profile */ "./resources/js/helpers/api/profile.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return _api_profile__WEBPACK_IMPORTED_MODULE_1__["updateProfile"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchAuthUser", function() { return _api_profile__WEBPACK_IMPORTED_MODULE_1__["fetchAuthUser"]; });
 
 /* harmony import */ var _auth_authorizeRoute__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/authorizeRoute */ "./resources/js/helpers/auth/authorizeRoute.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "authorize", function() { return _auth_authorizeRoute__WEBPACK_IMPORTED_MODULE_2__["authorize"]; });

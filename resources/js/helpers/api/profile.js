@@ -16,4 +16,18 @@ const updateProfile=(formData,config)=>{
     });
 };
 
-export {updateProfile};
+
+
+const fetchAuthUser=(id, config)=>{
+    return new Promise((resolve, reject)=>{
+        axios.get(`/user/${id}`,config)
+            .then(res=>res.data)
+            .then((response)=>{
+                resolve(response);
+            }).catch((error)=>{
+                reject(error)
+            });
+    });
+}
+
+export {updateProfile, fetchAuthUser};

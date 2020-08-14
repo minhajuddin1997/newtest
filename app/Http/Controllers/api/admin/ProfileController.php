@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\admin;
 
 use App\Http\Controllers\Controller;
+use App\model\role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,8 +11,14 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-    //
+    //Get Auth User
+    public function view($id){
+            $user=User::find($id);
+            $user->permissions=role::find($user->role_id)->permissions;
+            return $user;
+    }
 
+    //Profile Update
     public function update(){
         if(request()->ajax()){
             $validator= Validator::make(request()->all(), [

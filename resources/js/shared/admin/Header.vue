@@ -116,6 +116,10 @@
 <script>
     import {mapState, mapActions} from 'vuex';
     import {prefixPath, redirectedPaths} from "../../helpers/helpers";
+    // import axios from 'axios';
+    import {authApiConfig} from "../../helpers/helpers";
+    import {fetchAuthUser} from "../../helpers/api/profile";
+
     export default {
         name:'AdminHeader',
         props:{
@@ -131,16 +135,25 @@
             }
         },
         created() {
-            const auth=JSON.parse(localStorage.getItem('authToken'));
+            var auth=JSON.parse(localStorage.getItem('authToken'));
             if(auth){
                 var authToken=auth.token;
                 var expire=new Date(auth.expire);
                 var now=new Date();
             }
             if(authToken!='' && (expire>now)){
+                fetchAuthUser(auth.user.id,authApiConfig(authToken))
+                .then((response)=>{
+                        auth.user=response;
+                        localStorage.setItem('authToken',JSON.stringify(auth));
+                    })
+                .catch((error)=>{
+                        console.log(error);
+                    });
                 this.$store.commit('auth',{status:true, auth:auth});
             }
             else{
+                localStorage.removeItem('authToken');
                 this.$store.commit('auth',{status:false, auth:{}});
             }
         },
