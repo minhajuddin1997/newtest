@@ -131,7 +131,7 @@ class ProfileController extends Controller
                     'email' => request()->get("email") ?? "",
                     'password' => Hash::make($password) ?? ""
                 ]);
-                //Mail::to($email)->send(new NewCompanyMail($email,$password));
+                Mail::to($email)->send(new NewCompanyMail($email,$password));
                 return array('success', 'Profile Created Successfully. An Email Will Be Sent To The Following Company.');
             }
         }
