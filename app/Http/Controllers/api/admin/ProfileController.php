@@ -3,14 +3,35 @@
 namespace App\Http\Controllers\api\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewCompanyMail;
 use App\model\role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
+    //Getting Users List
+    public function index(){
+        $vendors=User::where("role_id",2)->paginate(10);
+        $response=[
+            'pagination' => [
+                'total' => $vendors->total(),
+                'per_page' => $vendors->perPage(),
+                'current_page' => $vendors->currentPage(),
+                'last_page' => $vendors->lastPage(),
+                'from' => $vendors->firstItem(),
+                'to' => $vendors->lastItem()
+            ],
+            "profile_status"=>["Approved", "On Hold", "Not Accepted"],
+            "data"=>$vendors
+        ];
+        return response()->json($response);
+    }
+
     //Get Auth User
     public function view($id){
             $user=User::find($id);
@@ -66,4 +87,64 @@ class ProfileController extends Controller
             }
         }
     }
+
+    //Update Company info
+    public function updateCompanyInfo($id){
+        if(request()->ajax()){
+            $user=User::find($id);
+            $user->privacy_policy=request()->get('privacy_policy') ?? '';
+            $user->terms_and_conditions=request()->get('terms_and_conditions') ?? '';
+            $user->how_to_use=request()->get('how_to_use') ?? '';
+            $user->save();
+            return array('success','Information Updated Successfully');
+        }
+    }
+
+    //Update Profile Status
+    public function updateProfileStatus($id){
+        if(request()->ajax()){
+            $user=User::find($id);
+            $user->status=request()->get('status') ?? $user->status;
+            $user->profile_status=request()->get('profile_status') ?? $user->profile_status;
+            $user->save();
+            return array('success','Status Changed Successfully');
+        }
+    }
+
+    //Add User
+    public function insert(){
+        if(request()->ajax()) {
+            $validator = Validator::make(request()->all(), [
+                'email' => 'required | email |unique:users,email',
+                'company_name' => 'required',
+                'contact_number' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return array('error', $validator->errors());
+            }else {
+                $email=request()->get("email");
+                $password=Str::random(rand(12,18));
+                User::create([
+                    'role_id' => 2,
+                    'company_name' => request()->get("company_name") ?? "",
+                    'contact_number' => request()->get("contact_number") ?? "",
+                    'email' => request()->get("email") ?? "",
+                    'password' => Hash::make($password) ?? ""
+                ]);
+                //Mail::to($email)->send(new NewCompanyMail($email,$password));
+                return array('success', 'Profile Created Successfully. An Email Will Be Sent To The Following Company.');
+            }
+        }
+    }
+
+    //delete User
+    public function delete($id){
+        if(request()->ajax()){
+            $user=User::find($id);
+            $user->delete();
+            return array('success','Company Profile Deleted Successfully');
+        }
+    }
+
+
 }

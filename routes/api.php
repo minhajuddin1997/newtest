@@ -22,5 +22,10 @@ Route::group(['namespace' => 'api\Auth'], function () {
 
 Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function () {
     Route::get('/user/{id}', 'ProfileController@view');
+    Route::post('/user', 'ProfileController@insert');
     Route::put('/user/update', 'ProfileController@update');
+    Route::put('/user/info/update/{id}', 'ProfileController@updateCompanyInfo');
+    Route::put('/user/status/update/{id}', 'ProfileController@updateProfileStatus');
+    Route::delete('/user/{id}', 'ProfileController@delete');
+    Route::get('/vendors', 'ProfileController@index');
 });

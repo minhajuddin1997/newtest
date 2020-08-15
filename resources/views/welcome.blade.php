@@ -58,7 +58,6 @@
 <script src="{{asset('js/app.js')}}"></script>
 <!-- inject js start -->
     @if (request()->segment(1) === 'admin' || request()->segment(2) === 'admin' || request()->segment(3) === 'admin')
-
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
