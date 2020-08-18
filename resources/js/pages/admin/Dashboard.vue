@@ -2,7 +2,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <!-- top tiles -->
-            <div class="row" style="display: block;">
+            <div class="row" style="display: block;" v-if="checkDisplay">
                 <div class="tile_count">
                     <div class="col-md-2 col-sm-4  tile_stats_count">
                         <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
@@ -37,11 +37,32 @@
                 </div>
             </div>
             <!-- /top tiles -->
+            <div class="row" style="display: block;" v-if="!checkDisplay">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5 offset-3">
+                            <div class="input-group">
+                                <input type="text" name="search" placeholder="Search for the required service" class="form-control" />
+                                <button type="button" class="btn btn-dark input-group-append"><i class="fa fa-search p-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /page content -->
 </template>
 <script>
+    import {mapState} from 'vuex';
     export default {
         name:'dashboard',
+        computed:{
+            ...mapState({
+                auth:state=>state.auth
+            }),
+            checkDisplay:function(){
+                return this.auth.user.role_id==1?true:false;
+            }
+        }
     }
 </script>

@@ -43,4 +43,17 @@ const adminMiddleware=(to,from,next)=>{
     }
 };
 
-export {authorize, isNotAuthorize, adminMiddleware};
+const vendorMiddleware=(to,from,next)=>{
+    const auth=JSON.parse(localStorage.getItem('authToken'));
+    if(!auth){
+        window.location.href=redirectedPaths('/login',prefixPath);
+    }
+    else if(auth.user.role_id==2){
+        next();
+    }else {
+        next({name:'admin'});
+    }
+};
+
+
+export {authorize, isNotAuthorize, adminMiddleware, vendorMiddleware};

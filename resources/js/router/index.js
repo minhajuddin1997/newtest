@@ -7,8 +7,10 @@ import Register from '../pages/Register';
 import Dashboard from "../pages/admin/Dashboard";
 import Profile from '../pages/admin/Profile';
 import Vendor from "../pages/admin/Vendor";
-import {authorize, isNotAuthorize, adminMiddleware, prefixRoutes} from '../helpers/helpers';
+import Services from "../pages/admin/Services";
+import {authorize, isNotAuthorize, adminMiddleware, prefixRoutes, vendorMiddleware} from '../helpers/helpers';
 import {prefixPath} from "../helpers/helpers";
+import Category from "../pages/admin/Category";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -19,7 +21,9 @@ var routes=[
     {path: '/register', component:Register, name:'register', beforeEnter:isNotAuthorize},
     {path: '/admin', component:Dashboard, name:'admin', beforeEnter:authorize},
     {path: '/admin/vendors', component:Vendor, name:'admin.vendors', beforeEnter:adminMiddleware},
-    {path: '/admin/profile', component:Profile, name:'admin.profile', beforeEnter:authorize}
+    {path: '/admin/profile', component:Profile, name:'admin.profile', beforeEnter:authorize},
+    {path: '/admin/services', component:Services, name:'admin.services', beforeEnter:vendorMiddleware},
+    {path: '/admin/category', component:Category, name:'admin.categories', beforeEnter:adminMiddleware}
 ];
 
 routes=prefixRoutes(routes,prefixPath);

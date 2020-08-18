@@ -29,16 +29,11 @@
                                         <li v-if="permissions('viewVendors')" v-on:click="()=>this.$router.push({name:'admin.vendors'})"><a>Vendors</a></li>
                                     </ul>
                                 </li>
-<!--                                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>-->
-<!--                                    <ul class="nav child_menu">-->
-<!--                                        <li><a >General Form</a></li>-->
-<!--                                        <li><a >Advanced Components</a></li>-->
-<!--                                        <li><a >Form Validation</a></li>-->
-<!--                                        <li><a >Form Wizard</a></li>-->
-<!--                                        <li><a >Form Upload</a></li>-->
-<!--                                        <li><a >Form Buttons</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
+                                <li v-if="permissions('viewCategory')"><a><i class="fa fa-edit"></i> Category <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a v-on:click="()=>this.$router.push({name:'admin.categories'})" >Add Category</a></li>
+                                    </ul>
+                                </li>
 
 
 <!--                                <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>-->
@@ -49,18 +44,14 @@
 <!--                                </li>-->
                             </ul>
                         </div>
-<!--                        <div class="menu_section">-->
-<!--                            <h3>Live On</h3>-->
-<!--                            <ul class="nav side-menu">-->
-<!--                                <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>-->
-<!--                                    <ul class="nav child_menu">-->
-<!--                                        <li><a >E-commerce</a></li>-->
-<!--                                        <li><a >Projects</a></li>-->
-<!--                                        <li><a >Project Detail</a></li>-->
-<!--                                        <li><a >Contacts</a></li>-->
-<!--                                        <li><a >Profile</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li v-if="permissions('viewService')"><a><i class="fa fa-laptop"></i> Services <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a v-on:click="()=>this.$router.push({name:'admin.services'})">Your Services</a></li>
+                                        <li><a disabled="disabled" >On Going Services(Coming Soon)</a></li>
+                                    </ul>
+                                </li>
 <!--                                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>-->
 <!--                                    <ul class="nav child_menu">-->
 <!--                                        <li><a>403 Error</a></li>-->
@@ -71,8 +62,8 @@
 <!--                                        <li><a >Pricing Tables</a></li>-->
 <!--                                    </ul>-->
 <!--                                </li>-->
-<!--                               </ul>-->
-<!--                        </div>-->
+                               </ul>
+                        </div>
                     </div>
 
 

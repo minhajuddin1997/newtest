@@ -21,6 +21,7 @@ Route::group(['namespace' => 'api\Auth'], function () {
 });
 
 Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function () {
+    //Vendors list
     Route::get('/user/{id}', 'ProfileController@view');
     Route::post('/user', 'ProfileController@insert');
     Route::put('/user/update', 'ProfileController@update');
@@ -28,4 +29,16 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::put('/user/status/update/{id}', 'ProfileController@updateProfileStatus');
     Route::delete('/user/{id}', 'ProfileController@delete');
     Route::get('/vendors', 'ProfileController@index');
+
+    //Services In Vendors Dashboard
+    Route::get('/services/{user_id}', 'ServiceController@index');
+    Route::post('/services', 'ServiceController@insert');
+    Route::put('/services', 'ServiceController@update');
+    Route::delete('/services/{id}',"ServiceController@delete");
+
+    //Categories
+    Route::get('/categories', 'CategoryController@index');
+    Route::post('/categories', 'CategoryController@insert');
+    Route::put('/categories', 'CategoryController@update');
+    Route::delete('/categories/{id}',"CategoryController@delete");
 });
