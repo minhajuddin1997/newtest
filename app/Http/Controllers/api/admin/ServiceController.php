@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function index($id){
-        $services=service::where("user_id",$id)->get();
+        $services_offered=service::where([["user_id","=",$id],["required_offered","=",1]])->get();
+        $services_required=service::where([["user_id","=",$id],["required_offered","=",0]])->get();
         $category=category::all();
-        return response()->json(["services"=>$services,"category"=>$category]);
+        return response()->json(["services_offered"=>$services_offered,"services_required"=>$services_required,"category"=>$category]);
     }
 
     public function insert(){

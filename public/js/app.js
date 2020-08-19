@@ -4020,6 +4020,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4060,6 +4083,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#serviceModal').on('hidden.bs.modal', function () {
         //catch the native bootstrap close event and trigger yours
         self.fetchServices();
+        self.formData.title = '';
+        self.formData.titleImage = '';
+        self.formData.description = '';
+        self.formData.deliverables = '';
+        self.formData.amount = 0;
+        self.formData.required_offered = 1;
+        self.formData.status = 1;
+        self.formData.user_id = 0;
+        self.formData.category_id = 0;
         self.action = '';
         $("#serviceForm").trigger('reset');
       });
@@ -38341,6 +38373,10 @@ var render = function() {
                     staticStyle: { display: "block" }
                   },
                   [
+                    _c("h3", { staticClass: "text-center font-weight-bold" }, [
+                      _vm._v("Services You Offer")
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "row" },
@@ -38370,7 +38406,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._l(_vm.data.services, function(service) {
+                        _vm._l(_vm.data.services_offered, function(service) {
                           return _c("div", { staticClass: "col-md-2 pt-2" }, [
                             _c(
                               "div",
@@ -38457,6 +38493,102 @@ var render = function() {
                         })
                       ],
                       2
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center font-weight-bold" }, [
+                      _vm._v("Services You Want")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row" },
+                      _vm._l(_vm.data.services_required, function(service) {
+                        return _c("div", { staticClass: "col-md-2 pt-2" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card text-center text-dark",
+                              staticStyle: {
+                                "border-radius": "30px !important"
+                              }
+                            },
+                            [
+                              _c("div", { staticClass: "card-body" }, [
+                                _c("div", { staticClass: "card-title" }, [
+                                  _c(
+                                    "h5",
+                                    { staticClass: "font-weight-bold" },
+                                    [_vm._v(_vm._s(service.title))]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "card-footer p-0",
+                                  staticStyle: {
+                                    "background-color": "transparent"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "btn-group-sm d-flex" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default w-100 pt-2 pb-2",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openEditService(
+                                                service
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-pencil"
+                                          }),
+                                          _vm._v(" Edit")
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default w-100 pt-2 pb-2",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteService(service)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-trash"
+                                          }),
+                                          _vm._v(" Delete")
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      }),
+                      0
                     )
                   ]
                 )

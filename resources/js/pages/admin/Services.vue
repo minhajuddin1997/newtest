@@ -84,6 +84,7 @@
                         <div class="x_content" style="display: block;">
 
 
+                            <h3 class="text-center font-weight-bold">Services You Offer</h3>
                             <div class="row">
                                 <div class="col-md-2 pt-2" >
                                     <div class="card text-center text-grey" v-on:click="openAddService" style="border-radius: 30px !important; border: dashed">
@@ -99,8 +100,8 @@
                                 </div>
 
 
-                                <!-- List Services -->
-                                <div class="col-md-2 pt-2" v-for="service in data.services">
+                                <!-- List Offered Services -->
+                                <div class="col-md-2 pt-2" v-for="service in data.services_offered">
                                     <div class="card text-center text-dark" style="border-radius: 30px !important;">
                                         <div class="card-body">
                                             <div class="card-title">
@@ -117,7 +118,29 @@
                                 </div>
                             </div>
 
+                            <br/><br/>
+                            <h3 class="text-center font-weight-bold">Services You Want</h3>
+                            <div class="row">
+                                <!-- List Required Services -->
+                                <div class="col-md-2 pt-2" v-for="service in data.services_required">
+                                    <div class="card text-center text-dark" style="border-radius: 30px !important;">
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <h5 class="font-weight-bold">{{service.title}}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer p-0" style="background-color:transparent;">
+                                            <div class="btn-group-sm d-flex">
+                                                <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="openEditService(service)"><i class="fa fa-pencil"></i> Edit</button>
+                                                <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="deleteService(service)"><i class="fa fa-trash"></i> Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+
+                            </div>
 
                         </div>
                     </div>
@@ -168,6 +191,15 @@
                 $('#serviceModal').on('hidden.bs.modal', function(){
                     //catch the native bootstrap close event and trigger yours
                     self.fetchServices();
+                    self.formData.title='';
+                    self.formData.titleImage='';
+                    self.formData.description='';
+                    self.formData.deliverables='';
+                    self.formData.amount=0;
+                    self.formData.required_offered=1;
+                    self.formData.status=1;
+                    self.formData.user_id=0;
+                    self.formData.category_id=0;
                     self.action='';
                     $("#serviceForm").trigger('reset');
                 });
