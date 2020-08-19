@@ -3539,6 +3539,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/helpers */ "./resources/js/helpers/helpers.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3599,9 +3600,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'dashboard',
+  props: {
+    asset: String
+  },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     auth: function auth(state) {
       return state.auth;
@@ -3610,7 +3651,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     checkDisplay: function checkDisplay() {
       return this.auth.user.role_id == 1 ? true : false;
     }
-  })
+  }),
+  data: function data() {
+    return {
+      Searching: {
+        search: '',
+        services: [],
+        loading: false,
+        notFound: false // search_logs:[]
+
+      }
+    };
+  },
+  created: function created() {},
+  methods: {
+    doSearch: function doSearch(e) {
+      var _this = this;
+
+      e.preventDefault();
+      this.Searching.loading = true;
+      axios.get("/services/search/".concat(this.auth.user.id, "/").concat(this.Searching.search === '' ? '1' : this.Searching.search), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["authApiConfig"])(this.auth.token)).then(function (res) {
+        return res.data;
+      }).then(function (response) {
+        console.log(response);
+
+        if (response.length) {
+          _this.Searching.loading = false;
+          _this.Searching.services = response;
+          _this.Searching.notFound = false;
+        } else {
+          _this.Searching.loading = false;
+          _this.Searching.services = response;
+          _this.Searching.notFound = true;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    } // searchLogs:function () {
+    //     axios.get(`/services/search_logs/${this.auth.user.id}`,authApiConfig(this.auth.token))
+    //         .then(res=>res.data)
+    //         .then((response)=>{
+    //             console.log(response);
+    //             this.Searching.search_logs=response;
+    //         }).catch((error)=>{
+    //         console.log(error);
+    //     });
+    // }
+
+  }
 });
 
 /***/ }),
@@ -37031,7 +37119,138 @@ var render = function() {
     _vm._v(" "),
     !_vm.checkDisplay
       ? _c("div", { staticClass: "row", staticStyle: { display: "block" } }, [
-          _vm._m(1)
+          _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-5 offset-3" }, [
+                _c("form", { on: { submit: _vm.doSearch } }, [
+                  _c("div", { staticClass: "input-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.Searching.search,
+                          expression: "Searching.search"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "search",
+                        placeholder: "Search for the required services"
+                      },
+                      domProps: { value: _vm.Searching.search },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.Searching, "search", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row mt-4" },
+              [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.Searching.loading,
+                        expression: "Searching.loading"
+                      }
+                    ],
+                    staticClass: "col-md-2 offset-5"
+                  },
+                  [_vm._m(2)]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.Searching.services, function(service) {
+                  return _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value:
+                            !_vm.Searching.loading && _vm.Searching.services,
+                          expression: "!Searching.loading && Searching.services"
+                        }
+                      ],
+                      staticClass:
+                        "col-md-6 offset-3 mt-2 card card-body text-dark",
+                      staticStyle: {
+                        "-webkit-box-shadow":
+                          "0px 2px 10px -1px rgba(0,0,0,0.75)",
+                        "-moz-box-shadow": "0px 2px 10px -1px rgba(0,0,0,0.75)",
+                        "box-shadow": "0px 2px 10px -1px rgba(0,0,0,0.75)"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "media" }, [
+                        _c("div", { staticClass: "media-body" }, [
+                          _c("h5", { staticClass: "mt-0" }, [
+                            _vm._v(_vm._s(service.company_name))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(service.description))])
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "align-self-end mr-3",
+                          staticStyle: {
+                            height: "180px",
+                            width: "180px",
+                            "border-radius": "50%"
+                          },
+                          attrs: {
+                            src:
+                              service.profile_picture != ""
+                                ? _vm.asset + service.profile_picture
+                                : _vm.asset +
+                                  "assets/admin/images/services_icon.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3, true)
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.Searching.notFound,
+                        expression: "Searching.notFound"
+                      }
+                    ],
+                    staticClass: "col-md-6 offset-3"
+                  },
+                  [_c("p", [_vm._v("No Services Found")])]
+                )
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-2" })
+          ])
         ])
       : _vm._e()
   ])
@@ -37146,30 +37365,36 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-5 offset-3" }, [
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                name: "search",
-                placeholder: "Search for the required service"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-dark input-group-append",
-                attrs: { type: "button" }
-              },
-              [_c("i", { staticClass: "fa fa-search p-1" })]
-            )
-          ])
-        ])
-      ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-dark input-group-append",
+        attrs: { type: "submit" }
+      },
+      [_c("i", { staticClass: "fa fa-search p-1" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "spinner-border",
+        staticStyle: { width: "3rem", height: "3rem" },
+        attrs: { role: "status" }
+      },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-info w-25" }, [
+      _c("i", { staticClass: "fa fa-eye" }),
+      _vm._v(" View Details")
     ])
   }
 ]

@@ -57,8 +57,8 @@ class ServiceController extends Controller
                 list(,$image)=explode(',',$image);
                 $profile_picture=base64_decode($image);
                 $image=rand().'.'.explode('/',$type)[1];
-                $imagePath=$uploadPath.'/'.$image;
-                file_put_contents(public_path($imagePath),$profile_picture);
+                $image_path=$uploadPath.'/'.$image;
+                file_put_contents(public_path($image_path),$profile_picture);
             }
             $service->update([
                 "title" => request()->get('title') ?? '',

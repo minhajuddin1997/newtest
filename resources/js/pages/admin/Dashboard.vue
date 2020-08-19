@@ -41,11 +41,47 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-5 offset-3">
-                            <div class="input-group">
-                                <input type="text" name="search" placeholder="Search for the required service" class="form-control" />
-                                <button type="button" class="btn btn-dark input-group-append"><i class="fa fa-search p-1"></i></button>
+                            <form v-on:submit="doSearch">
+                                <div class="input-group">
+                                    <input type="text" name="search" placeholder="Search for the required services" v-model="Searching.search" class="form-control" />
+                                    <button type="submit" class="btn btn-dark input-group-append"><i class="fa fa-search p-1"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-2 offset-5" v-show="Searching.loading">
+                            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="sr-only">Loading...</span>
                             </div>
                         </div>
+
+                        <div class="col-md-6 offset-3 mt-2 card card-body text-dark"
+                             style="-webkit-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
+                                    -moz-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
+                                    box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);"
+                             v-for="service in Searching.services"
+                             v-show="!Searching.loading && Searching.services">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5 class="mt-0">{{service.company_name}}</h5>
+                                    <p>{{service.description}}</p>
+                                </div>
+                                <img class="align-self-end mr-3"
+                                     style="height: 180px; width: 180px; border-radius: 50%;"
+                                     :src="service.profile_picture!=''?asset+service.profile_picture:asset+'assets/admin/images/services_icon.png'" >
+                            </div>
+<!--                                <button class="btn btn-primary w-25">View <i class="fa fa-arrow-right"></i></button>-->
+                            <button class="btn btn-info w-25"><i class="fa fa-eye"></i> View Details</button>
+                        </div>
+
+                        <div class="col-md-6 offset-3" v-show="Searching.notFound">
+                            <p>No Services Found</p>
+                        </div>
+
+                    </div>
+                    <div class="row mt-2">
+
                     </div>
                 </div>
             </div>
@@ -54,15 +90,64 @@
 </template>
 <script>
     import {mapState} from 'vuex';
+    import {authApiConfig} from "../../helpers/helpers";
     export default {
         name:'dashboard',
+        props:{
+          asset:String,
+        },
         computed:{
             ...mapState({
                 auth:state=>state.auth
             }),
             checkDisplay:function(){
                 return this.auth.user.role_id==1?true:false;
+            },
+        },
+        data:function(){
+            return{
+                Searching: {
+                    search: '',
+                    services: [],
+                    loading:false,
+                    notFound:false,
+                    // search_logs:[]
+                }
             }
+        },
+        created() {
+        },
+        methods:{
+            doSearch:function(e){
+                e.preventDefault();
+                this.Searching.loading=true;
+                axios.get(`/services/search/${this.auth.user.id}/${this.Searching.search===''?'1':this.Searching.search}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((response)=>{
+                    console.log(response);
+                    if(response.length) {
+                        this.Searching.loading = false;
+                        this.Searching.services = response;
+                        this.Searching.notFound = false;
+                    }else{
+                        this.Searching.loading = false;
+                        this.Searching.services = response;
+                        this.Searching.notFound = true;
+                    }
+                }).catch((error)=>{
+                    console.log(error);
+                });
+            },
+            // searchLogs:function () {
+            //     axios.get(`/services/search_logs/${this.auth.user.id}`,authApiConfig(this.auth.token))
+            //         .then(res=>res.data)
+            //         .then((response)=>{
+            //             console.log(response);
+            //             this.Searching.search_logs=response;
+            //         }).catch((error)=>{
+            //         console.log(error);
+            //     });
+            // }
         }
     }
 </script>
