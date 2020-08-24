@@ -10,10 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function search_service($id,$text){
+    public function search_service_company($id,$text){
         $companys=$this->searchAlgo($text,$id);
         //DB::insert("INSERT INTO search_log(search_text,user_id) VALUES (?,?)",[$text,$id]);
         return response()->json($companys);
+    }
+
+    public function search_services($company_id){
+        $services=service::where('user_id',$company_id)->get();
+        return response()->json($services);
     }
 
     public function search_logs($id){
@@ -36,7 +41,7 @@ class DashboardController extends Controller
        foreach ($services as $service){
            array_push($companyId,$service->user_id);
        }
-       $comnpany=User::whereIn('id',$companyId)->get();
+       $comnpany=User::whereIn('id',$companyId)->where([["status","=",1],["profile_status","=","Approved"],["id","<>",1]])->get();
         return $comnpany;
     }
 

@@ -35,8 +35,9 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::post('/services', 'ServiceController@insert');
     Route::put('/services', 'ServiceController@update');
     Route::delete('/services/{id}',"ServiceController@delete");
-    Route::get('/services/search/{id}/{text}',"DashboardController@search_service");
+    Route::get('/company/search/{id}/{text}',"DashboardController@search_service_company");
     Route::get('/services/search_logs/{id}',"DashboardController@search_logs");
+    Route::get('/services/search/{id}',"DashboardController@search_services");
 
     //Categories
     Route::get('/categories', 'CategoryController@index');

@@ -11,6 +11,12 @@ const actions={
             })
         });
     },
+    viewSearchedCompany:(context,company)=>{
+        context.commit('selectedCompany',company);
+    },
+    selectServices:(context,servicesAndAmount)=>{
+        context.commit('selectServices',servicesAndAmount);
+    }
 };
 
 export {actions};

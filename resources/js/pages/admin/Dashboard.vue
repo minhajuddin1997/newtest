@@ -1,6 +1,6 @@
 <template>
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="min-height: 990px;">
             <!-- top tiles -->
             <div class="row" style="display: block;" v-if="checkDisplay">
                 <div class="tile_count">
@@ -56,31 +56,36 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6 offset-3" v-show="!Searching.loading && Searching.services.length">
+                            <h6>Company's found with this search. "{{Searching.search}}"</h6>
+                        </div>
+
                         <div class="col-md-6 offset-3 mt-2 card card-body text-dark"
                              style="-webkit-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
                                     -moz-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
                                     box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);"
-                             v-for="service in Searching.services"
+                             v-for="company in Searching.services"
                              v-show="!Searching.loading && Searching.services">
                             <div class="media">
                                 <div class="media-body">
-                                    <h5 class="mt-0">{{service.company_name}}</h5>
-                                    <p>{{service.description}}</p>
+                                    <h5 class="mt-0">{{company.company_name}}</h5>
+                                    <p>{{company.description}}</p>
                                 </div>
                                 <img class="align-self-end mr-3"
                                      style="height: 180px; width: 180px; border-radius: 50%;"
-                                     :src="service.profile_picture!=''?asset+service.profile_picture:asset+'assets/admin/images/services_icon.png'" >
+                                     :src="company.profile_picture!=''?asset+company.profile_picture:asset+'assets/admin/images/services_icon.png'" >
                             </div>
 <!--                                <button class="btn btn-primary w-25">View <i class="fa fa-arrow-right"></i></button>-->
-                            <button class="btn btn-info w-25"><i class="fa fa-eye"></i> View Details</button>
+                            <button class="btn btn-info w-25"
+                                    v-on:click="companyDetails(company)">
+                                <i class="fa fa-eye"></i>
+                                View Details
+                            </button>
                         </div>
 
                         <div class="col-md-6 offset-3" v-show="Searching.notFound">
-                            <p>No Services Found</p>
+                            <p>No Companies Found</p>
                         </div>
-
-                    </div>
-                    <div class="row mt-2">
 
                     </div>
                 </div>
@@ -89,7 +94,7 @@
         <!-- /page content -->
 </template>
 <script>
-    import {mapState} from 'vuex';
+    import {mapState, mapActions} from 'vuex';
     import {authApiConfig} from "../../helpers/helpers";
     export default {
         name:'dashboard',
@@ -121,10 +126,9 @@
             doSearch:function(e){
                 e.preventDefault();
                 this.Searching.loading=true;
-                axios.get(`/services/search/${this.auth.user.id}/${this.Searching.search===''?'1':this.Searching.search}`,authApiConfig(this.auth.token))
+                axios.get(`/company/search/${this.auth.user.id}/${this.Searching.search===''?'1':this.Searching.search}`,authApiConfig(this.auth.token))
                 .then(res=>res.data)
                 .then((response)=>{
-                    console.log(response);
                     if(response.length) {
                         this.Searching.loading = false;
                         this.Searching.services = response;
@@ -138,6 +142,13 @@
                     console.log(error);
                 });
             },
+            ...mapActions({
+                selectedCompany:'viewSearchedCompany'
+            }),
+            companyDetails:function (company) {
+                this.$router.push({name:'admin.company-details'});
+                this.selectedCompany(company);
+            }
             // searchLogs:function () {
             //     axios.get(`/services/search_logs/${this.auth.user.id}`,authApiConfig(this.auth.token))
             //         .then(res=>res.data)

@@ -24,6 +24,9 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
+
+                                <li><a  v-on:click="()=>this.$router.push({name:'admin'})" ><i class="fa fa-dashboard"></i> Dashboard </a></li>
+
                                 <li v-if="permissions('viewUser')"><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li v-if="permissions('viewVendors')" v-on:click="()=>this.$router.push({name:'admin.vendors'})"><a>Vendors</a></li>
@@ -42,27 +45,35 @@
 <!--                                        <li><a >Fixed Footer</a></li>-->
 <!--                                    </ul>-->
 <!--                                </li>-->
+
+                                    <li v-if="permissions('viewService')"><a><i class="fa fa-laptop"></i> Services <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a v-on:click="()=>this.$router.push({name:'admin.services'})">Your Services</a></li>
+                                            <li><a disabled="disabled" v-on:click="()=>this.$router.push({name:'admin.on_going_work'})">On Going Work (Coming Soon)</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li v-if="permissions('viewConnection')"><a href="javascript:void(0);"><i class="fa fa-users"></i> Connections </a></li>
+
+                                    <li v-if="permissions('viewMessage')"><a href="javascript:void(0);"><i class="fa fa-envelope-open"></i> Messages </a></li>
+
+                                    <li v-if="permissions('viewHistory')"><a href="javascript:void(0);"><i class="fa fa-history"></i> Work History </a></li>
+
+                                    <li v-if="permissions('viewPayment')"><a href="javascript:void(0);"><i class="fa fa-dollar"></i> Payments </a></li>
+
+
+                                    <!--                                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>-->
+                                    <!--                                    <ul class="nav child_menu">-->
+                                    <!--                                        <li><a>403 Error</a></li>-->
+                                    <!--                                        <li><a >404 Error</a></li>-->
+                                    <!--                                        <li><a >500 Error</a></li>-->
+                                    <!--                                        <li><a >Plain Page</a></li>-->
+                                    <!--                                        <li><a >Login Page</a></li>-->
+                                    <!--                                        <li><a >Pricing Tables</a></li>-->
+                                    <!--                                    </ul>-->
+                                    <!--                                </li>-->
                             </ul>
-                        </div>
-                        <div class="menu_section">
-                            <ul class="nav side-menu">
-                                <li v-if="permissions('viewService')"><a><i class="fa fa-laptop"></i> Services <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a v-on:click="()=>this.$router.push({name:'admin.services'})">Your Services</a></li>
-                                        <li><a disabled="disabled" >On Going Services(Coming Soon)</a></li>
-                                    </ul>
-                                </li>
-<!--                                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>-->
-<!--                                    <ul class="nav child_menu">-->
-<!--                                        <li><a>403 Error</a></li>-->
-<!--                                        <li><a >404 Error</a></li>-->
-<!--                                        <li><a >500 Error</a></li>-->
-<!--                                        <li><a >Plain Page</a></li>-->
-<!--                                        <li><a >Login Page</a></li>-->
-<!--                                        <li><a >Pricing Tables</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-                               </ul>
+
                         </div>
                     </div>
 

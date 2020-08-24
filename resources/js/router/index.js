@@ -11,6 +11,9 @@ import Services from "../pages/admin/Services";
 import {authorize, isNotAuthorize, adminMiddleware, prefixRoutes, vendorMiddleware} from '../helpers/helpers';
 import {prefixPath} from "../helpers/helpers";
 import Category from "../pages/admin/Category";
+import CompanyDetails from "../pages/admin/CompanyDetails";
+import OnGoing from "../pages/admin/OnGoing/OnGoing";
+import OnGoingServices from "../pages/admin/OnGoing/OnGoingServices";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -23,6 +26,9 @@ var routes=[
     {path: '/admin/vendors', component:Vendor, name:'admin.vendors', beforeEnter:adminMiddleware},
     {path: '/admin/profile', component:Profile, name:'admin.profile', beforeEnter:authorize},
     {path: '/admin/services', component:Services, name:'admin.services', beforeEnter:vendorMiddleware},
+    {path: '/admin/on-going-work', component:OnGoing, name:'admin.on_going_work', beforeEnter:vendorMiddleware},
+    {path: '/admin/on-going-work/:id/services', component:OnGoingServices, name:'admin.on_going_services', beforeEnter:vendorMiddleware},
+    {path: '/admin/company-details', component:CompanyDetails, name:'admin.company-details', beforeEnter:vendorMiddleware},
     {path: '/admin/category', component:Category, name:'admin.categories', beforeEnter:adminMiddleware}
 ];
 

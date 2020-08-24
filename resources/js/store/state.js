@@ -1,6 +1,11 @@
 const state={
         authCheck: false,
-        auth:{}
+        auth:{},
+        exchangeRequest:{
+            selectedCompany:{},
+            selectedServices:[],
+            totalAmount:0
+        }
 };
 
 export {state};
