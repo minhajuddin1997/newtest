@@ -39,28 +39,36 @@
             <!-- /top tiles -->
             <div class="row" style="display: block;" v-if="!checkDisplay">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-5 offset-3">
+                    <div class="row pt-5">
+
+                        <div class="col-md-5 offset-1">
+                            <div class="dashboard-title-border"></div>
+                            <h4 class="dashboard-title">Search New Services....</h4>
                             <form v-on:submit="doSearch">
-                                <div class="input-group">
+                                <div class="input-group search-box">
                                     <input type="text" name="search" placeholder="Search for the required services" v-model="Searching.search" class="form-control" />
                                     <button type="submit" class="btn btn-dark input-group-append"><i class="fa fa-search p-1"></i></button>
                                 </div>
                             </form>
                         </div>
+
+                        <div class="col-md-5 offset-1">
+                            <img :src="asset+'assets/admin/images/dasboard-cover.png'" />
+                        </div>
+
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-2 offset-5" v-show="Searching.loading">
+                        <div class="col-md-2 offset-1" v-show="Searching.loading">
                             <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>
                         </div>
 
-                        <div class="col-md-6 offset-3" v-show="!Searching.loading && Searching.services.length">
+                        <div class="col-md-6 offset-1" v-show="!Searching.loading && Searching.services.length">
                             <h6>Company's found with this search. "{{Searching.search}}"</h6>
                         </div>
 
-                        <div class="col-md-6 offset-3 mt-2 card card-body text-dark"
+                        <div class="col-md-5 offset-1 mt-2 card card-body text-dark"
                              style="-webkit-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
                                     -moz-box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);
                                     box-shadow: 0px 2px 10px -1px rgba(0,0,0,0.75);"
@@ -83,7 +91,7 @@
                             </button>
                         </div>
 
-                        <div class="col-md-6 offset-3" v-show="Searching.notFound">
+                        <div class="col-md-5 offset-1" v-show="Searching.notFound">
                             <p>No Companies Found</p>
                         </div>
 

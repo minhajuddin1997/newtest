@@ -1,0 +1,25 @@
+.check-button{
+    padding: 0px 4px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.accordion .panel-heading {
+    background: #1c1c1c;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    display: block;
+}
+
+.request-exchange-btn{
+    padding: 14px 22px;
+    color: white;
+    background: rgb(253,83,146);
+    background: linear-gradient(90deg, rgba(253,83,146,1) 0%, rgba(251,94,129,1) 35%, rgba(248,109,103,1) 100%);
+    border:none;
+}
+
+.request-exchange-btn:hover{
+    color: white;
+}

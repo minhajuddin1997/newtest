@@ -4,7 +4,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a class="site_title"><i class="fa fa-paw"></i> <span>Swoppers</span></a>
+                        <a class="site_title"><img :src="asset+'assets/front/images/logo.png'" class="img-fluid pl-5 pr-5"></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -22,7 +22,7 @@
 
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>General</h3>
+<!--                            <h3>General</h3>-->
                             <ul class="nav side-menu">
 
                                 <li><a  v-on:click="()=>this.$router.push({name:'admin'})" ><i class="fa fa-dashboard"></i> Dashboard </a></li>
@@ -53,9 +53,9 @@
                                         </ul>
                                     </li>
 
-                                    <li v-if="permissions('viewConnection')"><a href="javascript:void(0);"><i class="fa fa-users"></i> Connections </a></li>
+                                    <li v-if="permissions('viewConnection')"><a v-on:click="()=>this.$router.push({name:'admin.connections'})"><i class="fa fa-users"></i> Connections </a></li>
 
-                                    <li v-if="permissions('viewMessage')"><a href="javascript:void(0);"><i class="fa fa-envelope-open"></i> Messages </a></li>
+                                    <li v-if="permissions('viewMessage')"><a v-on:click="()=>this.$router.push({name:'admin.messages'})"><i class="fa fa-envelope-open"></i> Messages </a></li>
 
                                     <li v-if="permissions('viewHistory')"><a href="javascript:void(0);"><i class="fa fa-history"></i> Work History </a></li>
 
@@ -79,12 +79,9 @@
 
 
                     <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout" v-on:click="logout">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
+                        <li type="button" style="width:100%; height:50px" v-on:click="logout">
+                            <h6 class="text-center text-dark font-weight-bold" style=" line-height:50px;">LOGOUT</h6>
+                        </li>
                     </div>
 
                 </div>

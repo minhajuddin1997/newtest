@@ -74,7 +74,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3> Your Services </h3>
+                    <h3 class="main-title"> Your Services </h3>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -84,14 +84,17 @@
                         <div class="x_content" style="display: block;">
 
 
-                            <h3 class="text-center font-weight-bold">Services You Offer</h3>
+                            <h3 class="main-title">Services You Offer</h3>
                             <div class="row">
                                 <div class="col-md-2 pt-2" >
-                                    <div class="card text-center text-grey" v-on:click="openAddService" style="border-radius: 30px !important; border: dashed">
+                                    <div class="card text-center new-service-box" v-on:click="openAddService" style="border-radius: 30px !important; ">
                                         <div class="card-body">
-                                            <div class="card-title text-center">
+                                            <div class="card-title text-center new-service-text">
                                                 <i class="fa fa-plus"></i>
-                                                <h5 class="font-weight-bold">Add New Service</h5>
+                                                <p>
+                                                    <span>Add New</span>
+                                                    <span>Service</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="card-footer" style="background-color:transparent;border: none">
@@ -102,38 +105,38 @@
 
                                 <!-- List Offered Services -->
                                 <div class="col-md-2 pt-2" v-for="service in data.services_offered">
-                                    <div class="card text-center text-dark" style="border-radius: 30px !important;">
+                                    <div class="card text-center text-dark service-box" >
                                         <div class="card-body">
                                             <div class="card-title">
                                                 <h5 class="font-weight-bold">{{service.title}}</h5>
                                             </div>
                                         </div>
-                                        <div class="card-footer p-0" style="background-color:transparent;">
-                                            <div class="btn-group-sm d-flex">
+                                    </div>
+                                    <div class="card-footer p-0 bottom-buttons" style="background-color:white;">
+                                        <div class="btn-group-sm d-flex">
                                             <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="openEditService(service)"><i class="fa fa-pencil"></i> Edit</button>
                                             <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="deleteService(service)"><i class="fa fa-trash"></i> Delete</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <br/><br/>
-                            <h3 class="text-center font-weight-bold">Services You Want</h3>
+                            <h3 class="main-title">Services You Want</h3>
                             <div class="row">
                                 <!-- List Required Services -->
                                 <div class="col-md-2 pt-2" v-for="service in data.services_required">
-                                    <div class="card text-center text-dark" style="border-radius: 30px !important;">
+                                    <div class="card text-center text-dark service-box" >
                                         <div class="card-body">
                                             <div class="card-title">
                                                 <h5 class="font-weight-bold">{{service.title}}</h5>
                                             </div>
                                         </div>
-                                        <div class="card-footer p-0" style="background-color:transparent;">
-                                            <div class="btn-group-sm d-flex">
-                                                <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="openEditService(service)"><i class="fa fa-pencil"></i> Edit</button>
-                                                <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="deleteService(service)"><i class="fa fa-trash"></i> Delete</button>
-                                            </div>
+                                    </div>
+                                    <div class="card-footer p-0 bottom-buttons" style="background-color:white;">
+                                        <div class="btn-group-sm d-flex">
+                                            <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="openEditService(service)"><i class="fa fa-pencil"></i> Edit</button>
+                                            <button type="button" class="btn btn-default w-100 pt-2 pb-2" v-on:click="deleteService(service)"><i class="fa fa-trash"></i> Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </template>
 
 <script>

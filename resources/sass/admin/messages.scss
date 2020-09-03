@@ -1,0 +1,30 @@
+.sender{
+    background-color: #d4fff3;
+    color: black;
+}
+
+.receiver{
+    background-color: #f8f8f8;
+    color: black;
+}
+
+.chat-form{
+    padding: 0;
+}
+
+.chat-form input{
+    height: 50px;
+}
+
+.chat-form button{
+    height: 50px;
+    font-size: 20px;
+    padding: 8px 16px 16px 16px;
+    background-color: #48e3b7;
+    color: white;
+    border: none;
+}
+
+.chat-form button:hover{
+    background-color: #48e3b7;
+}

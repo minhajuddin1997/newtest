@@ -39,6 +39,13 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::get('/services/search_logs/{id}',"DashboardController@search_logs");
     Route::get('/services/search/{id}',"DashboardController@search_services");
 
+    //Messages & Connections In Vendors
+    Route::get('/connections/{status}/{id}','MessagesController@get_connections');
+    Route::get('/messages/{connection_id}','MessagesController@messages');
+    Route::post('/messages','MessagesController@add_new_message');
+    Route::get('/messages/status/{to}/{from}/{connection_id}','MessagesController@viewed_status_update');
+    Route::patch('/connection/status/{id}','MessagesController@connection_update');
+
     //Categories
     Route::get('/categories', 'CategoryController@index');
     Route::post('/categories', 'CategoryController@insert');
