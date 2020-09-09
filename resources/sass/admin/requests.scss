@@ -1,0 +1,92 @@
+#requests_row{
+    background-color: white !important;
+    border: 1px solid #ebebeb;
+}
+
+.tb_company img{
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin-right: 9px;
+    padding: 3px;
+    border: 1px solid #d7d7d7;
+}
+
+.tb_company .company_name{
+    font-size: 20px;
+}
+
+.tb_buttons .view,.delete{
+    color: #6f6f6f;
+    box-shadow: none !important;
+}
+
+.tb_buttons .view>i, .delete>i{
+    margin-right: 12px;
+}
+
+.request_date{
+    line-height: 50px;
+}
+
+.accepted{
+    background-color: $light-green;
+    color: black;
+    padding: 10px 30px;
+    border-radius: 30px;
+    line-height: 50px;
+}
+
+.reject{
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    line-height: 50px;
+}
+
+.pending{
+    background: rgb(253,83,146);
+    background: linear-gradient(90deg, rgba(253,83,146,1) 0%, rgba(251,94,129,1) 35%, rgba(248,109,103,1) 100%);
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    border-radius: 30px;
+    line-height: 50px;
+}
+
+.request_title{
+    color: #1c1c1c;
+}
+
+.tab_receive, .tab_send{
+    background: $light-green;
+    color: black;
+    border-radius: 30px;
+}
+
+.tab_receive{
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.tab_send{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.reason .modal-header{
+    background-color: #48e3b7;
+    color: #1c1c1c;
+}
+
+.reason .modal-body{
+    padding: 0 !important;
+}
+
+.reject-btn{
+    background-color: #48e3b7;
+    border: none;
+    color: black;
+}

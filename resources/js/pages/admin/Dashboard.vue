@@ -84,11 +84,19 @@
                                      :src="company.profile_picture!=''?asset+company.profile_picture:asset+'assets/admin/images/services_icon.png'" >
                             </div>
 <!--                                <button class="btn btn-primary w-25">View <i class="fa fa-arrow-right"></i></button>-->
-                            <button class="btn btn-info w-25"
-                                    v-on:click="companyDetails(company)">
-                                <i class="fa fa-eye"></i>
-                                View Details
-                            </button>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn w-25 view_details"
+                                            v-on:click="companyDetails(company)">
+                                        <i class="fa fa-eye mr-2"></i>
+                                        View Details
+                                    </button>
+                                    <button class="btn request_connection" v-on:click="requestToConnect(company.id)">
+                                        <i class="fa fa-link mr-2"></i>
+                                        Request To Connect
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-5 offset-1" v-show="Searching.notFound">
@@ -156,7 +164,7 @@
             companyDetails:function (company) {
                 this.$router.push({name:'admin.company-details'});
                 this.selectedCompany(company);
-            }
+            },
             // searchLogs:function () {
             //     axios.get(`/services/search_logs/${this.auth.user.id}`,authApiConfig(this.auth.token))
             //         .then(res=>res.data)
@@ -167,6 +175,15 @@
             //         console.log(error);
             //     });
             // }
+            requestToConnect:function (id) {
+                axios.post(`/connection/make`,{company_1:this.auth.user.id, company_2:id},authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((res)=>{
+                    swal('Great!',res,"success");
+                }).catch((error)=>{
+                    console.log(error.response);
+                });
+            }
         }
     }
 </script>

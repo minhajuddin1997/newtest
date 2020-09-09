@@ -15,7 +15,7 @@
                                     <div class="card-header" style="background-color: #f8f8f8;border: none; height:68px;">
                                         <div class="row">
                                             <div class="col-1">
-                                                <img :src="asset+selected.profile_picture" style="height: 50px; width: 50px" class="img-fluid img-circle ml-3  bg-white">
+                                                <img v-if="selected.profile_picture!==undefined" :src="asset+selected.profile_picture" style="height: 50px; width: 50px" class="img-fluid img-circle ml-3  bg-white">
                                             </div>
                                             <div class="col-2 mr-2" >
                                                 <h6 style="line-height: 50px" class="text-dark">{{selected.company_name}}</h6>
@@ -24,11 +24,12 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <ChatMessages :auth="auth" :asset="asset" :messages="messages" :loading="loadingMessages"/>
+                                        <ChatMessages v-if="users.length" :auth="auth" :asset="asset" :messages="messages" :loading="loadingMessages"/>
+                                        <h4  v-if="!users.length" > No Connections</h4>
                                     </div>
 
                                     <div class="card-footer">
-                                        <ChatForm :auth="auth" :asset="asset" v-on:send="sendMessage" />
+                                        <ChatForm :auth="auth" v-if="selected.id !== undefined" :asset="asset" v-on:send="sendMessage" />
                                     </div>
 
                                     </div>

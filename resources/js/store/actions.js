@@ -14,8 +14,11 @@ const actions={
     viewSearchedCompany:(context,company)=>{
         context.commit('selectedCompany',company);
     },
-    selectServices:(context,servicesAndAmount)=>{
-        context.commit('selectServices',servicesAndAmount);
+    setReceiveRequests:(context,requests)=>{
+        context.commit('receiveRequests',requests);
+    },
+    setSendRequests:(context,requests)=>{
+        context.commit('sendRequests',requests);
     }
 };
 

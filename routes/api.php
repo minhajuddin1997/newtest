@@ -45,6 +45,7 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::post('/messages','MessagesController@add_new_message');
     Route::get('/messages/status/{to}/{from}/{connection_id}','MessagesController@viewed_status_update');
     Route::patch('/connection/status/{id}','MessagesController@connection_update');
+    Route::post('/connection/make','MessagesController@create_connection');
 
     //Categories
     Route::get('/categories', 'CategoryController@index');
@@ -52,4 +53,9 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::put('/categories', 'CategoryController@update');
     Route::delete('/categories/{id}',"CategoryController@delete");
 
+    //Requests For Exchange
+    Route::post('/services/request', 'ExchangeController@exchange_request');
+    Route::get('exchange/requests/{receiver_id}', 'ExchangeController@getRequests'); //receive requests
+    Route::get('exchange/send/requests/{sender_id}', 'ExchangeController@getSendRequests');//send requests
+    Route::put('exchange/requests/{id}', 'ExchangeController@rejectRequest');
 });

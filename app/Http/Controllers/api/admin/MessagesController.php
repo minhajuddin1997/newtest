@@ -4,9 +4,11 @@ namespace App\Http\Controllers\api\admin;
 
 use App\Events\MessageEvent;
 use App\Http\Controllers\Controller;
+use App\Mail\ConnectionMail;
 use App\model\connections;
 use App\model\messages;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class MessagesController extends Controller
 {
@@ -59,6 +61,27 @@ class MessagesController extends Controller
             'status'=>1
         ]);
         return;
+    }
+
+    public function create_connection(){
+        $company_1 = request()->get('company_1');
+        $company_2 = request()->get('company_2');
+        $connection=connections::whereIn("company_1",[$company_1, $company_2])
+                    ->whereIn("company_2",[$company_2, $company_1])
+                    ->get();
+        if(!count($connection)) {
+            connections::create([
+                "company_1" => $company_1,
+                "company_2" => $company_2,
+                "status" => 0
+            ]);
+            $user=User::find($company_1);
+            Mail::to("alisyedamir2018@gmail.com")->send(new ConnectionMail($user));
+            return "Request For The Connection Has Been Sent.";
+        }else{
+            return "You Are Already Connected.";
+        }
+
     }
 
 }

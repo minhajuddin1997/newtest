@@ -6,9 +6,11 @@ const mutations={
     selectedCompany:(state,payload)=>{
         state.exchangeRequest.selectedCompany=payload;
     },
-    selectServices:(state,payload)=>{
-        state.exchangeRequest.selectedServices=payload.services;
-        state.exchangeRequest.totalAmount=payload.amount;
+    receiveRequests:(state,payload)=>{
+        state.exchangeRequest.receiveRequests=payload;
+    },
+    sendRequests:(state,payload)=>{
+        state.exchangeRequest.sendRequests=payload;
     }
 };
 

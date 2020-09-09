@@ -44,3 +44,9 @@ body{
 .profile_info h2 {
     font-weight: 900;
 }
+
+#requests_counter{
+    float: right;
+    background-color: $light-green;
+    color: black;
+}

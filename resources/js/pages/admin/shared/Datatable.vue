@@ -1,7 +1,7 @@
 <template>
     <div>
         <table class="table table-responsive-md table-striped table-hover" >
-            <thead>
+            <thead class="border">
             <tr>
                 <th v-for="name in columns">{{name}}</th>
             </tr>

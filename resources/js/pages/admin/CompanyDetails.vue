@@ -157,9 +157,29 @@
             },
 
             saveAndExchange:function(){
-                this.saveSelectedServices({services:this.selected,amount:this.totalAmount});
-                swal('Great!',"Your Request For Exchange Has Been Sent.",'success');
-                this.$router.push({name:'admin'});
+                if(this.selected.length) {
+                    var data = {
+                        sender_id: this.auth.user.id,
+                        receiver_id: this.company.id,
+                        selectedServices: JSON.stringify(this.selected)
+                    };
+                    axios.post('/services/request', data, authApiConfig(this.auth.token))
+                        .then(res => res.data)
+                        .then((res) => {
+                            if (res[0] === "success") {
+                                swal('Great!', res[1], 'success');
+                                this.$router.push({name: 'admin'});
+                            } else {
+                                swal("Error", res[1], "error");
+                            }
+
+                        }).catch((error) => {
+                        console.log(error);
+                    });
+                }else{
+                    swal("Error", "Select at least one service to exchange.", "error");
+                }
+
             }
 
         }

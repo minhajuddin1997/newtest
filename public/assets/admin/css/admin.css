@@ -17424,6 +17424,12 @@ body {
   font-weight: 900;
 }
 
+#requests_counter {
+  float: right;
+  background-color: #48e3b7;
+  color: black;
+}
+
 .dashboard-title {
   color: black;
   font-size: 40px;
@@ -17448,6 +17454,21 @@ body {
   background: #fd5392;
   background: linear-gradient(90deg, #fd5392 0%, #fb5e81 35%, #f86d67 100%);
   border: none;
+}
+
+.view_details {
+  background-color: #48e3b7;
+}
+
+.request_connection {
+  color: white;
+  background: #fd5392;
+  background: linear-gradient(90deg, #fd5392 0%, #fb5e81 35%, #f86d67 100%);
+  border: none;
+}
+
+.request_connection:hover {
+  color: white;
 }
 
 .sender {
@@ -17550,5 +17571,101 @@ body {
 
 .request-exchange-btn:hover {
   color: white;
+}
+
+#requests_row {
+  background-color: white !important;
+  border: 1px solid #ebebeb;
+}
+
+.tb_company img {
+  height: 60px;
+  width: 60px;
+  float: left;
+  margin-right: 9px;
+  padding: 3px;
+  border: 1px solid #d7d7d7;
+}
+
+.tb_company .company_name {
+  font-size: 20px;
+}
+
+.tb_buttons .view,
+.delete {
+  color: #6f6f6f;
+  box-shadow: none !important;
+}
+
+.tb_buttons .view > i,
+.delete > i {
+  margin-right: 12px;
+}
+
+.request_date {
+  line-height: 50px;
+}
+
+.accepted {
+  background-color: #48e3b7;
+  color: black;
+  padding: 10px 30px;
+  border-radius: 30px;
+  line-height: 50px;
+}
+
+.reject {
+  background-color: #3f0d12;
+  background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+  color: white;
+  padding: 10px 30px;
+  border-radius: 30px;
+  line-height: 50px;
+}
+
+.pending {
+  background: #fd5392;
+  background: linear-gradient(90deg, #fd5392 0%, #fb5e81 35%, #f86d67 100%);
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  border-radius: 30px;
+  line-height: 50px;
+}
+
+.request_title {
+  color: #1c1c1c;
+}
+
+.tab_receive,
+.tab_send {
+  background: #48e3b7;
+  color: black;
+  border-radius: 30px;
+}
+
+.tab_receive {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.tab_send {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.reason .modal-header {
+  background-color: #48e3b7;
+  color: #1c1c1c;
+}
+
+.reason .modal-body {
+  padding: 0 !important;
+}
+
+.reject-btn {
+  background-color: #48e3b7;
+  border: none;
+  color: black;
 }
 

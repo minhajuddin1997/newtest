@@ -57,6 +57,8 @@
 
                                     <li v-if="permissions('viewMessage')"><a v-on:click="()=>this.$router.push({name:'admin.messages'})"><i class="fa fa-envelope-open"></i> Messages </a></li>
 
+                                    <li v-if="permissions('viewRequest')"><a v-on:click="()=>this.$router.push({name:'admin.requests', props:{requests: requests, auth: auth}})"><i class="fa fa-book"></i> Requests <span v-show="requestsCount" id="requests_counter" class="badge badge-info">{{requests.length}}</span></a></li>
+
                                     <li v-if="permissions('viewHistory')"><a href="javascript:void(0);"><i class="fa fa-history"></i> Work History </a></li>
 
                                     <li v-if="permissions('viewPayment')"><a href="javascript:void(0);"><i class="fa fa-dollar"></i> Payments </a></li>
@@ -131,6 +133,13 @@
             }),
             profileImage:function(){
                 return this.auth.user.profile_picture? this.asset+''+this.auth.user.profile_picture: this.asset+'assets/admin/images/img.png';
+            },
+            requestsCount:function () {
+                var count = 0;
+                this.requests.forEach((request)=>{
+                    request.status===0 ? count++ : count;
+                });
+                return count;
             }
         },
         created() {
@@ -155,10 +164,30 @@
                 localStorage.removeItem('authToken');
                 this.$store.commit('auth',{status:false, auth:{}});
             }
+            this.fetchRequests();
+            this.fetchSendRequests();
+        },
+        mounted(){
+          var pusher=new Pusher('13dc91256b26300c36f3',{
+              cluster:'ap2'
+          });
+          var channel=pusher.subscribe(`exchange_requests_notification.${this.auth.user.id}`);
+          var self=this;
+          channel.bind("exchange.requested",function (data) {
+                self.requests.push(data);
+                self.setReceiveRequests(self.requests);
+          });
+        },
+        data:function(){
+          return{
+              requests:[],
+          }
         },
         methods:{
             ...mapActions({
-                sendLogout:'logout'
+                sendLogout:'logout',
+                setReceiveRequests:'setReceiveRequests',
+                setSendRequests: 'setSendRequests'
             }),
             logout:function(){
                 this.sendLogout(this.auth.user.email).then(()=>window.location.href=redirectedPaths('/',prefixPath));
@@ -169,6 +198,27 @@
                     return true;
                 }
                 return false;
+            },
+            fetchRequests:function (){
+                axios.get(`/exchange/requests/${this.auth.user.id}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((res)=>{
+                    for(var item in res){
+                        this.requests.push(item);
+                    }
+                    this.setReceiveRequests(res);
+                }).catch((error)=>{
+                    console.log(error.response);
+                });
+            },
+            fetchSendRequests:function (){
+                axios.get(`/exchange/send/requests/${this.auth.user.id}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((res)=>{
+                    this.setSendRequests(res);
+                }).catch((error)=>{
+                    console.log(error);
+                })
             }
         }
     }

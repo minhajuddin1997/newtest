@@ -16,6 +16,9 @@ import OnGoing from "../pages/admin/OnGoing/OnGoing";
 import OnGoingServices from "../pages/admin/OnGoing/OnGoingServices";
 import Messages from "../pages/admin/Messages";
 import Connections from "../pages/admin/Connections";
+import Requests from "../pages/admin/Requests";
+import Receive from "../pages/admin/Request/Receive";
+import Send from "../pages/admin/Request/Send";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -33,7 +36,20 @@ var routes=[
     {path: '/admin/company-details', component:CompanyDetails, name:'admin.company-details', beforeEnter:vendorMiddleware},
     {path: '/admin/category', component:Category, name:'admin.categories', beforeEnter:adminMiddleware},
     {path: '/admin/messages', component:Messages, name:'admin.messages', beforeEnter:vendorMiddleware},
-    {path: '/admin/connections', component:Connections, name:'admin.connections', beforeEnter:vendorMiddleware}
+    {path: '/admin/connections', component:Connections, name:'admin.connections', beforeEnter:vendorMiddleware},
+    {path: '/admin/requests', component:Requests, name:'admin.requests', children:[
+            {
+                path:'',
+                name:'receive',
+                component:Receive
+            },
+            {
+                path:'send',
+                name:'send',
+                component:Send
+            }
+
+        ], beforeEnter:vendorMiddleware},
 ];
 
 routes=prefixRoutes(routes,prefixPath);

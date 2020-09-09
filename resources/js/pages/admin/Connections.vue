@@ -113,7 +113,6 @@
                     .then(res=>res.data)
                     .then((response)=>{
                         this.current_connections=response;
-                        console.log('current',response);
                     }).catch((error)=>{
                     console.log(error);
                 });
@@ -124,7 +123,6 @@
                     .then(res=>res.data)
                     .then((response)=>{
                         this.pending_connections=response;
-                        console.log('pending',response);
                     }).catch((error)=>{
                     console.log(error);
                 });
