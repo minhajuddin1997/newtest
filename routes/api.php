@@ -58,4 +58,9 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::get('exchange/requests/{receiver_id}', 'ExchangeController@getRequests'); //receive requests
     Route::get('exchange/send/requests/{sender_id}', 'ExchangeController@getSendRequests');//send requests
     Route::put('exchange/requests/{id}', 'ExchangeController@rejectRequest');
+    Route::delete('exchange/requests/{id}', 'ExchangeController@deleteRequest');
+    Route::get('exchange/find/request/{id}', 'ExchangeController@findRequest'); //find request
+    Route::get('exchange/requested/services/{id}', 'ExchangeController@view_requested_services');//View Requested Services
+    Route::get('exchange/offer/services/{id}', 'ExchangeController@view_offer_services');//View Sender Offer Services
+    Route::get('exchange/agreement', 'ExchangeController@view_agreement');//View Exchange Agreement
 });

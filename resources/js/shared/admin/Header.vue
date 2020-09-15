@@ -57,7 +57,7 @@
 
                                     <li v-if="permissions('viewMessage')"><a v-on:click="()=>this.$router.push({name:'admin.messages'})"><i class="fa fa-envelope-open"></i> Messages </a></li>
 
-                                    <li v-if="permissions('viewRequest')"><a v-on:click="()=>this.$router.push({name:'admin.requests', props:{requests: requests, auth: auth}})"><i class="fa fa-book"></i> Requests <span v-show="requestsCount" id="requests_counter" class="badge badge-info">{{requests.length}}</span></a></li>
+                                    <li v-if="permissions('viewRequest')"><a v-on:click="()=>this.$router.push({name:'admin.requests'})"><i class="fa fa-book"></i> Requests <span v-show="request_notifications" id="requests_counter" class="badge badge-info">{{request_notifications}}</span></a></li>
 
                                     <li v-if="permissions('viewHistory')"><a href="javascript:void(0);"><i class="fa fa-history"></i> Work History </a></li>
 
@@ -134,13 +134,6 @@
             profileImage:function(){
                 return this.auth.user.profile_picture? this.asset+''+this.auth.user.profile_picture: this.asset+'assets/admin/images/img.png';
             },
-            requestsCount:function () {
-                var count = 0;
-                this.requests.forEach((request)=>{
-                    request.status===0 ? count++ : count;
-                });
-                return count;
-            }
         },
         created() {
             var auth=JSON.parse(localStorage.getItem('authToken'));
@@ -165,7 +158,6 @@
                 this.$store.commit('auth',{status:false, auth:{}});
             }
             this.fetchRequests();
-            this.fetchSendRequests();
         },
         mounted(){
           var pusher=new Pusher('13dc91256b26300c36f3',{
@@ -174,20 +166,21 @@
           var channel=pusher.subscribe(`exchange_requests_notification.${this.auth.user.id}`);
           var self=this;
           channel.bind("exchange.requested",function (data) {
-                self.requests.push(data);
+                self.requests=data.original;
                 self.setReceiveRequests(self.requests);
+                self.request_notifications=self.requests.filter((request)=>request.status===0).length;
           });
         },
         data:function(){
           return{
               requests:[],
+              request_notifications:0,
           }
         },
         methods:{
             ...mapActions({
                 sendLogout:'logout',
-                setReceiveRequests:'setReceiveRequests',
-                setSendRequests: 'setSendRequests'
+                setReceiveRequests:'setReceiveRequests'
             }),
             logout:function(){
                 this.sendLogout(this.auth.user.email).then(()=>window.location.href=redirectedPaths('/',prefixPath));
@@ -203,22 +196,14 @@
                 axios.get(`/exchange/requests/${this.auth.user.id}`,authApiConfig(this.auth.token))
                 .then(res=>res.data)
                 .then((res)=>{
-                    for(var item in res){
+                    res.forEach((item)=>{
                         this.requests.push(item);
-                    }
+                    });
                     this.setReceiveRequests(res);
+                    this.request_notifications=this.requests.filter((request)=>request.status===0).length;
                 }).catch((error)=>{
                     console.log(error.response);
                 });
-            },
-            fetchSendRequests:function (){
-                axios.get(`/exchange/send/requests/${this.auth.user.id}`,authApiConfig(this.auth.token))
-                .then(res=>res.data)
-                .then((res)=>{
-                    this.setSendRequests(res);
-                }).catch((error)=>{
-                    console.log(error);
-                })
             }
         }
     }

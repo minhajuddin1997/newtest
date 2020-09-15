@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -4913,18 +4925,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Receive.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/Receive.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Agreement'
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _shared_Datatable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Datatable */ "./resources/js/pages/admin/shared/Datatable.vue");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4952,6 +4990,231 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ExchangeDetails',
+  props: {
+    asset: String
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    receiveRequests: function receiveRequests(state) {
+      return state.exchangeRequest.receiveRequests;
+    },
+    auth: function auth(state) {
+      return state.auth;
+    }
+  })),
+  created: function created() {
+    var _this = this;
+
+    this.requestId = this.$route.params.id;
+    this.receiveRequest = this.receiveRequests.filter(function (request) {
+      return parseInt(request.id) === parseInt(_this.requestId);
+    })[0];
+
+    if (this.receiveRequests.length) {
+      this.sender = this.receiveRequest.user;
+    } else {
+      this.findRequest(this.requestId).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        _this.sender = res.user;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    } // 1. fetch Requested Services
+
+
+    this.fetchRequestedServices(this.requestId); // 2. fetch offer services
+
+    this.fetchOfferServices(this.requestId);
+  },
+  data: function data() {
+    return {
+      requestId: 0,
+      receiveRequest: {},
+      sender: {},
+      requestedServices: [],
+      offerServices: [],
+      selectedServices: [],
+      //Sender Services Selection Array
+      amount: 0,
+      message: {}
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    setExchangeDetails: 'saveDetails'
+  })), {}, {
+    findRequest: function () {
+      var _findRequest = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/exchange/find/request/".concat(id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["authApiConfig"])(this.auth.token));
+
+              case 2:
+                return _context.abrupt("return", _context.sent);
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function findRequest(_x) {
+        return _findRequest.apply(this, arguments);
+      }
+
+      return findRequest;
+    }(),
+    fetchRequestedServices: function fetchRequestedServices(id) {
+      var _this2 = this;
+
+      axios.get("/exchange/requested/services/".concat(id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["authApiConfig"])(this.auth.token)).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        _this2.requestedServices = res;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    fetchOfferServices: function fetchOfferServices(id) {
+      var _this3 = this;
+
+      axios.get("/exchange/offer/services/".concat(id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["authApiConfig"])(this.auth.token)).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        _this3.offerServices = res;
+        console.log(res);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    rejectRequest: function rejectRequest(e) {
+      var _this4 = this;
+
+      e.preventDefault();
+      axios.put("/exchange/requests/".concat(this.selected.id), {
+        message: this.message
+      }, Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["authApiConfig"])(this.auth.token)).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        var index = _this4.$store.state.exchangeRequest.receiveRequests.findIndex(function (request) {
+          return request.id === _this4.selected.id;
+        });
+
+        _this4.$store.state.exchangeRequest.receiveRequests[index].status = -1;
+        _this4.DataTable.data[index].status = -1;
+        swal("Great!", "Request Rejected Successfully.", "success");
+        $("#reasonModal").modal('hide');
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    checkStatus: function checkStatus(id) {
+      if (this.selectedServices.length) {
+        var found = this.selectedServices.filter(function (service) {
+          return service.id === id;
+        });
+
+        if (found.length) {
+          return found[0].id ? [true, ' btn-success'] : [false, ' btn-dark'];
+        }
+
+        return [false, ' btn-dark'];
+      } else {
+        return [false, ' btn-dark'];
+      }
+    },
+    //
+    // computeAmount:function () {
+    //     var totalAmount=0;
+    //     this.selected.forEach((service)=>{
+    //         totalAmount+=service.amount;
+    //     });
+    //     this.totalAmount=totalAmount;
+    // },
+    //
+    selectServices: function selectServices(service) {
+      if (this.checkStatus(service.id)[0]) {
+        var check = service.id;
+        this.selectedServices = this.selectedServices.filter(function (service) {
+          return service.id !== check;
+        });
+      } else {
+        this.selectedServices.push(service);
+      }
+
+      this.computeAmount();
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Receive.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/Receive.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _shared_Datatable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Datatable */ "./resources/js/pages/admin/shared/Datatable.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -5056,15 +5319,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     selectRequest: function selectRequest(request) {
       this.selected = request;
     },
-    rejectRequest: function rejectRequest(e) {
-      e.preventDefault();
-      axios.put("/exchange/requests/".concat(this.selected.id), this.message, Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_0__["authApiConfig"])(this.auth.token)).then(function (res) {
-        return res.data;
-      }).then(function (res) {
-        swal("Great!", "Request Rejected Successfully.", "success");
-        $("#reasonModal").modal('hide');
-      })["catch"](function (error) {
-        console.log(error);
+    viewDetails: function viewDetails(id) {
+      return this.$router.push({
+        name: 'admin.request.exchange',
+        params: {
+          id: id
+        }
       });
     }
   }
@@ -5128,9 +5388,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     auth: function auth(state) {
       return state.auth;
-    },
-    sendRequests: function sendRequests(state) {
-      return state.exchangeRequest.sendRequests;
     }
   })),
   data: function data() {
@@ -5145,11 +5402,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   mounted: function mounted() {
-    if (this.sendRequests.length) {
-      this.DataTable.data = this.sendRequests;
-    } else {
-      this.fetchSenderRequests();
-    }
+    this.fetchSenderRequests();
   },
   methods: {
     fetchSenderRequests: function fetchSenderRequests() {
@@ -5186,6 +5439,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         case 1:
           return ["accepted", "Accepted"];
       }
+    },
+    deleteRequest: function deleteRequest(id) {
+      var _this2 = this;
+
+      axios["delete"]("/exchange/requests/".concat(id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_0__["authApiConfig"])(this.auth.token)).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        swal("Request Deletion", res, "success");
+
+        _this2.fetchSenderRequests();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -6480,13 +6746,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     profileImage: function profileImage() {
       return this.auth.user.profile_picture ? this.asset + '' + this.auth.user.profile_picture : this.asset + 'assets/admin/images/img.png';
-    },
-    requestsCount: function requestsCount() {
-      var count = 0;
-      this.requests.forEach(function (request) {
-        request.status === 0 ? count++ : count;
-      });
-      return count;
     }
   }),
   created: function created() {
@@ -6518,7 +6777,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 
     this.fetchRequests();
-    this.fetchSendRequests();
   },
   mounted: function mounted() {
     var pusher = new Pusher('13dc91256b26300c36f3', {
@@ -6527,19 +6785,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var channel = pusher.subscribe("exchange_requests_notification.".concat(this.auth.user.id));
     var self = this;
     channel.bind("exchange.requested", function (data) {
-      self.requests.push(data);
+      self.requests = data.original;
       self.setReceiveRequests(self.requests);
+      self.request_notifications = self.requests.filter(function (request) {
+        return request.status === 0;
+      }).length;
     });
   },
   data: function data() {
     return {
-      requests: []
+      requests: [],
+      request_notifications: 0
     };
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
     sendLogout: 'logout',
-    setReceiveRequests: 'setReceiveRequests',
-    setSendRequests: 'setSendRequests'
+    setReceiveRequests: 'setReceiveRequests'
   })), {}, {
     logout: function logout() {
       this.sendLogout(this.auth.user.email).then(function () {
@@ -6561,24 +6822,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get("/exchange/requests/".concat(this.auth.user.id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["authApiConfig"])(this.auth.token)).then(function (res) {
         return res.data;
       }).then(function (res) {
-        for (var item in res) {
+        res.forEach(function (item) {
           _this.requests.push(item);
-        }
+        });
 
         _this.setReceiveRequests(res);
+
+        _this.request_notifications = _this.requests.filter(function (request) {
+          return request.status === 0;
+        }).length;
       })["catch"](function (error) {
         console.log(error.response);
-      });
-    },
-    fetchSendRequests: function fetchSendRequests() {
-      var _this2 = this;
-
-      axios.get("/exchange/send/requests/".concat(this.auth.user.id), Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__["authApiConfig"])(this.auth.token)).then(function (res) {
-        return res.data;
-      }).then(function (res) {
-        _this2.setSendRequests(res);
-      })["catch"](function (error) {
-        console.log(error);
       });
     }
   })
@@ -39563,6 +39817,765 @@ runtime.setup(pusher_Pusher);
 
 /***/ }),
 
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/setimmediate/setImmediate.js":
 /*!***************************************************!*\
   !*** ./node_modules/setimmediate/setImmediate.js ***!
@@ -45533,6 +46546,247 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("main")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("main", [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "reasonModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content reason" }, [
+              _c("form", { on: { submit: _vm.rejectRequest } }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c(
+                    "textarea",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.message,
+                          expression: "message"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        rows: "6",
+                        placeholder: "Please Enter The Reason For Rejection"
+                      },
+                      domProps: { value: _vm.message },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.message = $event.target.value
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.message))]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "right_col",
+        staticStyle: { "min-height": "990px" },
+        attrs: { role: "main" }
+      },
+      [
+        _c("div", {}, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "offset-md-1 col-md-10 offset-lg-2 col-lg-8 col-sm-12"
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "x_panel" },
+                  [
+                    _c("div", { staticClass: "row requested-service-header" }, [
+                      _c("div", { staticClass: "col-1" }, [
+                        _c("img", {
+                          attrs: { src: _vm.asset + _vm.sender.profile_picture }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-8" }, [
+                        _c(
+                          "article",
+                          { staticClass: "requested-company-name" },
+                          [_vm._v(_vm._s(_vm.sender.company_name))]
+                        ),
+                        _vm._v(" "),
+                        _c("article", { staticClass: "requested-text" }, [
+                          _vm._v("Requested These Services")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.requestedServices, function(service) {
+                      return _c(
+                        "div",
+                        { staticClass: "card card-body requested-service-box" },
+                        [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-8" }, [
+                              _c("h5", [_vm._v(_vm._s(service.title))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(service.description))])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "offset-md-2 col-md-2 col-sm-4 cost-box"
+                              },
+                              [
+                                _c("p", { staticClass: "head-cost" }, [
+                                  _vm._v("Cost:")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "text-cost" }, [
+                                  _vm._v("$" + _vm._s(service.amount))
+                                ])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
+        [_vm._v("Reason For Rejection")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn reject-btn", attrs: { type: "submit" } },
+        [_vm._v("Reject Request")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Receive.vue?vue&type=template&id=3893754a&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/Request/Receive.vue?vue&type=template&id=3893754a& ***!
@@ -45551,69 +46805,6 @@ var render = function() {
   return _c(
     "main",
     [
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "reasonModal",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content reason" }, [
-                _c("form", { on: { submit: _vm.rejectRequest } }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c(
-                      "textarea",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.message,
-                            expression: "message"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          rows: "6",
-                          placeholder: "Please Enter The Reason For Rejection"
-                        },
-                        domProps: { value: _vm.message },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.message = $event.target.value
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(_vm.message))]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
       _c("Datatable", {
         attrs: {
           pagination: _vm.DataTable.pagination,
@@ -45674,32 +46865,18 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tb_buttons" }, [
-                      _c("button", { staticClass: "btn view" }, [
-                        _c("i", { staticClass: "fa fa-eye" }),
-                        _vm._v("View")
-                      ]),
-                      _vm._v(" "),
-                      !requests.status
-                        ? _c(
-                            "button",
-                            {
-                              staticClass: "btn delete",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#reasonModal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.selectRequest(requests)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", { staticClass: "fa fa-trash-o" }),
-                              _vm._v("Reject")
-                            ]
-                          )
-                        : _vm._e()
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn view",
+                          on: {
+                            click: function($event) {
+                              return _vm.viewDetails(requests.id)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-eye" }), _vm._v("View")]
+                      )
                     ])
                   ])
                 })
@@ -45713,54 +46890,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
-        [_vm._v("Reason For Rejection")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn reject-btn", attrs: { type: "submit" } },
-        [_vm._v("Reject Request")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -45846,10 +46976,21 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", { staticClass: "tb_buttons" }, [
                       requests.status === -1
-                        ? _c("button", { staticClass: "btn delete" }, [
-                            _c("i", { staticClass: "fa fa-trash-o" }),
-                            _vm._v("Delete")
-                          ])
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "btn delete",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteRequest(requests.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "fa fa-trash-o" }),
+                              _vm._v("Delete")
+                            ]
+                          )
                         : _vm._e()
                     ])
                   ])
@@ -48112,11 +49253,7 @@ var render = function() {
                           on: {
                             click: function() {
                               return this$1.$router.push({
-                                name: "admin.requests",
-                                props: {
-                                  requests: _vm.requests,
-                                  auth: _vm.auth
-                                }
+                                name: "admin.requests"
                               })
                             }
                           }
@@ -48131,14 +49268,14 @@ var render = function() {
                                 {
                                   name: "show",
                                   rawName: "v-show",
-                                  value: _vm.requestsCount,
-                                  expression: "requestsCount"
+                                  value: _vm.request_notifications,
+                                  expression: "request_notifications"
                                 }
                               ],
                               staticClass: "badge badge-info",
                               attrs: { id: "requests_counter" }
                             },
-                            [_vm._v(_vm._s(_vm.requests.length))]
+                            [_vm._v(_vm._s(_vm.request_notifications))]
                           )
                         ]
                       )
@@ -66484,6 +67621,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/Request/Agreement.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/admin/Request/Agreement.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Agreement.vue?vue&type=template&id=6ec15d9e& */ "./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e&");
+/* harmony import */ var _Agreement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Agreement.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Agreement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/Request/Agreement.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Agreement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Agreement.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Agreement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Agreement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Agreement.vue?vue&type=template&id=6ec15d9e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/Agreement.vue?vue&type=template&id=6ec15d9e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Agreement_vue_vue_type_template_id_6ec15d9e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/Request/ExchangeDetails.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/pages/admin/Request/ExchangeDetails.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExchangeDetails.vue?vue&type=template&id=a6d137f4& */ "./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4&");
+/* harmony import */ var _ExchangeDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExchangeDetails.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ExchangeDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/Request/ExchangeDetails.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExchangeDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExchangeDetails.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExchangeDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ExchangeDetails.vue?vue&type=template&id=a6d137f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/Request/ExchangeDetails.vue?vue&type=template&id=a6d137f4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExchangeDetails_vue_vue_type_template_id_a6d137f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin/Request/Receive.vue":
 /*!******************************************************!*\
   !*** ./resources/js/pages/admin/Request/Receive.vue ***!
@@ -67039,6 +68314,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_admin_Requests__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/admin/Requests */ "./resources/js/pages/admin/Requests.vue");
 /* harmony import */ var _pages_admin_Request_Receive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../pages/admin/Request/Receive */ "./resources/js/pages/admin/Request/Receive.vue");
 /* harmony import */ var _pages_admin_Request_Send__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../pages/admin/Request/Send */ "./resources/js/pages/admin/Request/Send.vue");
+/* harmony import */ var _pages_admin_Request_ExchangeDetails__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../pages/admin/Request/ExchangeDetails */ "./resources/js/pages/admin/Request/ExchangeDetails.vue");
+/* harmony import */ var _pages_admin_Request_Agreement__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../pages/admin/Request/Agreement */ "./resources/js/pages/admin/Request/Agreement.vue");
+
+
 
 
 
@@ -67149,6 +68428,16 @@ var routes = [{
     name: 'send',
     component: _pages_admin_Request_Send__WEBPACK_IMPORTED_MODULE_19__["default"]
   }],
+  beforeEnter: _helpers_helpers__WEBPACK_IMPORTED_MODULE_10__["vendorMiddleware"]
+}, {
+  path: '/admin/request/exchange/:id',
+  component: _pages_admin_Request_ExchangeDetails__WEBPACK_IMPORTED_MODULE_20__["default"],
+  name: 'admin.request.exchange',
+  beforeEnter: _helpers_helpers__WEBPACK_IMPORTED_MODULE_10__["vendorMiddleware"]
+}, {
+  path: '/admin/exchange/agreement',
+  component: _pages_admin_Request_Agreement__WEBPACK_IMPORTED_MODULE_21__["default"],
+  name: 'admin.exchange.agreement',
   beforeEnter: _helpers_helpers__WEBPACK_IMPORTED_MODULE_10__["vendorMiddleware"]
 }];
 routes = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_10__["prefixRoutes"])(routes, _helpers_helpers__WEBPACK_IMPORTED_MODULE_10__["prefixPath"]);
@@ -67487,8 +68776,8 @@ var actions = {
   setReceiveRequests: function setReceiveRequests(context, requests) {
     context.commit('receiveRequests', requests);
   },
-  setSendRequests: function setSendRequests(context, requests) {
-    context.commit('sendRequests', requests);
+  setExchangeDetails: function setExchangeDetails(context, details) {
+    context.commit("exchangeProcessDetails", details);
   }
 };
 
@@ -67559,8 +68848,13 @@ var mutations = {
   receiveRequests: function receiveRequests(state, payload) {
     state.exchangeRequest.receiveRequests = payload;
   },
-  sendRequests: function sendRequests(state, payload) {
-    state.exchangeRequest.sendRequests = payload;
+  exchangeProcessDetails: function exchangeProcessDetails(state, payload) {
+    state.exchangeProcess.sender = payload.sender;
+    state.exchangeProcess.requestedServices = payload.requestedServices;
+    state.exchangeProcess.offerServices = payload.offerServices;
+    state.exchangeProcess.amount = payload.amount;
+    state.exchangeProcess.paidTo = payload.paidTo;
+    state.exchangeProcess.paidBy = payload.paidBy;
   }
 };
 
@@ -67582,12 +68876,16 @@ var state = {
   auth: {},
   exchangeRequest: {
     selectedCompany: {},
-    receiveRequests: [],
-    sendRequests: []
-  } // exchangeProcess:{
-  //     senderServices:[]
-  // }
-
+    receiveRequests: []
+  },
+  exchangeProcess: {
+    sender: {},
+    requestedServices: [],
+    offerServices: [],
+    amount: {},
+    paidTo: 0,
+    paidBy: 0
+  }
 };
 
 

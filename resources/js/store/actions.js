@@ -17,8 +17,8 @@ const actions={
     setReceiveRequests:(context,requests)=>{
         context.commit('receiveRequests',requests);
     },
-    setSendRequests:(context,requests)=>{
-        context.commit('sendRequests',requests);
+    setExchangeDetails:(context,details)=>{
+        context.commit("exchangeProcessDetails",details);
     }
 };
 

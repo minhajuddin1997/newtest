@@ -4,7 +4,9 @@ namespace App\Http\Controllers\api\admin;
 
 use App\Events\ExchangeRequest;
 use App\Http\Controllers\Controller;
+use App\model\agreement;
 use App\model\exchange_requests;
+use App\model\service;
 use App\Notifications\ExchangeNotification;
 use App\Notifications\ExchangeRejectNotification;
 use App\User;
@@ -35,7 +37,7 @@ class ExchangeController extends Controller
                 "service_id" => $service->id
             ]);
         }
-        $exchange_notifications=exchange_requests::where("receiver_id",$receiver_id)->get();
+        $exchange_notifications=$this->getRequests($receiver_id);
         event(new ExchangeRequest($receiver_id, $exchange_notifications));
         $receiver=User::find($receiver_id);
         $sender=User::select("company_name")->find($sender_id);
@@ -66,13 +68,51 @@ class ExchangeController extends Controller
         $message=request()->get("message");
         $request=exchange_requests::find($id);
         $request->update([
-            "status"=>-1
+            "status"=>-1,
+            "rejection_message"=>$message
         ]);
-        $exchange_notifications=exchange_requests::where("receiver_id",$request->receiver_id)->get();
+        $exchange_notifications=$this->getRequests($request->receiver_id);
         event(new ExchangeRequest($request->receiver_id, $exchange_notifications));
         $sender=User::find($request->sender_id);
         Notification::send($sender,new ExchangeRejectNotification($sender->company_name, $message));
         return "Request For Exchange Has Been Rejected Successfully";
+    }
+
+    //Delete Request
+    public function deleteRequest($id){
+        $request=exchange_requests::find($id);
+        $request->delete();
+        DB::table("requested_services")->where("exchange_request_id",$id)->delete();
+        return "Request Deleted Successfully.";
+    }
+
+    //Find Request
+    public function findRequest($id){
+        $request=exchange_requests::find($id);
+        $request->user=User::find($request->sender_id);
+        return response()->json($request);
+    }
+
+    //View Requested Services
+    public function view_requested_services($id){
+        $services=DB::table("requested_services")->where("exchange_request_id",$id)
+                  ->join("services","services.id","requested_services.service_id")
+                  ->select("services.*","requested_services.exchange_request_id as request_id")
+                  ->get();
+        return response()->json($services);
+    }
+
+    //View Offer Services
+    public function view_offer_services($id){
+        $request=exchange_requests::find($id);
+        $services=service::where([["user_id",'=',$request->sender_id],["required_offered","=",1]])->get();
+        return response()->json($services);
+    }
+
+    //View Agreement
+    public function view_agreement(){
+        $agreement=agreement::where("display_status",1)->orderBy('created_at')->first();
+        return response()->json($agreement);
     }
 
     //helper

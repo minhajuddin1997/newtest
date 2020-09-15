@@ -19,6 +19,8 @@ import Connections from "../pages/admin/Connections";
 import Requests from "../pages/admin/Requests";
 import Receive from "../pages/admin/Request/Receive";
 import Send from "../pages/admin/Request/Send";
+import ExchangeDetails from "../pages/admin/Request/ExchangeDetails";
+import Agreement from "../pages/admin/Request/Agreement";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -50,6 +52,8 @@ var routes=[
             }
 
         ], beforeEnter:vendorMiddleware},
+    {path: '/admin/request/exchange/:id', component:ExchangeDetails, name:'admin.request.exchange', beforeEnter:vendorMiddleware},
+    {path: '/admin/exchange/agreement', component:Agreement, name:'admin.exchange.agreement', beforeEnter:vendorMiddleware},
 ];
 
 routes=prefixRoutes(routes,prefixPath);

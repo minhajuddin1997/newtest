@@ -17669,3 +17669,61 @@ body {
   color: black;
 }
 
+.requested-service-header {
+  margin-bottom: 10px;
+}
+
+.requested-service-header img {
+  height: 60px;
+  width: 60px;
+  padding: 3px;
+  border: 1px solid #d7d7d7;
+}
+
+.requested-company-name {
+  color: #1c1c1c;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.requested-text {
+  color: #1c1c1c;
+  font-size: 15px;
+}
+
+.requested-service-box {
+  padding: 7px;
+  margin: 5px;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+}
+
+.requested-service-box h5 {
+  color: #1c1c1c;
+}
+
+.requested-service-box p {
+  color: #6f6f6f;
+  font-size: 14px;
+}
+
+.requested-service-box .cost-box {
+  padding: 28px;
+}
+
+.requested-service-box .head-cost {
+  color: #6f6f6f;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 0;
+  text-align: center;
+}
+
+.requested-service-box .text-cost {
+  color: #1c1c1c;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 0;
+  text-align: center;
+}
+

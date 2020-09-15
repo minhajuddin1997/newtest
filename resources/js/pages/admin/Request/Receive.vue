@@ -1,26 +1,6 @@
 <template>
     <main>
-        <div class="modal fade" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content reason">
-                    <form v-on:submit="rejectRequest">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Reason For Rejection</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <textarea v-model="message" class="form-control" rows="6" placeholder="Please Enter The Reason For Rejection">{{message}}</textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn reject-btn">Reject Request</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
 
         <Datatable :pagination="DataTable.pagination" :data="DataTable.data" :columns="DataTable.columns" :fetch-data="fetchRequests">
             <template v-slot:rows>
@@ -36,8 +16,7 @@
                         <span :class="checkStatus(requests.status)[0]">{{checkStatus(requests.status)[1]}}</span>
                     </td>
                     <td class="tb_buttons">
-                        <button class="btn view"><i class="fa fa-eye"></i>View</button>
-                        <button class="btn delete" v-if="!requests.status" data-toggle="modal" data-target="#reasonModal" v-on:click="selectRequest(requests)"><i class="fa fa-trash-o"></i>Reject</button>
+                        <button class="btn view" v-on:click="viewDetails(requests.id)"><i class="fa fa-eye"></i>View</button>
                     </td>
                 </tr>
             </template>
@@ -112,16 +91,8 @@
             selectRequest:function(request){
                 this.selected=request;
             },
-            rejectRequest:function (e) {
-                e.preventDefault();
-                axios.put(`/exchange/requests/${this.selected.id}`,this.message,authApiConfig(this.auth.token))
-                .then(res=>res.data)
-                .then((res)=>{
-                    swal("Great!","Request Rejected Successfully.","success");
-                    $("#reasonModal").modal('hide');
-                }).catch((error)=>{
-                   console.log(error);
-                });
+            viewDetails:function(id){
+                return this.$router.push({name:'admin.request.exchange', params:{id:id}});
             }
         }
     }

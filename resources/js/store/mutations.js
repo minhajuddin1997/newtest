@@ -9,8 +9,13 @@ const mutations={
     receiveRequests:(state,payload)=>{
         state.exchangeRequest.receiveRequests=payload;
     },
-    sendRequests:(state,payload)=>{
-        state.exchangeRequest.sendRequests=payload;
+    exchangeProcessDetails:(state,payload)=>{
+        state.exchangeProcess.sender=payload.sender;
+        state.exchangeProcess.requestedServices=payload.requestedServices;
+        state.exchangeProcess.offerServices=payload.offerServices;
+        state.exchangeProcess.amount=payload.amount;
+        state.exchangeProcess.paidTo=payload.paidTo;
+        state.exchangeProcess.paidBy=payload.paidBy;
     }
 };
 

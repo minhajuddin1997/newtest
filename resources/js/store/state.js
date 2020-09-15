@@ -3,12 +3,16 @@ const state={
         auth:{},
         exchangeRequest:{
             selectedCompany:{},
-            receiveRequests:[],
-            sendRequests:[]
+            receiveRequests:[]
         },
-        // exchangeProcess:{
-        //     senderServices:[]
-        // }
+        exchangeProcess:{
+            sender:{},
+            requestedServices:[],
+            offerServices:[],
+            amount:{},
+            paidTo:0,
+            paidBy:0
+        }
 };
 
 export {state};

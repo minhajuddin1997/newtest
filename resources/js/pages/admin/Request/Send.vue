@@ -14,7 +14,7 @@
                         <span :class="checkStatus(requests.status)[0]">{{checkStatus(requests.status)[1]}}</span>
                     </td>
                     <td class="tb_buttons">
-                        <button class="btn delete" v-if="requests.status===-1"><i class="fa fa-trash-o"></i>Delete</button>
+                        <button class="btn delete" v-if="requests.status===-1" v-on:click="deleteRequest(requests.id)"><i class="fa fa-trash-o"></i>Delete</button>
                     </td>
                 </tr>
             </template>
@@ -35,7 +35,6 @@
         computed:{
             ...mapState({
                 auth: state=>state.auth,
-                sendRequests:state=>state.exchangeRequest.sendRequests,
             }),
         },
         data:function(){
@@ -50,11 +49,7 @@
             }
         },
         mounted(){
-            if(this.sendRequests.length){
-                this.DataTable.data=this.sendRequests;
-            }else{
                 this.fetchSenderRequests();
-            }
         },
         methods:{
             fetchSenderRequests:function (){
@@ -83,6 +78,16 @@
                     case 1:
                         return ["accepted","Accepted"];
                 }
+            },
+            deleteRequest:function(id){
+                axios.delete(`/exchange/requests/${id}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((res)=>{
+                    swal("Request Deletion",res,"success");
+                    this.fetchSenderRequests();
+                }).catch((error)=>{
+                    console.log(error);
+                });
             }
         }
     }
