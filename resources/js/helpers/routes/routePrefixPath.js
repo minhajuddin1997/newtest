@@ -1,1 +1,1 @@
-export const prefixPath='service_market/public';
+export const prefixPath='public';
