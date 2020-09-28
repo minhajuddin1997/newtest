@@ -66390,7 +66390,7 @@ var redirectedPaths = function redirectedPaths(route) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prefixPath", function() { return prefixPath; });
-var prefixPath = 'public';
+var prefixPath = '';
 
 /***/ }),
 
