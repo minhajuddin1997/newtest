@@ -1,1 +1,1 @@
-export const prefixPath='';
+export const prefixPath='public';
