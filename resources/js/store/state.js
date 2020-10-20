@@ -8,10 +8,15 @@ const state={
         exchangeProcess:{
             sender:{},
             requestedServices:[],
-            offerServices:[],
+            selectedServices:[],
             amount:{},
             paidTo:0,
-            paidBy:0
+            paidBy:0,
+            requestId:0
+        },
+        works:{
+            work:{},
+            paymentId:0
         }
 };
 

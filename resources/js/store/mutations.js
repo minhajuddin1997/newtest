@@ -12,10 +12,11 @@ const mutations={
     exchangeProcessDetails:(state,payload)=>{
         state.exchangeProcess.sender=payload.sender;
         state.exchangeProcess.requestedServices=payload.requestedServices;
-        state.exchangeProcess.offerServices=payload.offerServices;
+        state.exchangeProcess.selectedServices=payload.selectedServices;
         state.exchangeProcess.amount=payload.amount;
         state.exchangeProcess.paidTo=payload.paidTo;
         state.exchangeProcess.paidBy=payload.paidBy;
+        state.exchangeProcess.requestId=payload.requestId;
     }
 };
 

@@ -16,7 +16,7 @@
                         <span :class="checkStatus(requests.status)[0]">{{checkStatus(requests.status)[1]}}</span>
                     </td>
                     <td class="tb_buttons">
-                        <button class="btn view" v-on:click="viewDetails(requests.id)"><i class="fa fa-eye"></i>View</button>
+                        <button class="btn view" v-if="requests.status!==1" v-on:click="viewDetails(requests.id)"><i class="fa fa-eye"></i>View</button>
                     </td>
                 </tr>
             </template>

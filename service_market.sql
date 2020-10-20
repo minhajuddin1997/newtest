@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2020 at 06:37 PM
+-- Generation Time: Oct 20, 2020 at 07:02 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -82,7 +82,8 @@ INSERT INTO `company_messages` (`id`, `message`, `toId`, `fromId`, `connection_i
 (290, 'Nikal', 2, 6, 22, 1, '2020-09-08 17:52:09', '2020-09-08 18:15:47'),
 (291, 'Hello', 6, 2, 22, 1, '2020-09-09 18:03:53', '2020-09-09 18:04:01'),
 (292, 'Hi', 2, 6, 22, 1, '2020-09-09 18:04:05', '2020-09-09 18:08:58'),
-(293, 'Hello ji', 6, 2, 22, 0, '2020-09-10 13:30:36', '2020-09-10 13:30:36');
+(293, 'Hello ji', 6, 2, 22, 0, '2020-09-10 13:30:36', '2020-09-10 13:30:36'),
+(294, 'Hello', 2, 56, 23, 1, '2020-10-13 04:22:39', '2020-10-13 04:22:53');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,7 @@ CREATE TABLE `connections` (
 
 INSERT INTO `connections` (`id`, `company_1`, `company_2`, `status`, `created_at`, `updated_at`) VALUES
 (22, 2, 6, 1, '2020-09-07 12:03:49', '2020-09-07 12:04:30'),
-(23, 56, 2, 0, '2020-09-10 13:30:54', '2020-09-10 13:30:54');
+(23, 56, 2, 1, '2020-09-10 13:30:54', '2020-10-09 13:59:13');
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE `exchange_agreement` (
 --
 
 INSERT INTO `exchange_agreement` (`id`, `agreement_text`, `display_status`, `created_at`, `updated_at`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.\r\n\r\nSed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.\r\n\r\nMorbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.\r\n\r\nSuspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.\r\n\r\nUt convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis xdis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida', 1, '2020-09-10 14:59:31', '2020-09-10 14:59:31'),
+(1, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium,<sender> ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.\r\n\r\nSed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida <receiver> id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.\r\n\r\nMorbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.\r\n\r\nSuspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.\r\n\r\nUt convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis xdis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida', 1, '2020-09-10 14:59:31', '2020-09-10 14:59:31'),
 (2, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.\r\n', 0, '2020-09-10 15:07:07', '2020-09-10 15:07:07');
 
 -- --------------------------------------------------------
@@ -150,9 +151,11 @@ CREATE TABLE `exchange_requests` (
 --
 
 INSERT INTO `exchange_requests` (`id`, `sender_id`, `receiver_id`, `status`, `rejection_message`, `created_at`, `updated_at`) VALUES
-(2, 2, 6, -1, 'We are not intrested in this services', '2020-09-10 10:13:16', '2020-09-10 13:19:29'),
 (3, 2, 6, 0, NULL, '2020-09-10 13:16:09', '2020-09-10 13:16:09'),
-(4, 56, 2, 0, NULL, '2020-09-10 13:25:40', '2020-09-10 13:25:40');
+(4, 56, 2, 1, 'gerg wertger ertert ertert ertwer', '2020-09-10 13:25:40', '2020-10-13 03:00:09'),
+(5, 2, 6, 0, NULL, '2020-10-09 14:01:26', '2020-10-09 14:01:26'),
+(6, 56, 2, 1, NULL, '2020-10-16 09:18:59', '2020-10-16 09:22:53'),
+(7, 56, 2, 1, NULL, '2020-10-16 09:29:01', '2020-10-16 09:30:34');
 
 -- --------------------------------------------------------
 
@@ -220,7 +223,8 @@ CREATE TABLE `oauth_access_tokens` (
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('50db38b5d4b4d446dc8ba0f3fe2c6f97a8c62fd34dc22b5ae938b723e7dac07d3f13835b5ddb283f', 6, 3, 'auth-api', '[]', 0, '2020-09-10 17:47:12', '2020-09-10 17:47:12', '2020-09-11 22:47:11'),
-('8743d18f80ff784ddf7e40be5b1b123c849041240924cba70465ea6eaefc4604bcbb7a3725f88724', 2, 3, 'auth-api', '[]', 0, '2020-09-10 13:22:08', '2020-09-10 13:22:08', '2020-09-11 18:22:08');
+('d9b8466d03363f74cca5e1a99c0d66e89a7565c74b121e12c49a69f4b2a38f0c869b79832e6ab935', 56, 3, 'auth-api', '[]', 0, '2020-10-16 08:50:38', '2020-10-16 08:50:38', '2020-10-17 13:50:38'),
+('f786dc07fd643c558195abcf769e08935d451a265581c9a025a36731dd1c67e9b90be4e182f3a176', 2, 3, 'auth-api', '[]', 0, '2020-10-16 08:48:11', '2020-10-16 08:48:11', '2020-10-17 13:48:10');
 
 -- --------------------------------------------------------
 
@@ -315,6 +319,58 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `payment_method` enum('Credit Card','Net Banking','Paypal','Not Available') NOT NULL DEFAULT 'Credit Card',
+  `payment_status` int(11) NOT NULL,
+  `work_id` int(11) NOT NULL,
+  `paid_by` int(11) NOT NULL,
+  `paid_to` int(11) NOT NULL,
+  `card_number` varchar(250) DEFAULT NULL,
+  `name_on_card` varchar(250) DEFAULT NULL,
+  `card_cvc` int(11) DEFAULT NULL,
+  `card_valid_date` varchar(250) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `amount`, `payment_method`, `payment_status`, `work_id`, `paid_by`, `paid_to`, `card_number`, `name_on_card`, `card_cvc`, `card_valid_date`, `created_at`, `updated_at`) VALUES
+(15, 42990, 'Credit Card', 3, 20, 56, 2, '7777-7777-7777-7777', 'Amir Ali', 222, '01/24', '2020-10-13 03:00:09', '2020-10-16 13:29:43'),
+(16, 42990, 'Credit Card', 3, 21, 56, 2, '4444-4444-4444-4444', 'Amir Ali', 333, '01/24', '2020-10-16 09:22:53', '2020-10-16 13:32:53'),
+(17, -57000, 'Credit Card', 3, 22, 2, 56, '8888-8888-8888-8888', 'Amir ALi', 222, '01/04', '2020-10-16 09:30:34', '2020-10-16 09:30:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_status`
+--
+
+CREATE TABLE `payment_status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment_status`
+--
+
+INSERT INTO `payment_status` (`id`, `status`) VALUES
+(1, 'Completed'),
+(2, 'Cancelled'),
+(3, 'Pending'),
+(4, 'Not Verified');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `requested_services`
 --
 
@@ -331,9 +387,11 @@ CREATE TABLE `requested_services` (
 --
 
 INSERT INTO `requested_services` (`id`, `service_id`, `exchange_request_id`, `created_at`, `updated_at`) VALUES
-(3, 25, 2, '2020-09-10 15:13:16', '2020-09-10 15:13:16'),
 (4, 27, 3, '2020-09-10 18:16:09', '2020-09-10 18:16:09'),
-(5, 26, 4, '2020-09-10 18:25:40', '2020-09-10 18:25:40');
+(5, 26, 4, '2020-09-10 18:25:40', '2020-09-10 18:25:40'),
+(6, 25, 5, '2020-10-09 19:01:26', '2020-10-09 19:01:26'),
+(7, 26, 6, '2020-10-16 14:18:59', '2020-10-16 14:18:59'),
+(8, 26, 7, '2020-10-16 14:29:01', '2020-10-16 14:29:01');
 
 -- --------------------------------------------------------
 
@@ -419,7 +477,7 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`id`, `title`, `title_image`, `description`, `deliverables`, `amount`, `required_offered`, `status`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
 (25, 'Logo Designing', '', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', '[\"fasdf\",\"aasdf\"]', 45000, 1, 1, 6, 6, '2020-08-19 07:09:26', '2020-08-19 07:09:26'),
 (26, 'Web Designing', 'assets/admin/uploads/images/437528581.jpeg', 'Additional item properties besides textField and valueField to include when searches are performed. Can be comma delimited string or array of strings.', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 43000, 1, 1, 2, 10, '2020-08-19 09:35:36', '2020-09-07 16:50:24'),
-(27, 'New Post', 'assets/admin/uploads/images/809376518.png', 'rtdsg fdsg', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 10, 0, 1, 6, 6, '2020-09-03 15:39:38', '2020-09-03 15:39:38');
+(27, 'New Post', 'assets/admin/uploads/images/809376518.png', 'rtdsg fdsg', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 100000, 1, 1, 56, 6, '2020-09-03 15:39:38', '2020-10-16 09:29:48');
 
 -- --------------------------------------------------------
 
@@ -482,6 +540,15 @@ CREATE TABLE `works` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `works`
+--
+
+INSERT INTO `works` (`id`, `company_1`, `company_2`, `status`, `created_at`, `updated_at`) VALUES
+(20, 56, 2, 0, '2020-10-13 03:00:09', '2020-10-13 03:00:09'),
+(21, 56, 2, 0, '2020-10-16 09:22:53', '2020-10-16 09:22:53'),
+(22, 56, 2, 0, '2020-10-16 09:30:34', '2020-10-16 09:30:34');
+
 -- --------------------------------------------------------
 
 --
@@ -498,6 +565,18 @@ CREATE TABLE `work_services` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `work_services`
+--
+
+INSERT INTO `work_services` (`id`, `service_id`, `sender_id`, `receiver_id`, `status`, `work_id`, `created_at`, `updated_at`) VALUES
+(39, 26, 56, 2, 0, 20, '2020-10-13 08:00:09', '2020-10-13 08:00:09'),
+(40, 27, 2, 56, 0, 20, '2020-10-13 08:00:09', '2020-10-13 08:00:09'),
+(41, 26, 56, 2, 0, 21, '2020-10-16 14:22:53', '2020-10-16 14:22:53'),
+(42, 27, 2, 56, 0, 21, '2020-10-16 14:22:53', '2020-10-16 14:22:53'),
+(43, 26, 56, 2, 0, 22, '2020-10-16 14:30:34', '2020-10-16 14:30:34'),
+(44, 27, 2, 56, 0, 22, '2020-10-16 14:30:34', '2020-10-16 14:30:34');
 
 --
 -- Indexes for dumped tables
@@ -586,6 +665,18 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment_status`
+--
+ALTER TABLE `payment_status`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `requested_services`
 --
 ALTER TABLE `requested_services`
@@ -641,7 +732,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `company_messages`
 --
 ALTER TABLE `company_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=294;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
 
 --
 -- AUTO_INCREMENT for table `connections`
@@ -659,7 +750,7 @@ ALTER TABLE `exchange_agreement`
 -- AUTO_INCREMENT for table `exchange_requests`
 --
 ALTER TABLE `exchange_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -686,10 +777,22 @@ ALTER TABLE `oauth_personal_access_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `payment_status`
+--
+ALTER TABLE `payment_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `requested_services`
 --
 ALTER TABLE `requested_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -719,13 +822,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `work_services`
 --
 ALTER TABLE `work_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

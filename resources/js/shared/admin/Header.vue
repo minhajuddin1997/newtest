@@ -59,9 +59,9 @@
 
                                     <li v-if="permissions('viewRequest')"><a v-on:click="()=>this.$router.push({name:'admin.requests'})"><i class="fa fa-book"></i> Requests <span v-show="request_notifications" id="requests_counter" class="badge badge-info">{{request_notifications}}</span></a></li>
 
-                                    <li v-if="permissions('viewHistory')"><a href="javascript:void(0);"><i class="fa fa-history"></i> Work History </a></li>
+                                    <li v-if="permissions('viewHistory')"><a v-on:click="()=>this.$router.push({name:'admin.works_history'})"><i class="fa fa-history"></i> Work History </a></li>
 
-                                    <li v-if="permissions('viewPayment')"><a href="javascript:void(0);"><i class="fa fa-dollar"></i> Payments </a></li>
+                                    <li v-if="permissions('viewPayment')"><a v-on:click="()=>this.$router.push({name:'admin.payments_history'})"><i class="fa fa-dollar"></i> Payments </a></li>
 
 
                                     <!--                                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>-->

@@ -6,7 +6,9 @@ use App\Events\ExchangeRequest;
 use App\Http\Controllers\Controller;
 use App\model\agreement;
 use App\model\exchange_requests;
+use App\model\payment;
 use App\model\service;
+use App\model\work;
 use App\Notifications\ExchangeNotification;
 use App\Notifications\ExchangeRejectNotification;
 use App\User;
@@ -113,6 +115,82 @@ class ExchangeController extends Controller
     public function view_agreement(){
         $agreement=agreement::where("display_status",1)->orderBy('created_at')->first();
         return response()->json($agreement);
+    }
+
+    //Save Work And Payments
+    public function saveWork(){
+        $name_on_card=request()->get("nameOnCard");
+        $card_cvc=request()->get("cardCVC");
+        $card_number=request()->get("cardNumber");
+        $card_valid_date=request()->get("cardValidDate");
+        $payment_status=request()->get("status");
+        //if it already exist or not
+        if($payment_id=request()->get("paymentId")) {
+            $payment = payment::where("id",$payment_id)->update([
+                "name_on_card" => $name_on_card,
+                "card_cvc" => $card_cvc,
+                "card_number" => $card_number,
+                "card_valid_date" => $card_valid_date,
+                "payment_method" => $payment_status == "Not Verified" ? "Not Available" : "Credit Card",
+                "payment_status" => DB::table("payment_status")->where("status", $payment_status)->first()->id,
+            ]);
+
+            return response()->json("ThankYou, You Will Be Notified Soon.");
+        }
+        else {
+            $requested_services=request()->get("requestedServices");
+            $exchange_services=request()->get("exchangeServices");
+            $sender=request()->get('sender');
+            $receiver=request()->get('receiver');
+            $amount=request()->get('amount');
+            $paidTo=request()->get("paidTo");
+            $paidBy=request()->get("paidBy");
+            $work = work::create([
+                "company_1" => $sender["id"],
+                "company_2" => $receiver["id"],
+                "status" => 0
+            ]);
+            foreach ($requested_services as $service) {
+                DB::table("work_services")->insert([
+                    "service_id" => $service["id"],
+                    "sender_id" => $sender["id"],
+                    "receiver_id" => $receiver["id"],
+                    "status" => 0,
+                    "work_id" => $work["id"]
+                ]);
+            }
+            foreach ($exchange_services as $service) {
+                DB::table("work_services")->insert([
+                    "service_id" => $service["id"],
+                    "sender_id" => $receiver["id"],
+                    "receiver_id" => $sender["id"],
+                    "status" => 0,
+                    "work_id" => $work["id"]
+                ]);
+            }
+
+            payment::create([
+                "amount" => $amount,
+                "payment_method" => $payment_status == "Not Verified" ? "Not Available" : "Credit Card",
+                "payment_status" => DB::table("payment_status")->where("status", $payment_status)->first()->id,
+                "work_id" => $work->id,
+                "paid_by" => $paidBy,
+                "paid_to" => $paidTo,
+                "card_number" => $card_number,
+                "name_on_card" => $name_on_card,
+                "card_cvc" => $card_cvc,
+                "card_valid_date" => $card_valid_date,
+            ]);
+
+            $request = exchange_requests::find(\request()->get('requestId'));
+            $request->status = 1;
+            $request->save();
+        }
+
+        $exchange_notifications=$this->getRequests($receiver["id"]);
+        event(new ExchangeRequest($receiver["id"], $exchange_notifications));
+
+        return response()->json("ThankYou, You Will Be Notified Soon.");
     }
 
     //helper

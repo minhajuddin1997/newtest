@@ -21,6 +21,9 @@ import Receive from "../pages/admin/Request/Receive";
 import Send from "../pages/admin/Request/Send";
 import ExchangeDetails from "../pages/admin/Request/ExchangeDetails";
 import Agreement from "../pages/admin/Request/Agreement";
+import Payment from "../pages/admin/shared/Payment";
+import WorkHistory from "../pages/admin/WorkHistory";
+import PaymentsHistory from "../pages/admin/PaymentsHistory";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -54,6 +57,23 @@ var routes=[
         ], beforeEnter:vendorMiddleware},
     {path: '/admin/request/exchange/:id', component:ExchangeDetails, name:'admin.request.exchange', beforeEnter:vendorMiddleware},
     {path: '/admin/exchange/agreement', component:Agreement, name:'admin.exchange.agreement', beforeEnter:vendorMiddleware},
+    {path: '/admin/verify/payment/:paymentId?', component:Payment, name:"admin.payment", beforeEnter:vendorMiddleware},
+    {path: '/admin/work_history', component:WorkHistory, name:'admin.works_history', beforeEnter:vendorMiddleware},
+    {path: '/admin/payments', component:PaymentsHistory, name:'admin.payments_history',
+        // children:[
+        //     {
+        //         path:'',
+        //         name:'received',
+        //         component:Receive
+        //     },
+        //     {
+        //         path:'paid',
+        //         name:'paid',
+        //         component:Send
+        //     }
+        //
+        // ],
+        beforeEnter:vendorMiddleware},
 ];
 
 routes=prefixRoutes(routes,prefixPath);

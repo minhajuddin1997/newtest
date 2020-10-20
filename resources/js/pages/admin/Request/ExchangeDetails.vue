@@ -51,6 +51,47 @@
                                 </div>
                             </div>
 
+                            <div v-if="this.receiveRequest.status===0" class="offer-services-container">
+
+                            <div class="col-12 mt-2 p-1">
+                                <p>Select The Services You Want</p>
+                                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+                                    <div class="panel" v-for="service in offerServices">
+                                        <a class="panel-heading collapsed" role="tab" :id="service.id" data-toggle="collapse" data-parent="#accordion" :href="'#a'+service.id" aria-expanded="false" aria-controls="collapseThree">
+                                            <h4 class="panel-title">
+                                                <button :class="'btn check-button'+checkStatus(service.id)[1]" v-on:click="selectServices(service)" ><i class="fa fa-check"></i></button>
+                                                {{service.title}}</h4>
+
+                                        </a>
+                                        <div :id="'a'+service.id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" style="">
+                                            <div class="panel-body p-3">
+                                                {{service.description}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <strong>Total Cost : {{this.amount}}</strong>
+                                        </div>
+                                        <div class="offset-4 col-5">
+                                            <button type="button" class="btn accepted-btn" :disabled="this.selectedServices.length?false:'disabled'" v-on:click="saveDetails">Next Step</button>
+                                            <button type="button" class="btn rejected-btn" data-toggle="modal" data-target="#reasonModal">Reject</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+
+
+
 
                         </div>
                     </div>
@@ -99,12 +140,12 @@
                 offerServices:[],
                 selectedServices:[],//Sender Services Selection Array
                 amount:0,
-                message:{}
+                message:""
             }
         },
         methods:{
             ...mapActions({
-                setExchangeDetails:'saveDetails'
+                setExchangeDetails:'setExchangeDetails'
             }),
 
             findRequest:async function(id){
@@ -116,6 +157,7 @@
                 .then(res=>res.data)
                 .then((res)=>{
                     this.requestedServices=res;
+                    this.computeAmount();
                 }).catch((error)=>{
                     console.log(error);
                 });
@@ -126,7 +168,6 @@
                     .then(res=>res.data)
                     .then((res)=>{
                         this.offerServices=res;
-                        console.log(res);
                     }).catch((error)=>{
                     console.log(error);
                 });
@@ -134,12 +175,12 @@
 
             rejectRequest:function (e) {
                 e.preventDefault();
-                axios.put(`/exchange/requests/${this.selected.id}`,{message:this.message},authApiConfig(this.auth.token))
+                axios.put(`/exchange/requests/${this.requestId}`,{message:this.message},authApiConfig(this.auth.token))
                     .then(res=>res.data)
                     .then((res)=>{
-                        var index=this.$store.state.exchangeRequest.receiveRequests.findIndex((request)=>request.id===this.selected.id);
+                        var index=this.$store.state.exchangeRequest.receiveRequests.findIndex((request)=>request.id===this.requestId);
                         this.$store.state.exchangeRequest.receiveRequests[index].status=-1;
-                        this.DataTable.data[index].status=-1;
+                        this.$router.push({name:"admin.requests"});
                         swal("Great!","Request Rejected Successfully.","success");
                         $("#reasonModal").modal('hide');
                     }).catch((error)=>{
@@ -162,13 +203,17 @@
                 }
             },
             //
-            // computeAmount:function () {
-            //     var totalAmount=0;
-            //     this.selected.forEach((service)=>{
-            //         totalAmount+=service.amount;
-            //     });
-            //     this.totalAmount=totalAmount;
-            // },
+            computeAmount:function () {
+                var requestServicesAmount=0, selectedServicesAmount=0;
+
+                this.selectedServices.forEach((service)=>{
+                    selectedServicesAmount+=service.amount;
+                });
+                this.requestedServices.forEach((service)=>{
+                    requestServicesAmount+=service.amount;
+                });
+                this.amount=requestServicesAmount-selectedServicesAmount;
+            },
             //
 
             selectServices:function (service) {
@@ -180,6 +225,29 @@
                 }
                 this.computeAmount();
             },
+
+            // recording request
+            saveDetails:function (e){
+                var data={
+                    sender:this.sender,
+                    requestedServices:this.requestedServices,
+                    selectedServices:this.selectedServices,
+                    amount:this.amount,
+                    requestId: this.requestId
+                };
+                if(this.amount>0){
+                    data.paidTo=this.auth.user.id;
+                    data.paidBy=this.sender.id;
+                }else if(this.amount===0){
+                    data.paidTo=0;
+                    data.paidBy=0;
+                }else{
+                    data.paidTo=this.sender.id;
+                    data.paidBy=this.auth.user.id;
+                }
+                this.setExchangeDetails(data);
+                this.$router.push({name:'admin.exchange.agreement'});
+            }
 
         }
     }

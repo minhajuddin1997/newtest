@@ -63,4 +63,10 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::get('exchange/requested/services/{id}', 'ExchangeController@view_requested_services');//View Requested Services
     Route::get('exchange/offer/services/{id}', 'ExchangeController@view_offer_services');//View Sender Offer Services
     Route::get('exchange/agreement', 'ExchangeController@view_agreement');//View Exchange Agreement
+    Route::post('exchange/payment', 'ExchangeController@saveWork');
+
+    //Works History And Payments
+    Route::get('/works/{id}', "WorksController@index");
+    Route::get('/works-payments/{id}', "WorksController@workData");
+
 });

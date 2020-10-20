@@ -19,6 +19,18 @@ const actions={
     },
     setExchangeDetails:(context,details)=>{
         context.commit("exchangeProcessDetails",details);
+    },
+    resetExchangeDetails:(context)=>{
+        var defaults={
+            sender:{},
+            requestedServices:[],
+            selectedServices:[],
+            amount:{},
+            paidTo:0,
+            paidBy:0,
+            requestId:0
+        };
+        context.commit('exchangeProcessDetails',defaults);
     }
 };
 

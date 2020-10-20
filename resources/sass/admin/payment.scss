@@ -1,0 +1,121 @@
+.payment-summary-box{
+    background-color: #f3f2f2;
+    padding: 15px;
+    color: #1c1c1c;
+}
+
+.payment-detail-box{
+    padding: 15px;
+    color: #1c1c1c;
+}
+
+.payment-summary-box-content{
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6f6f6f;
+    font-weight: 500;
+}
+
+.summary-sub-box article{
+    display: inline-flex;
+    border-bottom: 1px solid #6f6f6f;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.summary-sub-box article .numeric{
+    right: 9%;
+    font-weight: 600;
+    color: #1c1c1c;
+    position: absolute;
+}
+
+.total-box article{
+    display: inline-flex;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.total-box article>.numeric{
+    background-color:$light-green;
+    color: #1c1c1c;
+    padding: 10px;
+    font-weight: 700;
+    right: 9%;
+    position: absolute;
+}
+
+.total-box article>p{
+    color: #1c1c1c;
+}
+
+.payment-method-box{
+    text-align: center;
+    padding-top: 10px;
+    border: 1px solid #ebebeb;
+    padding-bottom: 1px;
+    color: #1c1c1c;
+}
+
+.payment-method-box i{
+    font-size: 21px;
+    color: #1c1c1c;
+}
+
+.payment-method-box p{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+.payment-method-box-active{
+    text-align: center;
+    padding-top: 10px;
+    background: #fd5392;
+    background: linear-gradient(90deg, #fd5392 0%, #fb5e81 35%, #f86d67 100%);
+    padding-bottom: 1px;
+    color: white;
+}
+
+.payment-method-box-active i{
+    font-size: 21px;
+    color: white;
+}
+
+.payment-method-box-active p{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.payment-method-box-active-check{
+    color: white;
+    top: -8px;
+    position: absolute;
+    right: 5px;
+    background: $light-green;
+    border-radius: 10px;
+    height: 18px;
+    width: 18px;
+}
+
+.payment-method-box-active-check i{
+    text-align: center;
+    position: absolute;
+    padding: 3px 2px;
+    font-weight: 400;
+}
+
+.text-credit-card-field label{
+    color: #1c1c1c;
+    font-weight: 600;
+}
+
+.text-credit-card-field img{
+    right: 14px;
+    position: absolute;
+    top: -8px;
+}
+
+.payment-heading{
+    color: #1c1c1c;
+}
