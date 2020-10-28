@@ -17924,3 +17924,372 @@ body {
   line-height: 50px;
 }
 
+.active-work-section {
+  margin-top: 90px;
+}
+
+.active-work-heading {
+  color: #1c1c1c;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: bolder;
+}
+
+.work-section {
+  width: 100%;
+  border: 1px solid #d7d7d7;
+  padding: 10px;
+}
+
+.works-container {
+  border: 1px solid #d7d7d7;
+  list-style-type: none;
+  padding: 0;
+}
+
+.work-section img {
+  padding: 8px;
+  border: 1px solid #d7d7d7;
+  margin-right: 10px;
+  height: 60px;
+  width: 60px;
+  float: left;
+}
+
+.work_company_name {
+  margin-top: 8px;
+}
+
+.work_company_name span {
+  font-weight: 600;
+  color: #1c1c1c;
+}
+
+.work_company_name::after {
+  content: "\A";
+  white-space: pre-line;
+}
+
+.going-services-company-heading {
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 10px;
+  color: #1c1c1c;
+}
+
+.going-service-company-section {
+  padding: 10px 0px;
+}
+
+.going-service-company-section img {
+  padding: 8px;
+  border: 1px solid #d7d7d7;
+  height: 60px;
+  width: 60px;
+  float: left;
+}
+
+.work-service-section ul {
+  list-style-type: none;
+}
+
+.work-service {
+  padding: 8px 10px 10px 10px;
+  border: 1px solid #d7d7d7;
+  line-height: 40px;
+}
+
+.work-service div {
+  float: left;
+}
+
+.work-service-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.work-service-status {
+  position: absolute;
+  right: 8px;
+}
+
+.work-service-details-button {
+  color: #6f6f6f;
+  border: none;
+}
+
+.work-service-details-button:hover {
+  color: #6f6f6f;
+  border: none;
+}
+
+.service-details-header {
+  padding: 20px 0px;
+}
+
+.service-header-heading {
+  color: #1c1c1c;
+  font-weight: bolder;
+  font-size: 35px;
+}
+
+.service-header-button {
+  padding-top: 12px;
+}
+
+.service-header-button .task-button {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 12px 30px;
+  font-weight: 600;
+}
+
+.service-header-button .msg-button {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 12px 30px;
+  font-weight: 600;
+}
+
+.service-details-nav {
+  border-bottom: 2px solid #d7d7d7;
+  padding: 0;
+}
+
+.nav-link {
+  background-color: transparent;
+  color: #1c1c1c;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  background-color: transparent;
+  color: #1c1c1c;
+  border-bottom: 4px solid #48e3b7;
+  border-radius: 0;
+  margin-bottom: -3px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: transparent;
+  color: #1c1c1c;
+  border-bottom: 4px solid #48e3b7;
+  border-radius: 0;
+  margin-bottom: -3px;
+}
+
+.service-details-tasks-container {
+  padding: 0;
+  color: #1c1c1c;
+}
+
+.service-details-tasks {
+  list-style-type: none;
+}
+
+.service-details-tasks li {
+  padding: 3px 0px 3px 34px;
+  border-bottom: 2px solid #d7d7d7;
+  font-weight: 600;
+}
+
+.service-details-tasks li > .detail-label {
+  margin-left: 10px;
+}
+
+.service-details-tasks li > .detail-progress {
+  margin-left: 10px;
+  color: #6f6f6f;
+  font-weight: 600;
+}
+
+.service-details-tasks li > .detail-tag-icon {
+  margin-left: 10px;
+  color: #6f6f6f;
+  font-weight: 600;
+}
+
+.service-details-tasks .check-icon {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #48e3b7;
+  font-size: 15px;
+  font-weight: 100;
+  color: white;
+  margin-right: 12px;
+}
+
+.service-details-tasks .disable-check {
+  background-color: #d7d7d7;
+}
+
+.create-task-section form > div > label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.create-task-section form > div > textarea {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > input {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > textarea:focus {
+  padding: 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > input:focus {
+  padding: 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.service-details-file-section {
+  list-style-type: none;
+  margin-top: 10px;
+  padding: 0px 10px 0px 22px !important;
+}
+
+.service-details-tasks-container h5 {
+  width: 100%;
+  padding: 10px 0px;
+  border-bottom: 2px solid #d7d7d7;
+  margin-top: 10px;
+}
+
+.service-details-file {
+  padding: 8px 0px;
+  border-bottom: 2px solid #d7d7d7;
+}
+
+.service-details-file img {
+  float: left;
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.service-details-file .file-content {
+  line-height: 2px;
+  padding-top: 11px;
+}
+
+.service-details-file .file-content .file-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.service-details-file .file-content .file-reference {
+  font-weight: 600;
+  font-size: 13px;
+  color: #6f6f6f;
+}
+
+.service-details-file .file-content .file-reference .file-upload-days {
+  font-weight: 600;
+  font-size: 12px;
+  color: #6f6f6f;
+  margin-left: 10px;
+}
+
+.service-details-file .file-content .file-reference .file-upload-size {
+  font-weight: 600;
+  font-size: 12px;
+  color: #6f6f6f;
+  margin-left: 10px;
+}
+
+.service-details-file .file-buttons {
+  position: absolute;
+  right: 0;
+  display: inline-flex;
+}
+
+.service-details-file .file-buttons .file-delete-btn-icon {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 8px;
+  line-height: 7px;
+}
+
+.file-delete-btn-icon {
+  margin-top: -10px;
+}
+
+.upload-file-section {
+  border: 2px solid #d7d7d7;
+  padding: 30px 0px;
+  line-height: 2px;
+}
+
+.upload-file-section p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.upload-file-section button {
+  display: block;
+  font-weight: 400;
+  margin: 0 auto;
+}
+
+.upload-file-footer {
+  width: 100%;
+}
+
+.upload-file-footer h4 {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.upload-file-footer article {
+  width: 100%;
+  border-top: 1px solid #1c1c1c;
+  margin: 0px 0px 20px 0;
+}
+
+.upload-file-footer .upload-btn {
+  padding: 12px 30px;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .service-details-file .file-buttons {
+    position: relative;
+  }
+}
+
+.modal-content {
+  border-radius: 0;
+  border: 0;
+}
+
+.modal-header {
+  padding: 25px 20px;
+}
+
+.modal-title {
+  color: #1c1c1c;
+}
+
+.modal-body {
+  padding: 25px 20px;
+}
+
+.modal-footer {
+  border: none;
+  padding: 0px 20px 25px 20px;
+  justify-content: normal;
+}
+

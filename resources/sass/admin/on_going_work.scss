@@ -1,0 +1,100 @@
+.active-work-section{
+    margin-top: 90px;
+
+}
+
+.active-work-heading{
+    color: #1c1c1c;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+.work-section{
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    padding: 10px;
+}
+
+.works-container{
+    border: 1px solid #d7d7d7;
+    list-style-type: none;
+    padding: 0;
+}
+
+.work-section img{
+    padding: 8px;
+    border: 1px solid #d7d7d7;
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+    float: left;
+}
+
+.work_company_name{
+    margin-top: 8px;
+}
+.work_company_name span{
+    font-weight: 600;
+    color: #1c1c1c;
+}
+
+.work_company_name::after{
+    content: "\a";
+    white-space: pre-line;
+}
+
+//On Going Work Services
+
+.going-services-company-heading{
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #1c1c1c;
+}
+
+.going-service-company-section{
+    padding: 10px 0px;
+}
+
+.going-service-company-section img{
+    padding: 8px;
+    border: 1px solid #d7d7d7;
+    height: 60px;
+    width: 60px;
+    float: left;
+}
+
+.work-service-section ul{
+    list-style-type:none;
+}
+
+.work-service{
+    padding: 8px 10px 10px 10px;
+    border: 1px solid #d7d7d7;
+    line-height: 40px;
+}
+
+.work-service div{
+    float: left;
+}
+
+.work-service-name{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.work-service-status{
+    position: absolute;
+    right: 8px;
+}
+
+.work-service-details-button{
+    color: #6f6f6f;
+    border: none;
+}
+
+.work-service-details-button:hover {
+    color: #6f6f6f;
+    border: none;
+}

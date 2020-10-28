@@ -1,0 +1,117 @@
+.service-details-file-section{
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0px 10px 0px 22px !important;
+}
+
+.service-details-tasks-container h5{
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 2px solid #d7d7d7;
+    margin-top: 10px;
+}
+
+.service-details-file{
+    padding: 8px 0px;
+    border-bottom: 2px solid #d7d7d7;
+}
+
+.service-details-file img{
+    float: left;
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.service-details-file  .file-content{
+    line-height: 2px;
+    padding-top: 11px;
+}
+
+.service-details-file  .file-content  .file-title{
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.service-details-file  .file-content  .file-reference{
+    font-weight: 600;
+    font-size: 13px;
+    color: #6f6f6f;
+}
+
+.service-details-file  .file-content  .file-reference  .file-upload-days{
+    font-weight: 600;
+    font-size: 12px;
+    color: #6f6f6f;
+    margin-left: 10px;
+}
+
+.service-details-file  .file-content  .file-reference  .file-upload-size{
+    font-weight: 600;
+    font-size: 12px;
+    color: #6f6f6f;
+    margin-left: 10px;
+}
+
+.service-details-file  .file-buttons{
+    position: absolute;
+    right: 0;
+    display: inline-flex;
+}
+
+.service-details-file  .file-buttons .file-delete-btn-icon{
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 8px;
+    line-height: 7px;
+}
+
+.file-delete-btn-icon{
+    margin-top: -10px;
+}
+
+.upload-file-section{
+    border: 2px solid #d7d7d7;
+    padding: 30px 0px;
+    line-height: 2px;
+}
+
+.upload-file-section p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.upload-file-section button{
+    display: block;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.upload-file-footer{
+    width: 100%;
+}
+
+.upload-file-footer h4{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.upload-file-footer article{
+    width: 100%;
+    border-top: 1px solid #1c1c1c;
+    margin: 0px 0px 20px 0;
+}
+
+.upload-file-footer .upload-btn{
+    padding: 12px 30px;
+    border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+    .service-details-file  .file-buttons{
+        position: relative;
+    }
+}

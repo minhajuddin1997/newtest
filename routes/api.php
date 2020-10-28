@@ -68,5 +68,12 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     //Works History And Payments
     Route::get('/works/{id}', "WorksController@index");
     Route::get('/works-payments/{id}', "WorksController@workData");
-
+    Route::get('/going-works/{id}', "WorksController@getCompanies");
+    Route::get('/going-works-services/{id}', "WorksController@getCompaniesServices");
+    Route::get("/detail-service/tasks/{work_service_id}","WorksController@getServiceTasks");
+    Route::post("/detail-service/tasks/{work_service_id}","WorksController@create_task");
+    Route::put("/detail-service/tasks/update/{id}","WorksController@update_task_progress");
+    Route::get("/detail-service/files/{work_service_id}","WorksController@getServiceFiles");
+    Route::post("/detail-service/files/{work_service_id}","WorksController@upload_files");
+    Route::delete("/detail-service/files/{id}","WorksController@delete_files");
 });

@@ -1,0 +1,134 @@
+.service-details-header{
+    padding: 20px 0px;
+}
+.service-header-heading{
+    color: #1c1c1c;
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+.service-header-button{
+    padding-top: 12px;
+}
+
+.service-header-button .task-button{
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 12px 30px;
+    font-weight: 600;
+}
+
+.service-header-button .msg-button{
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 12px 30px;
+    font-weight: 600;
+}
+
+//Nav
+
+.service-details-nav{
+    border-bottom: 2px solid #d7d7d7;
+    padding: 0;
+}
+
+.nav-link{
+    background-color: transparent;
+    color: #1c1c1c;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nav-link:hover{
+    background-color: transparent;
+    color: #1c1c1c;
+    border-bottom: 4px solid $light-green;
+    border-radius: 0;
+    margin-bottom: -3px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: transparent;
+    color: #1c1c1c;
+    border-bottom: 4px solid $light-green;
+    border-radius: 0;
+    margin-bottom: -3px;
+}
+
+//services tasks
+
+.service-details-tasks-container{
+    padding: 0;
+    color: #1c1c1c;
+}
+
+.service-details-tasks{
+    list-style-type: none;
+}
+
+.service-details-tasks li{
+    padding: 3px 0px 3px 34px;
+    border-bottom: 2px solid #d7d7d7;
+    font-weight: 600;
+}
+
+.service-details-tasks li > .detail-label{
+    margin-left: 10px;
+}
+
+.service-details-tasks li > .detail-progress{
+    margin-left: 10px;
+    color: #6f6f6f;
+    font-weight: 600;
+}
+
+.service-details-tasks li > .detail-tag-icon{
+    margin-left: 10px;
+    color: #6f6f6f;
+    font-weight: 600;
+}
+
+.service-details-tasks .check-icon{
+    padding: 4px;
+    border-radius: 50%;
+    background-color: $light-green;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+    margin-right: 12px;
+}
+
+.service-details-tasks .disable-check{
+    background-color: #d7d7d7;
+}
+
+.create-task-section form{
+
+}
+
+.create-task-section form > div > label{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.create-task-section form > div > textarea{
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > input{
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > textarea:focus{
+    padding: 0;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.create-task-section form > div > input:focus{
+    padding: 0;
+    border-bottom: 1px solid #1c1c1c;
+}

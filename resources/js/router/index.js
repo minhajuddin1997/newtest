@@ -24,6 +24,8 @@ import Agreement from "../pages/admin/Request/Agreement";
 import Payment from "../pages/admin/shared/Payment";
 import WorkHistory from "../pages/admin/WorkHistory";
 import PaymentsHistory from "../pages/admin/PaymentsHistory";
+import Tasks from "../pages/admin/OnGoing/WorkDetails/Tasks";
+import Files from "../pages/admin/OnGoing/WorkDetails/Files";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
@@ -38,6 +40,8 @@ var routes=[
     {path: '/admin/services', component:Services, name:'admin.services', beforeEnter:vendorMiddleware},
     {path: '/admin/on-going-work', component:OnGoing, name:'admin.on_going_work', beforeEnter:vendorMiddleware},
     {path: '/admin/on-going-work/:id/services', component:OnGoingServices, name:'admin.on_going_services', beforeEnter:vendorMiddleware},
+    {path: '/admin/service/details/:id/tasks', name:"admin.work-service.tasks", component:Tasks, beforeEnter:vendorMiddleware},
+    {path: '/admin/service/details/:id/files', name:"admin.work-service.files", component:Files, beforeEnter:vendorMiddleware},
     {path: '/admin/company-details', component:CompanyDetails, name:'admin.company-details', beforeEnter:vendorMiddleware},
     {path: '/admin/category', component:Category, name:'admin.categories', beforeEnter:adminMiddleware},
     {path: '/admin/messages', component:Messages, name:'admin.messages', beforeEnter:vendorMiddleware},

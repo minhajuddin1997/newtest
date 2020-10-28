@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 07:02 PM
+-- Generation Time: Oct 28, 2020 at 07:04 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -82,8 +82,12 @@ INSERT INTO `company_messages` (`id`, `message`, `toId`, `fromId`, `connection_i
 (290, 'Nikal', 2, 6, 22, 1, '2020-09-08 17:52:09', '2020-09-08 18:15:47'),
 (291, 'Hello', 6, 2, 22, 1, '2020-09-09 18:03:53', '2020-09-09 18:04:01'),
 (292, 'Hi', 2, 6, 22, 1, '2020-09-09 18:04:05', '2020-09-09 18:08:58'),
-(293, 'Hello ji', 6, 2, 22, 0, '2020-09-10 13:30:36', '2020-09-10 13:30:36'),
-(294, 'Hello', 2, 56, 23, 1, '2020-10-13 04:22:39', '2020-10-13 04:22:53');
+(293, 'Hello ji', 6, 2, 22, 1, '2020-09-10 13:30:36', '2020-10-27 17:02:57'),
+(294, 'Hello', 2, 56, 23, 1, '2020-10-13 04:22:39', '2020-10-13 04:22:53'),
+(295, 'Hello', 2, 6, 22, 1, '2020-10-27 17:03:02', '2020-10-27 17:03:08'),
+(296, 'Hi', 2, 6, 22, 1, '2020-10-27 17:03:23', '2020-10-27 17:03:58'),
+(297, 'How Are You', 2, 6, 22, 1, '2020-10-27 17:03:40', '2020-10-27 17:03:58'),
+(298, 'How is your Health', 2, 6, 22, 1, '2020-10-27 17:03:55', '2020-10-27 17:03:58');
 
 -- --------------------------------------------------------
 
@@ -151,11 +155,7 @@ CREATE TABLE `exchange_requests` (
 --
 
 INSERT INTO `exchange_requests` (`id`, `sender_id`, `receiver_id`, `status`, `rejection_message`, `created_at`, `updated_at`) VALUES
-(3, 2, 6, 0, NULL, '2020-09-10 13:16:09', '2020-09-10 13:16:09'),
-(4, 56, 2, 1, 'gerg wertger ertert ertert ertwer', '2020-09-10 13:25:40', '2020-10-13 03:00:09'),
-(5, 2, 6, 0, NULL, '2020-10-09 14:01:26', '2020-10-09 14:01:26'),
-(6, 56, 2, 1, NULL, '2020-10-16 09:18:59', '2020-10-16 09:22:53'),
-(7, 56, 2, 1, NULL, '2020-10-16 09:29:01', '2020-10-16 09:30:34');
+(8, 2, 6, 1, NULL, '2020-10-27 15:20:50', '2020-10-27 15:21:58');
 
 -- --------------------------------------------------------
 
@@ -222,9 +222,9 @@ CREATE TABLE `oauth_access_tokens` (
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
-('50db38b5d4b4d446dc8ba0f3fe2c6f97a8c62fd34dc22b5ae938b723e7dac07d3f13835b5ddb283f', 6, 3, 'auth-api', '[]', 0, '2020-09-10 17:47:12', '2020-09-10 17:47:12', '2020-09-11 22:47:11'),
-('d9b8466d03363f74cca5e1a99c0d66e89a7565c74b121e12c49a69f4b2a38f0c869b79832e6ab935', 56, 3, 'auth-api', '[]', 0, '2020-10-16 08:50:38', '2020-10-16 08:50:38', '2020-10-17 13:50:38'),
-('f786dc07fd643c558195abcf769e08935d451a265581c9a025a36731dd1c67e9b90be4e182f3a176', 2, 3, 'auth-api', '[]', 0, '2020-10-16 08:48:11', '2020-10-16 08:48:11', '2020-10-17 13:48:10');
+('16a19976fb3d117e9040a3a51d09c09468aa7c17372af2d200cce4a23e69b6974d900680406f4931', 56, 3, 'auth-api', '[]', 0, '2020-10-27 08:27:07', '2020-10-27 08:27:07', '2020-10-28 13:27:07'),
+('7a8c43cc57e2815c6790676e8ed24f9ec411f9c544bea843e0d9c0d29467260a66293299b235bb6e', 6, 3, 'auth-api', '[]', 0, '2020-10-27 15:21:31', '2020-10-27 15:21:31', '2020-10-28 20:21:31'),
+('da3df218d9ad6596c1619252d001e6e8c39640ddf24c6cbb508cafcf30ba090e3bb7f54f63270d7b', 2, 3, 'auth-api', '[]', 0, '2020-10-28 08:44:11', '2020-10-28 08:44:11', '2020-10-29 13:44:11');
 
 -- --------------------------------------------------------
 
@@ -343,9 +343,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `amount`, `payment_method`, `payment_status`, `work_id`, `paid_by`, `paid_to`, `card_number`, `name_on_card`, `card_cvc`, `card_valid_date`, `created_at`, `updated_at`) VALUES
-(15, 42990, 'Credit Card', 3, 20, 56, 2, '7777-7777-7777-7777', 'Amir Ali', 222, '01/24', '2020-10-13 03:00:09', '2020-10-16 13:29:43'),
-(16, 42990, 'Credit Card', 3, 21, 56, 2, '4444-4444-4444-4444', 'Amir Ali', 333, '01/24', '2020-10-16 09:22:53', '2020-10-16 13:32:53'),
-(17, -57000, 'Credit Card', 3, 22, 2, 56, '8888-8888-8888-8888', 'Amir ALi', 222, '01/04', '2020-10-16 09:30:34', '2020-10-16 09:30:34');
+(18, 2000, 'Credit Card', 3, 23, 2, 6, '4444-4444-4444-4444', 'Amir Ali', 222, '01/20', '2020-10-27 15:21:58', '2020-10-27 15:23:24');
 
 -- --------------------------------------------------------
 
@@ -387,11 +385,7 @@ CREATE TABLE `requested_services` (
 --
 
 INSERT INTO `requested_services` (`id`, `service_id`, `exchange_request_id`, `created_at`, `updated_at`) VALUES
-(4, 27, 3, '2020-09-10 18:16:09', '2020-09-10 18:16:09'),
-(5, 26, 4, '2020-09-10 18:25:40', '2020-09-10 18:25:40'),
-(6, 25, 5, '2020-10-09 19:01:26', '2020-10-09 19:01:26'),
-(7, 26, 6, '2020-10-16 14:18:59', '2020-10-16 14:18:59'),
-(8, 26, 7, '2020-10-16 14:29:01', '2020-10-16 14:29:01');
+(9, 25, 8, '2020-10-27 20:20:50', '2020-10-27 20:20:50');
 
 -- --------------------------------------------------------
 
@@ -482,6 +476,51 @@ INSERT INTO `services` (`id`, `title`, `title_image`, `description`, `deliverabl
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `service_files`
+--
+
+CREATE TABLE `service_files` (
+  `id` int(11) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `file_path` varchar(350) NOT NULL,
+  `file_size` int(11) NOT NULL,
+  `work_service_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_tasks`
+--
+
+CREATE TABLE `service_tasks` (
+  `id` int(11) NOT NULL,
+  `task` varchar(500) NOT NULL,
+  `due_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `work_service_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `progress` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_tasks`
+--
+
+INSERT INTO `service_tasks` (`id`, `task`, `due_date`, `work_service_id`, `user_id`, `progress`, `status`, `created_at`, `updated_at`) VALUES
+(5, 's asdfsdfasd fdsaf', '2020-10-27 22:00:54', 45, 2, 100, 1, '2020-10-27 16:29:03', '2020-10-27 17:00:54'),
+(6, 'sdodhfg djsf gkdsfg', '2020-10-27 21:55:54', 45, 2, 100, 1, '2020-10-27 16:34:09', '2020-10-27 16:55:54'),
+(7, 'Make Bottom Slider Dynamic', '2020-10-27 22:02:05', 45, 2, 100, 1, '2020-10-27 17:01:40', '2020-10-27 17:02:05'),
+(8, 'Make Slider Effective', '2020-10-28 09:55:00', 45, 2, 0, 0, '2020-10-28 12:55:23', '2020-10-28 12:55:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -545,9 +584,7 @@ CREATE TABLE `works` (
 --
 
 INSERT INTO `works` (`id`, `company_1`, `company_2`, `status`, `created_at`, `updated_at`) VALUES
-(20, 56, 2, 0, '2020-10-13 03:00:09', '2020-10-13 03:00:09'),
-(21, 56, 2, 0, '2020-10-16 09:22:53', '2020-10-16 09:22:53'),
-(22, 56, 2, 0, '2020-10-16 09:30:34', '2020-10-16 09:30:34');
+(23, 2, 6, 0, '2020-10-27 15:21:58', '2020-10-27 15:21:58');
 
 -- --------------------------------------------------------
 
@@ -571,12 +608,8 @@ CREATE TABLE `work_services` (
 --
 
 INSERT INTO `work_services` (`id`, `service_id`, `sender_id`, `receiver_id`, `status`, `work_id`, `created_at`, `updated_at`) VALUES
-(39, 26, 56, 2, 0, 20, '2020-10-13 08:00:09', '2020-10-13 08:00:09'),
-(40, 27, 2, 56, 0, 20, '2020-10-13 08:00:09', '2020-10-13 08:00:09'),
-(41, 26, 56, 2, 0, 21, '2020-10-16 14:22:53', '2020-10-16 14:22:53'),
-(42, 27, 2, 56, 0, 21, '2020-10-16 14:22:53', '2020-10-16 14:22:53'),
-(43, 26, 56, 2, 0, 22, '2020-10-16 14:30:34', '2020-10-16 14:30:34'),
-(44, 27, 2, 56, 0, 22, '2020-10-16 14:30:34', '2020-10-16 14:30:34');
+(45, 25, 2, 6, 0, 23, '2020-10-27 20:21:58', '2020-10-27 20:21:58'),
+(46, 26, 6, 2, 0, 23, '2020-10-27 20:21:58', '2020-10-27 20:21:58');
 
 --
 -- Indexes for dumped tables
@@ -701,6 +734,18 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service_files`
+--
+ALTER TABLE `service_files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_tasks`
+--
+ALTER TABLE `service_tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -732,7 +777,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `company_messages`
 --
 ALTER TABLE `company_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
 
 --
 -- AUTO_INCREMENT for table `connections`
@@ -750,7 +795,7 @@ ALTER TABLE `exchange_agreement`
 -- AUTO_INCREMENT for table `exchange_requests`
 --
 ALTER TABLE `exchange_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -780,7 +825,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `payment_status`
@@ -792,7 +837,7 @@ ALTER TABLE `payment_status`
 -- AUTO_INCREMENT for table `requested_services`
 --
 ALTER TABLE `requested_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -813,6 +858,18 @@ ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
+-- AUTO_INCREMENT for table `service_files`
+--
+ALTER TABLE `service_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `service_tasks`
+--
+ALTER TABLE `service_tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -822,13 +879,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `work_services`
 --
 ALTER TABLE `work_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

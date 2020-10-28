@@ -3,44 +3,34 @@
     <main>
         <div class="right_col" role="main" style="min-height: 3091px;">
             <div class="">
-                <div class="col-md-4 offset-4">
-                    <div class="x_panel text-dark">
-                        <div class="x_title">
-                            <div class="row">
-                                <div class="col-2">
-                                        <img :src="asset+'assets/admin/uploads/images/189322112.png'" class="img-fluid">
+                <div class="col-lg-10 offset-lg-1 col-md-12">
+                    <div class="text-dark">
+                        <div class="">
+                            <div class="row going-service-company-section">
+                                <div class="col-lg-1 col-md-2 col-sm-2">
+                                    <img :src="asset+company.profile_picture" class="img-fluid">
                                 </div>
-                                <h2 class="font-weight-bolder">John Smith</h2>
+                                <div class="col-lg-11 col-md-10">
+                                    <h6 class="font-weight-bolder going-services-company-heading">{{company.company_name}}</h6>
+                                </div>
                             </div>
-
-                            <div class="clearfix"></div>
                         </div>
-                        <div class="x_content">
+                        <div class="x_content row work-service-section">
 
-                            <ul class="list-group">
-                                <li v-for="item in repeat" class="list-group-item d-flex justify-content-between align-items-center">
-                                    <strong>{{item.name}}</strong>
-                                    <span>
-                                    <span style="font-size: 12px;" :class="item.status=='Pending'?'text-white p-2 badge badge-danger badge-pill':'text-white p-2 badge badge-success badge-pill'">{{item.status}}</span>
-                                    <span><button class="btn btn-link btn-sm"><i class="fa fa-eye"></i> View Details</button></span>
-                                    </span>
+                            <ul class="list-group offset-lg-1 col-lg-8 offset-md-2 col-md-8 ">
+                                <li v-for="item in servicesList" class="work-service">
+                                    <div class="work-service-name">
+                                        {{item.service_title}}
+                                    </div>
+                                    <div class="work-service-status">
+                                        <span style="font-size: 12px;" :class="item.work_service_status===0?'pending pt-1 pb-1':'accepted pt-1 pb-1'">{{item.work_service_status?"Completed":"Incomplete"}}</span>
+                                        <span><button class="btn btn-link btn-sm work-service-details-button"
+                                                      v-on:click="goToDetails(item.work_service_id)">
+                                            <i class="fa fa-eye"></i> View Details</button></span>
+                                    </div>
 
                                 </li>
                             </ul>
-
-<!--                            <ul class="list-unstyled msg_list">-->
-<!--                                <li >-->
-<!--                                    <a>-->
-<!--                                        <span>-->
-<!--                                            <span style="font-size: 16px">{{item.name}}</span>-->
-<!--                                            <span style="font-size: 12px; border-radius: 10px;margin-left: 95px;" :class="item.status=='Pending'?'text-white p-2 bg-danger':'text-white p-2 bg-success'">{{item.status}}</span>-->
-<!--                                            <span><button class="btn btn-link btn-sm"><i class="fa fa-eye"></i> View Details</button></span>-->
-<!--                                        </span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-
-<!--                            </ul>-->
-
 
                         </div>
                     </div>
@@ -53,20 +43,50 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+    import {authApiConfig} from "../../../helpers/helpers";
     export default {
         name:'OnGoingServices',
         props:{
             asset:String,
         },
+        computed:{
+            ...mapState({
+                auth:(state)=>state.auth
+            })
+        },
+        created() {
+            this.fetchServices();
+        },
         data:function(){
             return{
                 repeat:[
-                    {name:"Web Designing",status:'completed'},
-                    {name:"Web Development",status:'Pending'},
-                    {name:"App Development",status:'completed'},
-                    {name:"UI\UX Design",status:'Pending'},
-                ]
+                    {name:"Web Designing", status:1, work_service_id:10},
+                    {name:"Web Development", status:0, work_service_id:10},
+                    {name:"App Development", status:1, work_service_id:10},
+                    {name:"UI\/UX Design", status:0, work_service_id:10},
+                ],
+                servicesList:[],
+                yourServices:[],
+                company:{}
+            }
+        },
+        methods:{
+            fetchServices:function () {
+                var id = this.$route.params.id;
+                axios.get(`/going-works-services/${id}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((data)=>{
+                    this.servicesList=data.services.filter((service)=>{
+                        return service.sender_id===this.auth.user.id;
+                    });
+                    this.company=data.user;
+                })
+            },
+            goToDetails:function(work_service_id){
+                return this.$router.push({name:"admin.work-service.tasks",params:{id:work_service_id}});
             }
         }
+
     }
 </script>
