@@ -46,10 +46,10 @@
 <!--                                    </ul>-->
 <!--                                </li>-->
 
-                                    <li v-if="permissions('viewService')"><a><i class="fa fa-laptop"></i> Services <span class="fa fa-chevron-down"></span></a>
+                                    <li v-if="permissions('viewService')"><a><i class="fa fa-laptop"></i> Services & Products <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a v-on:click="()=>this.$router.push({name:'admin.services'})">Your Services</a></li>
-                                            <li><a disabled="disabled" v-on:click="()=>this.$router.push({name:'admin.on_going_work'})">On Going Work (Coming Soon)</a></li>
+                                            <li><a v-on:click="()=>this.$router.push({name:'admin.services'})">Services & Products</a></li>
+                                            <li><a disabled="disabled" v-on:click="()=>this.$router.push({name:'admin.on_going_work'})">On Going Work</a></li>
                                         </ul>
                                     </li>
 

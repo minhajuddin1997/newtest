@@ -62,7 +62,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" >Save changes</button>
+                        <button type="submit" class="btn btn-modal" >Save changes</button>
                     </div>
                 </div>
                 </form>
@@ -84,7 +84,7 @@
                         <div class="x_content" style="display: block;">
 
 
-                            <h3 class="main-title">Services You Offer</h3>
+                            <h3 class="main-title">Services & Products You Offer</h3>
                             <div class="row">
                                 <div class="col-md-2 pt-2" >
                                     <div class="card text-center new-service-box" v-on:click="openAddService" style="border-radius: 30px !important; ">
@@ -122,7 +122,7 @@
                             </div>
 
                             <br/><br/>
-                            <h3 class="main-title">Services You Want</h3>
+                            <h3 class="main-title">Services & Products You Want</h3>
                             <div class="row">
                                 <!-- List Required Services -->
                                 <div class="col-md-2 pt-2" v-for="service in data.services_required">

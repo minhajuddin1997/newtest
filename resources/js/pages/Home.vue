@@ -7,8 +7,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7">
-                            <h1 class="head-1">Bartering is as <span>Old as Cavemen</span> </h1>
-                            <p class="text-light pra-1">A platform designed to help businesses exchange services.</p>
+                            <h1 class="head-1">Money is overrated. Bartering is underrated. Swopers aims to change that.</h1>
+                            <p class="text-light pra-1">Swopers is a platform dedicated to cutting out the middleman (money) by helping companies exchange services instead of currencies.</p>
                             <!--  <a class="btn btn-white" href="#"><span>Learn More <i class="fas fa-plus-square"></i></span></a> -->
 
 
@@ -42,15 +42,15 @@
                     <div class="row">
                         <div class="col-lg-4 col-12 p1-mt wow fadeInUp">
                             <img :src="asset + 'assets/front/images/p-1.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Create Your Account</strong> – Fill in your details, then explain who you are and what you do. Do you bake wedding cakes? Renovate houses? Are you a plumber? Tell the Swopers community what you can provide! </p>
                         </div>
                         <div class="col-lg-4 col-12 p2-mt wow fadeInDown">
                             <img :src="asset + 'assets/front/images/p-2.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Browse for Services</strong> – Search the Swopers directory to find companies offering the services you need. What are you looking for? A catered meal? An inventory audit? You can find virtually any service here. </p>
                         </div>
                         <div class="col-lg-4 col-12 p3-mt wow fadeInUp">
                             <img :src="asset + 'assets/front/images/p-3.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Start Trading</strong> – When you find the perfect company and service, connect with them to trade your own services for theirs. It’s really that simple, and Swopers makes it a breeze to barter for services over and over again.  </p>
                         </div>
                     </div>
                 </div>
@@ -137,8 +137,8 @@
                         <div class="col-lg-4 col-12 ml-auto wow fadeInLeft">
                             <div class="section-title">
                                 <div class="section-title">
-                                    <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <h2>The Perfect Service Bartering Platform for All Industries</h2>
+                                    <p>Swopers is a platform that eliminates the middleman (money) and allows companies just like yours to provide specialized services to other companies in exchange for their services. No matter what your company provides – and no matter what you’re looking for – the possibilities are endless.  </p>
                                 </div>
                             </div>
                         </div>
@@ -162,8 +162,9 @@
                 <div class="container border-b padd-b">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Manage all your business connections in one place</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <h2>One Dashboard for All Your Trades</h2>
+                            <p>
+                                Bartering sometimes requires a level of communication that exchanging currency does not. After all, you probably want to know exactly what you’ll receive, and you’ll also want to know exactly what services you’ll need to provide to get it. The Swopers dashboard gives you access to all of your interactions and service trade requests in a single, user-friendly interface.
                             </p>
                         </div>
                     </div>
@@ -188,7 +189,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Find the right <span>Professional services</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris</p>
+                            <p>Different companies within the same industry can provide totally different products and services. That’s why Swopers focuses on transparency – so you’ll always know exactly what kind of services you can receive.</p>
                         </div>
                     </div>
                     <div class="row p1-mt">
@@ -620,8 +621,8 @@
                     <div class="row justify-content-center">
                         <div class="col-md-5">
                             <h2>Connect with other businesses.</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur Ut enim ad minim veniam, quis nostrudex dolor in reprehenderit in voluptate velit.</p>
-                            <a class="btn wow fadeInUp wh1-mt btnSignup" href="javascript:void(0)"><span>Free Sign Up</span></a>
+                            <p>Swopers is much like an alternative to the Yellow Pages or even a Google search for a service, but without the expectation of currency changing hands. Every business and company you’ll find at Swopers is here because they want to barter with you. </p>
+                            <a class="btn wow fadeInUp wh1-mt btnSignup" v-on:click="goToSignup"><span>Free Sign Up</span></a>
 
                         </div>
                         <div class="col-md-5 text-center">
@@ -651,6 +652,11 @@
                 var backImg = $("#titleImage").attr("data-bg-img");
                 $("#titleImage").css('background-image', 'url(' + backImg + ')');
                 },1);
+        },
+        methods:{
+            goToSignup:function(){
+                this.$router.push({name:'register'});
+            }
         }
     }
 </script>

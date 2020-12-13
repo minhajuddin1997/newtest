@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2020 at 07:04 PM
+-- Generation Time: Dec 13, 2020 at 04:55 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -40,17 +40,31 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(2, 'Amir Ali', '2020-08-18 23:32:15', '2020-08-18 18:36:48'),
-(6, 'Jhon Doe', '2020-08-18 18:35:02', '2020-08-18 18:36:40'),
-(7, 'Amir Ali dfsdf', '2020-08-18 18:36:54', '2020-08-18 18:41:02'),
-(9, 'saf', '2020-08-18 18:41:50', '2020-08-18 18:41:50'),
-(10, 'company', '2020-08-18 18:41:54', '2020-08-18 18:41:54'),
-(11, 'companyfsdaf', '2020-08-18 18:42:04', '2020-08-18 18:42:04'),
-(12, 'individual', '2020-08-18 18:42:10', '2020-08-18 18:42:10'),
-(13, 'swoppers', '2020-08-18 18:42:17', '2020-08-18 18:42:17'),
-(14, 'Amir Ali', '2020-08-18 18:42:31', '2020-08-18 18:42:31'),
-(16, 'Syed Aamir Ali', '2020-08-18 18:42:43', '2020-08-18 18:42:43'),
-(17, 'swoppers', '2020-08-28 18:15:47', '2020-08-28 18:15:47');
+(18, 'Accounting & Tax Services', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(19, 'Arts, Culture & Entertainment', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(20, 'Auto Sales & Service', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(21, 'Banking & Finance', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(22, 'Business Services', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(23, 'Community Organizations', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(24, 'Dentists & Orthodontists', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(25, 'Education', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(26, 'Health & Wellness', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(27, 'Health Care', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(28, 'Home Improvement', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(29, 'Insurance', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(30, 'Internet & Web Services', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(31, 'Legal Services', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(32, 'Lodging & Travel', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(33, 'Marketing & Advertising', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(34, 'News & Media', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(35, 'Pet Services', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(36, 'Real Estate', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(37, 'Restaurants & Nightlife', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(38, 'Shopping & Retail', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(39, 'Sports & Recreation', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(40, 'Transportation', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(41, 'Utilities', '2020-12-13 15:44:00', '2020-12-13 15:44:00'),
+(42, 'Wedding, Events & Meetings', '2020-12-13 15:44:00', '2020-12-13 15:44:00');
 
 -- --------------------------------------------------------
 
@@ -224,7 +238,7 @@ CREATE TABLE `oauth_access_tokens` (
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('16a19976fb3d117e9040a3a51d09c09468aa7c17372af2d200cce4a23e69b6974d900680406f4931', 56, 3, 'auth-api', '[]', 0, '2020-10-27 08:27:07', '2020-10-27 08:27:07', '2020-10-28 13:27:07'),
 ('7a8c43cc57e2815c6790676e8ed24f9ec411f9c544bea843e0d9c0d29467260a66293299b235bb6e', 6, 3, 'auth-api', '[]', 0, '2020-10-27 15:21:31', '2020-10-27 15:21:31', '2020-10-28 20:21:31'),
-('da3df218d9ad6596c1619252d001e6e8c39640ddf24c6cbb508cafcf30ba090e3bb7f54f63270d7b', 2, 3, 'auth-api', '[]', 0, '2020-10-28 08:44:11', '2020-10-28 08:44:11', '2020-10-29 13:44:11');
+('f9e89abb4fb3c01c7698d298c0f61b38164c997256a3a21d510e99d1a068d828e2f9d6318660253f', 2, 3, 'auth-api', '[]', 0, '2020-12-13 10:26:54', '2020-12-13 10:26:54', '2020-12-14 15:26:54');
 
 -- --------------------------------------------------------
 
@@ -470,7 +484,7 @@ CREATE TABLE `services` (
 
 INSERT INTO `services` (`id`, `title`, `title_image`, `description`, `deliverables`, `amount`, `required_offered`, `status`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
 (25, 'Logo Designing', '', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', '[\"fasdf\",\"aasdf\"]', 45000, 1, 1, 6, 6, '2020-08-19 07:09:26', '2020-08-19 07:09:26'),
-(26, 'Web Designing', 'assets/admin/uploads/images/437528581.jpeg', 'Additional item properties besides textField and valueField to include when searches are performed. Can be comma delimited string or array of strings.', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 43000, 1, 1, 2, 10, '2020-08-19 09:35:36', '2020-09-07 16:50:24'),
+(26, 'Web Designing', 'assets/admin/uploads/images/437528581.jpeg', 'Additional item properties besides textField and valueField to include when searches are performed. Can be comma delimited string or array of strings.', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 43000, 1, 1, 2, 35, '2020-08-19 09:35:36', '2020-12-13 10:44:27'),
 (27, 'New Post', 'assets/admin/uploads/images/809376518.png', 'rtdsg fdsg', '[\"fasdf\",\"aasdf\",\"asdfasd\"]', 100000, 1, 1, 56, 6, '2020-09-03 15:39:38', '2020-10-16 09:29:48');
 
 -- --------------------------------------------------------
@@ -516,7 +530,8 @@ INSERT INTO `service_tasks` (`id`, `task`, `due_date`, `work_service_id`, `user_
 (5, 's asdfsdfasd fdsaf', '2020-10-27 22:00:54', 45, 2, 100, 1, '2020-10-27 16:29:03', '2020-10-27 17:00:54'),
 (6, 'sdodhfg djsf gkdsfg', '2020-10-27 21:55:54', 45, 2, 100, 1, '2020-10-27 16:34:09', '2020-10-27 16:55:54'),
 (7, 'Make Bottom Slider Dynamic', '2020-10-27 22:02:05', 45, 2, 100, 1, '2020-10-27 17:01:40', '2020-10-27 17:02:05'),
-(8, 'Make Slider Effective', '2020-10-28 09:55:00', 45, 2, 0, 0, '2020-10-28 12:55:23', '2020-10-28 12:55:23');
+(8, 'Make Slider Effective', '2020-10-28 09:55:00', 45, 2, 0, 0, '2020-10-28 12:55:23', '2020-10-28 12:55:23'),
+(9, 'sdsdf gsdfg', '2020-10-28 18:05:42', 45, 2, 40, 0, '2020-10-28 13:05:28', '2020-10-28 13:05:42');
 
 -- --------------------------------------------------------
 
@@ -771,7 +786,7 @@ ALTER TABLE `work_services`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `company_messages`
@@ -861,13 +876,13 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `service_files`
 --
 ALTER TABLE `service_files`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `service_tasks`
 --
 ALTER TABLE `service_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

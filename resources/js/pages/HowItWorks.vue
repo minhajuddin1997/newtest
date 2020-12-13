@@ -7,7 +7,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7">
-                            <h1 class="head-1">Lorem ipsum dolor sit amet. </h1>
+                            <h1 class="head-1">Money is overrated. </h1>
+                            <p class="text-light pra-1">
+                                There’s a better way to get the services you need.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -26,7 +29,12 @@
                     <div class="row justify-content-center">
                         <div class="col-md-5">
                             <h2><span>How</span> does it work?</h2>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                            <p>
+                                Swopers was created by a small team of techies who understand that businesses need to save money without hindering their growth and potential. Our idea was to create an incredibly simple platform that allows businesses to trade services to one another.<br/>
+                                Your business is your dream, and you’re passionate about the services you provide. Most business owners and entrepreneurs feel the same way. There’s something to be said for knowing that a service you created – something that is your life’s dream – helped other business owners realize their visions.<br/>
+                                Swopers isn’t just about saving money. It’s about making the business world a better place one service at a time through bartering. Here’s how it works.
+
+                            </p>
                         </div>
                         <div class="col-md-4 text-center">
                             <img :src="asset + 'assets/front/images/how-it-works-img.png'" class="img-fluid wow fadeInRight">
@@ -43,8 +51,10 @@
                         <div class="col-lg-4 col-12 ml-auto wow fadeInLeft">
                             <div class="section-title">
                                 <div class="section-title">
-                                    <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <h2><strong>How</strong> easy it is?</h2>
+                                    <p>
+                                        It’s really that simple. In three short, simple steps, you can obtain the services you need, help a fellow business owner with the services they need, and help both companies grow.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -73,15 +83,15 @@
                     <div class="row">
                         <div class="col-lg-4 col-12 p1-mt wow fadeInUp">
                             <img :src="asset + 'assets/front/images/p-1.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Create your account.</strong> The first step is to create your Swopers account by providing some information about yourself, your company, and the services you provide. </p>
                         </div>
                         <div class="col-lg-4 col-12 p2-mt wow fadeInDown">
                             <img :src="asset + 'assets/front/images/p-2.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Look for the services you need.</strong>  After you create your account, you can start browsing the many companies and services listed in the Swopers directory to find exactly what you need.  </p>
                         </div>
                         <div class="col-lg-4 col-12 p3-mt wow fadeInUp">
                             <img :src="asset + 'assets/front/images/p-3.png'" class="img-fluid">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                            <p><strong>Start bartering and trading.</strong> When you’ve spotted a company that seems like a good fit, reach out to them and let them know what you’re interested in – and what you can offer. </p>
                         </div>
                     </div>
                 </div>
@@ -94,8 +104,9 @@
                 <div class="container border-b padd-b">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Manage all your business connections in one place</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <h2>One Dashboard for All Your Trades</h2>
+                            <p>
+                                Bartering sometimes requires a level of communication that exchanging currency does not. After all, you probably want to know exactly what you’ll receive, and you’ll also want to know exactly what services you’ll need to provide to get it. The Swopers dashboard gives you access to all of your interactions and service trade requests in a single, user-friendly interface.
                             </p>
                         </div>
                     </div>
@@ -115,8 +126,8 @@
                     <div class="row justify-content-center">
                         <div class="col-md-5">
                             <h2>Connect with other businesses.</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur Ut enim ad minim veniam, quis nostrudex dolor in reprehenderit in voluptate velit.</p>
-                            <a class="btn wow fadeInUp wh1-mt btnSignup" href="javascript:void(0)"><span>Free Sign Up</span></a>
+                            <p>Swopers is much like an alternative to the Yellow Pages or even a Google search for a service, but without the expectation of currency changing hands. Every business and company you’ll find at Swopers is here because they want to barter with you. </p>
+                            <a class="btn wow fadeInUp wh1-mt btnSignup" v-on:click="()=>this.$router.push({name:'register'})"><span>Free Sign Up</span></a>
 
                         </div>
                         <div class="col-md-5 text-center">

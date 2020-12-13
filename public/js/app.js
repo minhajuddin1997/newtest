@@ -2040,6 +2040,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'About',
   props: {
@@ -2894,6 +2908,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   props: {
@@ -2904,6 +2919,13 @@ __webpack_require__.r(__webpack_exports__);
       var backImg = $("#titleImage").attr("data-bg-img");
       $("#titleImage").css('background-image', 'url(' + backImg + ')');
     }, 1);
+  },
+  methods: {
+    goToSignup: function goToSignup() {
+      this.$router.push({
+        name: 'register'
+      });
+    }
   }
 });
 
@@ -2918,6 +2940,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43131,6 +43164,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
+  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -43161,7 +43195,9 @@ var render = function() {
                   src: _vm.asset + "assets/front/images/whoweare-img.png"
                 }
               })
-            ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
           ])
         ])
       ]),
@@ -43169,7 +43205,28 @@ var render = function() {
       _c("section", { staticClass: "connect secPad-b-none" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
           _c("div", { staticClass: "row justify-content-center" }, [
-            _vm._m(2),
+            _c("div", { staticClass: "col-md-5" }, [
+              _c("h2", [_vm._v("Connect with other businesses.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Swopers is much like an alternative to the Yellow Pages or even a Google search for a service, but without the expectation of currency changing hands. Every business and company you’ll find at Swopers is here because they want to barter with you. "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn wow fadeInUp wh1-mt btnSignup",
+                  on: {
+                    click: function() {
+                      return this$1.$router.push({ name: "register" })
+                    }
+                  }
+                },
+                [_c("span", [_vm._v("Free Sign Up")])]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-5 text-center" }, [
               _c("img", {
@@ -43195,12 +43252,12 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-7" }, [
             _c("h1", { staticClass: "head-1" }, [
-              _vm._v("Lorem ipsum dolor sit amet. ")
+              _vm._v("Money is overrated. ")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "text-light pra-1" }, [
               _vm._v(
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam."
+                "\n                            There’s a better way to get the services you need.\n                        "
               )
             ])
           ])
@@ -43217,7 +43274,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+          "\n                            They say money doesn’t buy happiness, and some people even say money is the root of all evil. You need money to buy a house. You need money to buy a car. You even need money to pay the kid down the street to mow the lawn. Currency is an important part of our lives, and while it may not really be the root of all evil, it’s pretty clear that our lives would be a little better if we could stop worrying so much about who we’re paying for which services.\n                            What if you could get the things you needed without currency? How would that change your life?\n\n                        "
         )
       ])
     ])
@@ -43226,23 +43283,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
-      _c("h2", [_vm._v("Connect with other businesses.")]),
-      _vm._v(" "),
+    return _c("div", { staticClass: "col-md-10" }, [
       _c("p", [
         _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur Ut enim ad minim veniam, quis nostrudex dolor in reprehenderit in voluptate velit."
+          "\n                            The truth is that money is an unnecessary step in many transactions we make every day. Think about it like this: Let’s say you need someone to write blogs for your graphic design company. Normally, to make this happen, you would pay a blogger or an agency to write your blogs for you, and you would pay the agency. Then, the agency would use that money to pay other companies for the services they need.\n                            In other words, in many aspects of your everyday life, money is merely a middleman. Fortunately, there’s a better and more efficient way to get things done.\n                            Swopers is a platform that eliminates the middleman – money – and allows companies just like yours to provide your specialized services to other companies in exchange for their services. Does your graphic design company need some blog posts? Swopers can connect you to a blogger or marketing agency that needs new logos. Do you need a meal catered for your construction company picnic? Swopers can help you find a caterer who needs some help with their lighting. The possibilities are truly endless.\n\n                        "
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn wow fadeInUp wh1-mt btnSignup",
-          attrs: { href: "javascript:void(0)" }
-        },
-        [_c("span", [_vm._v("Free Sign Up")])]
-      )
+      ])
     ])
   }
 ]
@@ -43605,11 +43651,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-1.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(2)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-4 col-12 p2-mt wow fadeInDown" }, [
@@ -43618,11 +43660,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-2.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(3)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-4 col-12 p3-mt wow fadeInUp" }, [
@@ -43631,11 +43669,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-3.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(4)
             ])
           ])
         ])
@@ -43765,7 +43799,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/help-img.png" }
               }),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(5)
             ])
           ])
         ])
@@ -43774,7 +43808,7 @@ var render = function() {
       _c("section", { staticClass: "contOne" }, [
         _c("div", { staticClass: "container-fluid pr-lg-0" }, [
           _c("div", { staticClass: "row align-items-center bgOne" }, [
-            _vm._m(3),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "div",
@@ -43804,7 +43838,7 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "manageBusiness secPad-b-none" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
-          _vm._m(4),
+          _vm._m(7),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-6 col-6 p1-mt wow fadeInLeft" }, [
@@ -43826,7 +43860,7 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "findRightProfessional" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
-          _vm._m(5),
+          _vm._m(8),
           _vm._v(" "),
           _c("div", { staticClass: "row p1-mt" }, [
             _c("div", { staticClass: "col-lg-12 col-12" }, [
@@ -43843,34 +43877,6 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "item" }, [
-                    _c("div", { staticClass: "row no-gutters post style-2" }, [
-                      _c("div", { staticClass: "col-sm-12" }, [
-                        _c("div", { staticClass: "post-desc" }, [
-                          _c("div", { staticClass: "row" }, [
-                            _c("div", { staticClass: "col-7" }, [
-                              _c("div", { staticClass: "pdImg" }, [
-                                _c("img", {
-                                  attrs: {
-                                    src:
-                                      _vm.asset +
-                                      "assets/front/images/company-logo.jpg"
-                                  }
-                                })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(6)
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(7),
-                          _vm._v(" "),
-                          _vm._m(8)
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c("div", { staticClass: "item" }, [
                     _c("div", { staticClass: "row no-gutters post style-2" }, [
                       _c("div", { staticClass: "col-sm-12" }, [
@@ -44093,6 +44099,34 @@ var render = function() {
                         ])
                       ])
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "item" }, [
+                    _c("div", { staticClass: "row no-gutters post style-2" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "post-desc" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-7" }, [
+                              _c("div", { staticClass: "pdImg" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      _vm.asset +
+                                      "assets/front/images/company-logo.jpg"
+                                  }
+                                })
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(33)
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(34),
+                          _vm._v(" "),
+                          _vm._m(35)
+                        ])
+                      ])
+                    ])
                   ])
                 ]
               )
@@ -44104,7 +44138,24 @@ var render = function() {
       _c("section", { staticClass: "connect secPad-b-none" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
           _c("div", { staticClass: "row justify-content-center" }, [
-            _vm._m(33),
+            _c("div", { staticClass: "col-md-5" }, [
+              _c("h2", [_vm._v("Connect with other businesses.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Swopers is much like an alternative to the Yellow Pages or even a Google search for a service, but without the expectation of currency changing hands. Every business and company you’ll find at Swopers is here because they want to barter with you. "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn wow fadeInUp wh1-mt btnSignup",
+                  on: { click: _vm.goToSignup }
+                },
+                [_c("span", [_vm._v("Free Sign Up")])]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-5 text-center" }, [
               _c("img", {
@@ -44130,13 +44181,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-7" }, [
             _c("h1", { staticClass: "head-1" }, [
-              _vm._v("Bartering is as "),
-              _c("span", [_vm._v("Old as Cavemen")])
+              _vm._v(
+                "Money is overrated. Bartering is underrated. Swopers aims to change that."
+              )
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "text-light pra-1" }, [
               _vm._v(
-                "A platform designed to help businesses exchange services."
+                "Swopers is a platform dedicated to cutting out the middleman (money) by helping companies exchange services instead of currencies."
               )
             ]),
             _vm._v(" "),
@@ -44178,6 +44230,39 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("strong", [_vm._v("Create Your Account")]),
+      _vm._v(
+        " – Fill in your details, then explain who you are and what you do. Do you bake wedding cakes? Renovate houses? Are you a plumber? Tell the Swopers community what you can provide! "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("strong", [_vm._v("Browse for Services")]),
+      _vm._v(
+        " – Search the Swopers directory to find companies offering the services you need. What are you looking for? A catered meal? An inventory audit? You can find virtually any service here. "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("strong", [_vm._v("Start Trading")]),
+      _vm._v(
+        " – When you find the perfect company and service, connect with them to trade your own services for theirs. It’s really that simple, and Swopers makes it a breeze to barter for services over and over again.  "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "a",
       {
@@ -44197,11 +44282,15 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "section-title" }, [
           _c("div", { staticClass: "section-title" }, [
-            _c("h2", [_vm._v("Lorem ipsum dolor sit amet, consectetur.")]),
+            _c("h2", [
+              _vm._v(
+                "The Perfect Service Bartering Platform for All Industries"
+              )
+            ]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                "Swopers is a platform that eliminates the middleman (money) and allows companies just like yours to provide specialized services to other companies in exchange for their services. No matter what your company provides – and no matter what you’re looking for – the possibilities are endless.  "
               )
             ])
           ])
@@ -44215,11 +44304,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("h2", [_vm._v("Manage all your business connections in one place")]),
+        _c("h2", [_vm._v("One Dashboard for All Your Trades")]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n                        "
+            "\n                            Bartering sometimes requires a level of communication that exchanging currency does not. After all, you probably want to know exactly what you’ll receive, and you’ll also want to know exactly what services you’ll need to provide to get it. The Swopers dashboard gives you access to all of your interactions and service trade requests in a single, user-friendly interface.\n                        "
           )
         ])
       ])
@@ -44238,7 +44327,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris"
+            "Different companies within the same industry can provide totally different products and services. That’s why Swopers focuses on transparency – so you’ll always know exactly what kind of services you can receive."
           )
         ])
       ])
@@ -44872,29 +44961,6 @@ var staticRenderFns = [
           _vm._v(" Lorem ipsum")
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
-      _c("h2", [_vm._v("Connect with other businesses.")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur Ut enim ad minim veniam, quis nostrudex dolor in reprehenderit in voluptate velit."
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn wow fadeInUp wh1-mt btnSignup",
-          attrs: { href: "javascript:void(0)" }
-        },
-        [_c("span", [_vm._v("Free Sign Up")])]
-      )
     ])
   }
 ]
@@ -44916,6 +44982,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
+  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -44993,11 +45060,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-1.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(4)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-4 col-12 p2-mt wow fadeInDown" }, [
@@ -45006,11 +45069,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-2.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(5)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-4 col-12 p3-mt wow fadeInUp" }, [
@@ -45019,11 +45078,7 @@ var render = function() {
                 attrs: { src: _vm.asset + "assets/front/images/p-3.png" }
               }),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque "
-                )
-              ])
+              _vm._m(6)
             ])
           ])
         ])
@@ -45031,7 +45086,7 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "manageBusiness secPad-b-none" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
-          _vm._m(4),
+          _vm._m(7),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c(
@@ -45051,7 +45106,28 @@ var render = function() {
       _c("section", { staticClass: "connect secPad-b-none" }, [
         _c("div", { staticClass: "container border-b padd-b" }, [
           _c("div", { staticClass: "row justify-content-center" }, [
-            _vm._m(5),
+            _c("div", { staticClass: "col-md-5" }, [
+              _c("h2", [_vm._v("Connect with other businesses.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Swopers is much like an alternative to the Yellow Pages or even a Google search for a service, but without the expectation of currency changing hands. Every business and company you’ll find at Swopers is here because they want to barter with you. "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn wow fadeInUp wh1-mt btnSignup",
+                  on: {
+                    click: function() {
+                      return this$1.$router.push({ name: "register" })
+                    }
+                  }
+                },
+                [_c("span", [_vm._v("Free Sign Up")])]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-5 text-center" }, [
               _c("img", {
@@ -45077,7 +45153,13 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-7" }, [
             _c("h1", { staticClass: "head-1" }, [
-              _vm._v("Lorem ipsum dolor sit amet. ")
+              _vm._v("Money is overrated. ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-light pra-1" }, [
+              _vm._v(
+                "\n                            There’s a better way to get the services you need.\n                        "
+              )
             ])
           ])
         ])
@@ -45093,7 +45175,15 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+          "\n                            Swopers was created by a small team of techies who understand that businesses need to save money without hindering their growth and potential. Our idea was to create an incredibly simple platform that allows businesses to trade services to one another."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                            Your business is your dream, and you’re passionate about the services you provide. Most business owners and entrepreneurs feel the same way. There’s something to be said for knowing that a service you created – something that is your life’s dream – helped other business owners realize their visions."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                            Swopers isn’t just about saving money. It’s about making the business world a better place one service at a time through bartering. Here’s how it works.\n\n                        "
         )
       ])
     ])
@@ -45108,11 +45198,11 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "section-title" }, [
           _c("div", { staticClass: "section-title" }, [
-            _c("h2", [_vm._v("Lorem ipsum dolor sit amet, consectetur.")]),
+            _c("h2", [_c("strong", [_vm._v("How")]), _vm._v(" easy it is?")]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                "\n                                    It’s really that simple. In three short, simple steps, you can obtain the services you need, help a fellow business owner with the services they need, and help both companies grow.\n                                "
               )
             ])
           ])
@@ -45134,39 +45224,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("h2", [_vm._v("Manage all your business connections in one place")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n                        "
-          )
-        ])
-      ])
+    return _c("p", [
+      _c("strong", [_vm._v("Create your account.")]),
+      _vm._v(
+        " The first step is to create your Swopers account by providing some information about yourself, your company, and the services you provide. "
+      )
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
-      _c("h2", [_vm._v("Connect with other businesses.")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur Ut enim ad minim veniam, quis nostrudex dolor in reprehenderit in voluptate velit."
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn wow fadeInUp wh1-mt btnSignup",
-          attrs: { href: "javascript:void(0)" }
-        },
-        [_c("span", [_vm._v("Free Sign Up")])]
+    return _c("p", [
+      _c("strong", [_vm._v("Look for the services you need.")]),
+      _vm._v(
+        "  After you create your account, you can start browsing the many companies and services listed in the Swopers directory to find exactly what you need.  "
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("strong", [_vm._v("Start bartering and trading.")]),
+      _vm._v(
+        " When you’ve spotted a company that seems like a good fit, reach out to them and let them know what you’re interested in – and what you can offer. "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("h2", [_vm._v("One Dashboard for All Your Trades")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n                            Bartering sometimes requires a level of communication that exchanging currency does not. After all, you probably want to know exactly what you’ll receive, and you’ll also want to know exactly what services you’ll need to provide to get it. The Swopers dashboard gives you access to all of your interactions and service trade requests in a single, user-friendly interface.\n                        "
+          )
+        ])
+      ])
     ])
   }
 ]
@@ -50475,7 +50575,7 @@ var render = function() {
                   },
                   [
                     _c("h3", { staticClass: "main-title" }, [
-                      _vm._v("Services You Offer")
+                      _vm._v("Services & Products You Offer")
                     ]),
                     _vm._v(" "),
                     _c(
@@ -50589,7 +50689,7 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("h3", { staticClass: "main-title" }, [
-                      _vm._v("Services You Want")
+                      _vm._v("Services & Products You Want")
                     ]),
                     _vm._v(" "),
                     _c(
@@ -50722,7 +50822,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        { staticClass: "btn btn-modal", attrs: { type: "submit" } },
         [_vm._v("Save changes")]
       )
     ])
@@ -52896,7 +52996,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("Your Services")]
+                            [_vm._v("Services & Products")]
                           )
                         ]),
                         _vm._v(" "),
@@ -52913,7 +53013,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("On Going Work (Coming Soon)")]
+                            [_vm._v("On Going Work")]
                           )
                         ])
                       ])
@@ -53183,7 +53283,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("a", [
       _c("i", { staticClass: "fa fa-laptop" }),
-      _vm._v(" Services "),
+      _vm._v(" Services & Products "),
       _c("span", { staticClass: "fa fa-chevron-down" })
     ])
   },
