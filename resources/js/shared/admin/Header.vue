@@ -19,7 +19,6 @@
                     </div>
 
                     <br>
-
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
 <!--                            <h3>General</h3>-->
@@ -105,6 +104,7 @@
                                     <a class="dropdown-item" v-on:click="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>
+                            <li><a v-on:click="()=>this.$router.push({name:'admin.company_profile'})" style="margin-top:50px !important">Company Profile</a></li>
                         </ul>
                     </nav>
                 </div>

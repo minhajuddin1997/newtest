@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Mail\NewCompanyMail;
 use App\model\role;
 use App\User;
+use App\model\Messages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-
+use DB;
 class ProfileController extends Controller
 {
     //Getting Users List
@@ -144,6 +145,16 @@ class ProfileController extends Controller
             $user->delete();
             return array('success','Company Profile Deleted Successfully');
         }
+    }
+
+    public function get_company_profile($id){
+        $res=DB::table("company_messages")->select('*')->where("fromId",$id)->count();
+        $res1=DB::table("company_messages")->select('*')->where("toId",$id)->count();
+        $data = array(
+            'to'=>$res1,
+            'from'=>$res,
+        );
+        return response()->json($data);
     }
 
 

@@ -26,14 +26,23 @@ import WorkHistory from "../pages/admin/WorkHistory";
 import PaymentsHistory from "../pages/admin/PaymentsHistory";
 import Tasks from "../pages/admin/OnGoing/WorkDetails/Tasks";
 import Files from "../pages/admin/OnGoing/WorkDetails/Files";
+import PaymentDetails from "../pages/admin/Payment/PaymentDetails";
+import AuthenticateLogin  from "../pages/AuthenticateLogin";
+import CompanyProfile from "../pages/admin/CompanyProfile";
+import NewConnection from "../pages/admin/NewConnection";
 
 var routes=[
     {path: '/', component:Home, name:'home'},
     {path: '/about', component:About, name:'about'},
     {path: '/how-it-works', component:HowItWorks, name:'how-it-works'},
+
+    {path: '/admin/company_profile', component:CompanyProfile, name:'admin.company_profile', beforeEnter:authorize},
+
     {path: '/contact-us', component:ContactUs, name:'contact-us'},
     {path: '/login', component:Login, name:'login', beforeEnter:isNotAuthorize},
     {path: '/register', component:Register, name:'register', beforeEnter:isNotAuthorize},
+    {path: '/authenticate_login', component:AuthenticateLogin, name:'authenticate_login', beforeEnter:isNotAuthorize},
+
     {path: '/admin', component:Dashboard, name:'admin', beforeEnter:authorize},
     {path: '/admin/vendors', component:Vendor, name:'admin.vendors', beforeEnter:adminMiddleware},
     {path: '/admin/profile', component:Profile, name:'admin.profile', beforeEnter:authorize},
@@ -41,6 +50,8 @@ var routes=[
     {path: '/admin/on-going-work', component:OnGoing, name:'admin.on_going_work', beforeEnter:vendorMiddleware},
     {path: '/admin/on-going-work/:id/services', component:OnGoingServices, name:'admin.on_going_services', beforeEnter:vendorMiddleware},
     {path: '/admin/service/details/:id/tasks', name:"admin.work-service.tasks", component:Tasks, beforeEnter:vendorMiddleware},
+
+
     {path: '/admin/service/details/:id/files', name:"admin.work-service.files", component:Files, beforeEnter:vendorMiddleware},
     {path: '/admin/company-details', component:CompanyDetails, name:'admin.company-details', beforeEnter:vendorMiddleware},
     {path: '/admin/category', component:Category, name:'admin.categories', beforeEnter:adminMiddleware},
@@ -78,6 +89,11 @@ var routes=[
         //
         // ],
         beforeEnter:vendorMiddleware},
+    {path: '/admin/payments/:id', component:PaymentDetails, name:'admin.payment_details', beforeEnter:vendorMiddleware},
+    {path: '/admin/payments/del_payment/:id', component:PaymentsHistory, name:'admin.payment_del', beforeEnter:vendorMiddleware},
+    {path: '/admin/works/del_work/:id', component:WorkHistory, name:'admin.del_work', beforeEnter:vendorMiddleware},
+    {path: '/admin/new_connection', component:NewConnection, name:'admin.new_connection', beforeEnter:vendorMiddleware},
+
 ];
 
 routes=prefixRoutes(routes,prefixPath);

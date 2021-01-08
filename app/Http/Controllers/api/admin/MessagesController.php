@@ -76,7 +76,7 @@ class MessagesController extends Controller
                 "status" => 0
             ]);
             $user=User::find($company_1);
-            Mail::to("alisyedamir2018@gmail.com")->send(new ConnectionMail($user));
+           // Mail::to("muhammad.minhaj@techando.co")->send(new ConnectionMail($user));
             return "Request For The Connection Has Been Sent.";
         }else{
             return "You Are Already Connected.";

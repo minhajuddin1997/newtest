@@ -21,16 +21,17 @@ class WorksController extends Controller
     public function index($id){
         $works=work::where("company_1",$id)
             ->orWhere("company_2",$id)
+            ->where("del_status",0)
             ->get();
 
         foreach ($works as $work) {
             if ($work->company_1 == $id) {
                 $work->user = User::find($work->company_2);
-                $work->payment = payment::where("work_id", $work->id)->first();
+                $work->payment = payment::where(["work_id"=>$work->id])->first();
                 $work->payment->payment_status = DB::table("payment_status")->where("id", $work->payment->payment_status)->first();
             }else{
                 $work->user = User::find($work->company_1);
-                $work->payment = payment::where("work_id", $work->id)->first();
+                $work->payment = payment::where(["work_id"=>$work->id])->first();
                 $work->payment->payment_status = DB::table("payment_status")->where("id", $work->payment->payment_status)->first();
             }
         }
@@ -187,6 +188,12 @@ class WorksController extends Controller
             "task" => "required | min:5",
             "due_date" => "required"
         ]);
+    }
+
+    public function del_work($id){
+        return DB::table('works')
+            ->where('id',$id)
+            ->update(['del_status'=> 1]);
     }
 
 }

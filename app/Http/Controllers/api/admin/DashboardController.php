@@ -7,6 +7,9 @@ use App\model\service;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\model\connections;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConnectionMail;
 
 class DashboardController extends Controller
 {
@@ -45,6 +48,33 @@ class DashboardController extends Controller
         return $comnpany;
     }
 
+    public function search_companies($text){
+        $company=DB::table('users')
+        ->where('company_name','like','%'.$text.'%')
+        ->get();
+        return response()->json($company);
+    }
+
+    public function create_connection(){
+        $company_1 = request()->get('company_1');
+        $company_2 = request()->get('company_2');
+        $connection=connections::whereIn("company_1",[$company_1, $company_2])
+                    ->whereIn("company_2",[$company_2, $company_1])
+                    ->get();
+        if(!count($connection)) {
+            connections::create([
+                "company_1" => $company_1,
+                "company_2" => $company_2,
+                "status" => 0
+            ]);
+            $user=User::find($company_1);
+            Mail::to("muhammad.minhaj@technado.co")->send(new ConnectionMail($user));
+            return "Request For The Connection Has Been Sent.";
+        }else{
+            return "You Are Already Connected.";
+        }
+
+    }
 //    public function delete_logs($id,$text){
 //        $logs=DB::table('search_log')->where([[]])->delete($id);
 //        return array('success',"Deleted Successfully.");

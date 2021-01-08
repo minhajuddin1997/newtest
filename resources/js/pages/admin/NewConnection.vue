@@ -43,10 +43,10 @@
 
                         <div class="col-md-5 offset-1">
                             <div class="dashboard-title-border"></div>
-                            <h4 class="dashboard-title">Search New Services....</h4>
+                            <h4 class="dashboard-title">Search New Connections....</h4>
                             <form v-on:submit="doSearch">
                                 <div class="input-group search-box">
-                                    <input type="text" name="search" placeholder="Search for the required services" v-model="Searching.search" class="form-control" />
+                                    <input type="text" name="search" placeholder="Search for the connections" v-model="Searching.search" class="form-control" />
                                     <button type="submit" class="btn btn-dark input-group-append"><i class="fa fa-search p-1"></i></button>
                                 </div>
                             </form>
@@ -86,14 +86,10 @@
 <!--                                <button class="btn btn-primary w-25">View <i class="fa fa-arrow-right"></i></button>-->
                             <div class="row">
                                 <div class="col-12">
-                                    <button class="btn w-25 view_details"
-                                            v-on:click="companyDetails(company)">
-                                        <i class="fa fa-eye mr-2"></i>
-                                        View Details
-                                    </button>
+
                                     <button class="btn request_connection" v-on:click="requestToConnect(company.id)">
                                         <i class="fa fa-link mr-2"></i>
-                                        Request To Connect
+                                        Call To Action
                                     </button>
                                 </div>
                             </div>
@@ -113,7 +109,7 @@
     import {mapState, mapActions} from 'vuex';
     import {authApiConfig} from "../../helpers/helpers";
     export default {
-        name:'dashboard',
+        name:'NewConnection',
         props:{
           asset:String,
         },
@@ -142,7 +138,7 @@
             doSearch:function(e){
                 e.preventDefault();
                 this.Searching.loading=true;
-                axios.get(`/company/search/${this.auth.user.id}/${this.Searching.search===''?'1':this.Searching.search}`,authApiConfig(this.auth.token))
+                axios.get(`/new_connection/search/${this.Searching.search===''?'1':this.Searching.search}`,authApiConfig(this.auth.token))
                 .then(res=>res.data)
                 .then((response)=>{
                     console.log(response);
@@ -177,9 +173,10 @@
             //     });
             // }
             requestToConnect:function (id) {
-                axios.post(`/connection/make`,{company_1:this.auth.user.id, company_2:id},authApiConfig(this.auth.token))
+                axios.post(`/new_connection/make`,{company_1:this.auth.user.id, company_2:id},authApiConfig(this.auth.token))
                 .then(res=>res.data)
                 .then((res)=>{
+                    console.log(res);
                     swal('Great!',res,"success");
                 }).catch((error)=>{
                     console.log(error.response);

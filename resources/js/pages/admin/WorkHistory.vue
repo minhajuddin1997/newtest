@@ -26,8 +26,10 @@
                                         Payment Is <strong>Not Verified</strong><br/>
                                         Continue the work when it get's verified.
                                     </p>
-                                    <button class="btn view" v-show="viewActions(work.payment.payment_status.status)" ><i class="fa fa-eye"></i>View</button>
-                                    <button class="btn delete" v-show="viewActions(work.payment.payment_status.status)"><i class="fa fa-trash"></i>Delete</button>
+                                    <button class="btn view" v-on:click="gotoWork(work.id)" ><i class="fa fa-eye"></i>View</button>
+                                    <button class="btn delete" v-on:click="delWork(work.id)" ><i class="fa fa-trash"></i>Delete</button>
+                                    <!-- <button class="btn view" v-show="viewActions(work.payment.payment_status.status)" ><i class="fa fa-eye"></i>View</button> -->
+                                    <!-- <button class="btn delete" v-show="viewActions(work.payment.payment_status.status)"><i class="fa fa-trash"></i>Delete</button> -->
                                 </td>
                             </tr>
                         </template>
@@ -98,7 +100,26 @@
             },
             viewActions:function(status){
                 return status !== "Not Verified" ? true : false;
-            }
+            },      
+            gotoWork:function (item) {
+                this.$router.push({name:'admin.work_details',params:{id:item}});
+            },
+            delWork:function (item) {
+                axios.get(`/works/del_work/${item}`,authApiConfig(this.auth.token))
+                .then(res=>res.data)
+                .then((res)=>{
+                    console.log(res);
+                    if(res == 1){
+                        toastr.success('Deleted');
+                        location.reload();
+                    } else{
+                        toastr.error('Error!');
+                    }
+                    console.log(res);
+                }).catch((error)=>{
+                    console.log(error);
+                });
+            },
             // selectRequest:function(request){
             //     this.selected=request;
             // },

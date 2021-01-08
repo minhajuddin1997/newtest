@@ -18,9 +18,12 @@ Route::group(['namespace' => 'api\Auth'], function () {
     Route::post('/login','AuthController@login');
     Route::post('/logout','AuthController@logout');
     Route::post('/register','AuthController@register');
+    Route::get('/authenticate_login', 'AuthController@authenticate_login');
 });
 
 Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function () {
+    Route::get('/company_profile/{id}', 'ProfileController@get_company_profile');
+
     //Vendors list
     Route::get('/user/{id}', 'ProfileController@view');
     Route::post('/user', 'ProfileController@insert');
@@ -76,4 +79,15 @@ Route::group(['namespace' => 'api\admin','middleware' => 'auth:api' ], function 
     Route::get("/detail-service/files/{work_service_id}","WorksController@getServiceFiles");
     Route::post("/detail-service/files/{work_service_id}","WorksController@upload_files");
     Route::delete("/detail-service/files/{id}","WorksController@delete_files");
+
+    //Payment
+    Route::get('/payment/{id}', "PaymentController@view_requested_services");
+    Route::get('/payment/all/{id}',"PaymentController@all");
+    Route::get('/payment/received/{id}',"PaymentController@received");
+
+    Route::get('/payment/del_payment/{id}',"PaymentController@del_payment");
+    Route::get('/works/del_work/{id}',"WorksController@del_work");
+
+    Route::get('/new_connection/search/{text}', 'DashboardController@search_companies');
+    Route::post('/new_connection/make', 'DashboardController@create_connection');
 });
